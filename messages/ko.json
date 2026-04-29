@@ -150,7 +150,9 @@
         "0": "현재",
         "1": "핵심 에너지",
         "2": "결과"
-      }
+      },
+      "softCta": "데이터로 확인하기 →",
+      "softCtaNote": "무료 — 직군·연차·도시·연봉 입력"
     },
     "cards": {
       "tower": { "name": "탑", "meaning": "갑작스러운 변화가 필요합니다" },
@@ -188,18 +190,6 @@
     "reading": "카드를 읽는 중...",
     "analyzing": "데이터 분석 중...",
     "registering": "등록 중..."
-  },
-  "upsell": {
-    "label": "✦ WHISPER-UP 데이터 ✦",
-    "titleLine1": "카드는 방향을 보여줬습니다 —",
-    "titleLine2": "이제 데이터로 숫자를 확인하세요",
-    "subLine1": "베트남 이직자 실데이터 기반으로",
-    "subLine2": "연봉이 얼마나 오를 수 있는지 정확히 확인.",
-    "priceOld": "99,000 VND",
-    "priceNew": "29,000",
-    "priceUnit": "VND",
-    "cta": "데이터로 확인하기 — 커피 한 잔 값 →",
-    "note": "직군 · 연차 · 현재 연봉 입력 → 연봉 상승률 % 확인"
   },
   "input": {
     "next": "다음 →",
@@ -254,16 +244,80 @@
       "ariaLabel": "현재 연봉 범위"
     }
   },
-  "dataResult": {
-    "label": "✦ 지금 이직한다면 ✦",
-    "pendingValue": "...",
-    "unit": "연봉 상승 가능",
-    "descLine1": "같은 프로필을 가진 사람들 기준 —",
+  "teaser": {
+    "label": "✦ 시장 리딩 ✦",
+    "marketAvgLabel": "같은 직군 평균",
+    "marketAvgUnit": "연봉 상승률",
+    "rangeLabel": "편차 범위",
+    "rangeValue": "+{min}% ~ +{max}%",
+    "rangeNote": "연차 · 도시 · 현재 연봉에 따라 차이",
+    "lockedLabel": "🔒 결제하면 보입니다",
+    "lockedItems": {
+      "exact": {
+        "title": "당신의 정확한 수치",
+        "desc": "직군 × 연차 × 도시 × 연봉 모두 반영된 본인 %"
+      },
+      "position": {
+        "title": "분포 내 본인 위치",
+        "desc": "같은 프로필 이직자 중 상위 __% (그래프 포함)"
+      },
+      "companies": {
+        "title": "추천 회사 3~5곳",
+        "desc": "당신 프로필에 맞춰 베트남에서 채용 중인 회사"
+      },
+      "guide": {
+        "title": "연봉 협상 가이드",
+        "desc": "구체적 목표 연봉과 협상 방법"
+      },
+      "interpretation": {
+        "title": "타로 + 데이터 통합 해석",
+        "desc": "Step 1에서 뽑은 카드와 결과를 엮은 인사이트"
+      }
+    },
+    "priceOld": "99,000 VND",
+    "priceNew": "29,000",
+    "priceUnit": "VND",
+    "cta": "전체 결과 잠금 해제 — 29,000 VND →",
+    "note": "안전 결제 · 즉시 확인 · 멋쟁이사자처럼 베트남 채용 데이터 기반"
+  },
+  "paidResult": {
+    "label": "✦ 당신의 정밀 결과 ✦",
+    "exactUnit": "연봉 상승 가능",
+    "descLine1": "당신의 프로필 기준 —",
     "descProfile": "{field} · {years} · {city}",
-    "descLine3": "이미 이직에 성공한 사람들.",
-    "emphasis": "충분히 움직일 가치가 있습니다.",
+    "descLine3": "실제 베트남 이직자 데이터로 계산.",
+    "positionLabel": "✦ 분포 내 위치 ✦",
+    "positionHeading": "당신은 <strong>상위 {percentile}%</strong>",
+    "positionDesc": "같은 프로필 이직자 중에서.",
+    "rangeAxisMin": "+{min}%",
+    "rangeAxisMax": "+{max}%",
+    "youMarker": "당신",
+    "companiesLabel": "✦ 추천 회사 ✦",
+    "companiesHeading": "당신 프로필을 채용 중인 회사",
+    "companies": [
+      {
+        "name": "베트남 IT 스타트업 (시리즈 B+)",
+        "match": "빠른 성장 · 영어 친화 · 하이브리드",
+        "salary": "Offer 범위: {min}–{max}M VND"
+      },
+      {
+        "name": "외국계 SaaS 베트남 지사",
+        "match": "글로벌 스택 · 스톡옵션 · 리모트 가능",
+        "salary": "Offer 범위: {min}–{max}M VND"
+      },
+      {
+        "name": "베트남 핀테크 유니콘",
+        "match": "고정급 + 보너스 강함 · 시니어 트랙",
+        "salary": "Offer 범위: {min}–{max}M VND"
+      }
+    ],
+    "companiesNote": "Phase 1 샘플. 멋쟁이사자처럼 파트너 실데이터 곧 연동.",
+    "guideLabel": "✦ 협상 가이드 ✦",
+    "guideText": "현재 <strong>{currentSalary}M VND</strong> → 현실적 목표 <strong>{targetSalary}M VND</strong> (현재 대비 +{pct}%). 시장 평균보다 강하게 부를 수 있는 구간 — 범위 상단으로 먼저 부르고 카운터 받기.",
+    "interpretationLabel": "✦ 타로 + 데이터 ✦",
+    "interpretationText": "카드는 <em>{cardSummary}</em>를 말했습니다. 데이터가 그 방향을 확인 — 본인 프로필 상위 {percentile}%에서 <strong>+{pct}% 가능성</strong>. 카드가 가리킨 길은 데이터로도 뒷받침됩니다.",
     "basisLabel": "[ 근거 ]",
-    "basisText": "당신의 직군, 경력, 도시와 일치하는 <strong>실제 베트남 이직자 데이터</strong>로 계산. 표본이 부족하면 결과를 표시하지 않습니다."
+    "basisText": "멋쟁이사자처럼이 운영하는 <strong>베트남 이직자 실데이터</strong>로 계산. 직군 · 연차 · 도시 · 연봉 모두 반영."
   },
   "lead": {
     "label": "✦ 한 단계 더 ✦",

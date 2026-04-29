@@ -150,7 +150,9 @@
         "0": "Present",
         "1": "Core Energy",
         "2": "Outcome"
-      }
+      },
+      "softCta": "Confirm with Data →",
+      "softCtaNote": "Free — share role, experience, city, salary"
     },
     "cards": {
       "tower": { "name": "The Tower", "meaning": "A sudden shift is needed" },
@@ -188,18 +190,6 @@
     "reading": "Reading your cards...",
     "analyzing": "Analyzing your data...",
     "registering": "Registering..."
-  },
-  "upsell": {
-    "label": "✦ WHISPER-UP DATA ✦",
-    "titleLine1": "The cards showed the direction —",
-    "titleLine2": "now let the data show you the number",
-    "subLine1": "See exactly how much your salary could rise",
-    "subLine2": "based on real job-switcher data in Vietnam.",
-    "priceOld": "99,000 VND",
-    "priceNew": "29,000",
-    "priceUnit": "VND",
-    "cta": "Confirm with Data — Price of a coffee →",
-    "note": "Enter role · experience · current salary → get your salary upside %"
   },
   "input": {
     "next": "Next →",
@@ -254,16 +244,80 @@
       "ariaLabel": "Current salary range"
     }
   },
-  "dataResult": {
-    "label": "✦ If you switch jobs now ✦",
-    "pendingValue": "...",
-    "unit": "salary increase possible",
-    "descLine1": "Based on people with the same profile —",
+  "teaser": {
+    "label": "✦ Market Reading ✦",
+    "marketAvgLabel": "Same field average",
+    "marketAvgUnit": "salary increase",
+    "rangeLabel": "Variance range",
+    "rangeValue": "+{min}% ~ +{max}%",
+    "rangeNote": "varies by years · city · current salary",
+    "lockedLabel": "🔒 Unlock with payment",
+    "lockedItems": {
+      "exact": {
+        "title": "Your exact number",
+        "desc": "Personal % factoring in role × experience × city × salary"
+      },
+      "position": {
+        "title": "Your position in the distribution",
+        "desc": "Top __% among same-profile job-switchers (with chart)"
+      },
+      "companies": {
+        "title": "3–5 recommended companies",
+        "desc": "Companies actively hiring your profile in Vietnam"
+      },
+      "guide": {
+        "title": "Negotiation guide",
+        "desc": "Concrete target salary and how to ask for it"
+      },
+      "interpretation": {
+        "title": "Tarot + data interpretation",
+        "desc": "Your cards from Step 1 woven into the data result"
+      }
+    },
+    "priceOld": "99,000 VND",
+    "priceNew": "29,000",
+    "priceUnit": "VND",
+    "cta": "Unlock Full Result — 29,000 VND →",
+    "note": "Secure payment · Instant unlock · Powered by LikeLion's Vietnam recruitment data"
+  },
+  "paidResult": {
+    "label": "✦ Your Personal Result ✦",
+    "exactUnit": "salary increase possible",
+    "descLine1": "Based on your profile —",
     "descProfile": "{field} · {years} · {city}",
-    "descLine3": "who already made the switch.",
-    "emphasis": "That's worth moving for.",
+    "descLine3": "with real Vietnam job-switcher data.",
+    "positionLabel": "✦ Distribution position ✦",
+    "positionHeading": "You're in the <strong>top {percentile}%</strong>",
+    "positionDesc": "Among the same-profile job-switchers we tracked.",
+    "rangeAxisMin": "+{min}%",
+    "rangeAxisMax": "+{max}%",
+    "youMarker": "You",
+    "companiesLabel": "✦ Recommended Companies ✦",
+    "companiesHeading": "Companies hiring your profile",
+    "companies": [
+      {
+        "name": "Vietnamese Tech Startup (Series B+)",
+        "match": "Fast growth · English-friendly · Hybrid",
+        "salary": "Offer range: {min}–{max}M VND"
+      },
+      {
+        "name": "Foreign SaaS Vietnam Office",
+        "match": "International stack · Stock options · Remote OK",
+        "salary": "Offer range: {min}–{max}M VND"
+      },
+      {
+        "name": "Vietnamese Fintech Unicorn",
+        "match": "High base + bonus · Senior track",
+        "salary": "Offer range: {min}–{max}M VND"
+      }
+    ],
+    "companiesNote": "Phase 1 sample. Real LikeLion partner listings coming next.",
+    "guideLabel": "✦ Negotiation Guide ✦",
+    "guideText": "Your current <strong>{currentSalary}M VND</strong> → realistic target <strong>{targetSalary}M VND</strong> ({pct}% above current). You're in a strong position to ask above the market average — open with the upper end of the range and let them counter.",
+    "interpretationLabel": "✦ Tarot + Data ✦",
+    "interpretationText": "The cards spoke of <em>{cardSummary}</em>. The data confirms that direction — a <strong>+{pct}% upside</strong> at the top {percentile}% of your profile. The path the cards pointed to is materially supported.",
     "basisLabel": "[ BASIS ]",
-    "basisText": "Calculated from <strong>real Vietnam job-switcher data</strong> matching your role, experience, and city. No result is shown when sample size is insufficient."
+    "basisText": "Calculated from <strong>real Vietnam job-switcher data</strong> operated by LikeLion. Role · experience · city · salary all factored in."
   },
   "lead": {
     "label": "✦ One More Step ✦",

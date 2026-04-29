@@ -48,10 +48,9 @@ export default function InputFlow() {
   const setCity = useFunnelStore((s) => s.setCity);
   const setSalary = useFunnelStore((s) => s.setSalary);
   const setStep = useFunnelStore((s) => s.setStep);
-  const setResult = useFunnelStore((s) => s.setResult);
+  const setTeaserData = useFunnelStore((s) => s.setTeaserData);
   const showLoading = useFunnelStore((s) => s.showLoading);
   const hideLoading = useFunnelStore((s) => s.hideLoading);
-  const markPaid = useFunnelStore((s) => s.markPaid);
 
   // Build localized option lists. Stored value stays the canonical English
   // literal so /api/calculate and the future Supabase schema keep stable keys.
@@ -75,7 +74,6 @@ export default function InputFlow() {
     }
     if (!field || !years || !city || salary === null) return;
 
-    markPaid();
     showLoading(t('loading.analyzing'));
 
     const minDelay = new Promise<void>((resolve) =>
@@ -84,14 +82,22 @@ export default function InputFlow() {
     const calc = fetch('/api/calculate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ field, years, city, salary }),
+      body: JSON.stringify({ tier: 'teaser', field }),
     })
-      .then((r) => (r.ok ? (r.json() as Promise<{ resultPct: number }>) : null))
+      .then((r) =>
+        r.ok
+          ? (r.json() as Promise<{
+              marketAvg: number;
+              rangeMin: number;
+              rangeMax: number;
+            }>)
+          : null,
+      )
       .catch(() => null);
 
     const [, data] = await Promise.all([minDelay, calc]);
-    if (data && typeof data.resultPct === 'number') {
-      setResult(data.resultPct);
+    if (data && typeof data.marketAvg === 'number') {
+      setTeaserData(data);
     }
     setStep(4);
     hideLoading();

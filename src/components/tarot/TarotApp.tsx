@@ -7,7 +7,8 @@ import { Link } from '@/i18n/routing';
 import LoadingOverlay from '@/components/ui/LoadingOverlay';
 import LocaleSwitcher from '@/components/ui/LocaleSwitcher';
 import InputFlow from '@/components/funnel/InputFlow';
-import DataResult from '@/components/funnel/DataResult';
+import TeaserResult from '@/components/funnel/TeaserResult';
+import PaidResult from '@/components/funnel/PaidResult';
 import Complete from '@/components/funnel/Complete';
 import TopicSelect from './TopicSelect';
 import CardDeck from './CardDeck';
@@ -62,8 +63,9 @@ export default function TarotApp() {
             {currentStep === 1 && <CardDeck />}
             {currentStep === 2 && <TarotResult />}
             {currentStep === 3 && <InputFlow />}
-            {currentStep === 4 && <DataResult />}
-            {currentStep === 5 && <Complete />}
+            {currentStep === 4 && <TeaserResult />}
+            {currentStep === 5 && <PaidResult />}
+            {currentStep === 6 && <Complete />}
           </div>
           <LoadingOverlay active={loading.active} text={loading.text} />
         </div>

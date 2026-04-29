@@ -2,13 +2,13 @@
 
 import { useTranslations } from 'next-intl';
 import { useFunnelStore } from '@/store/funnel-store';
-import Upsell from './Upsell';
 
 export default function TarotResult() {
   const t = useTranslations('tarot');
   const topic = useFunnelStore((s) => s.topic);
   const selectedCards = useFunnelStore((s) => s.selectedCards);
   const reading = useFunnelStore((s) => s.reading);
+  const setStep = useFunnelStore((s) => s.setStep);
 
   const heading = topic
     ? t(`result.heading.${topic}`)
@@ -52,7 +52,16 @@ export default function TarotResult() {
         )}
       </div>
 
-      <Upsell />
+      <button
+        type="button"
+        onClick={() => setStep(3)}
+        className="block w-full cursor-pointer border border-[rgba(201,168,76,0.4)] bg-[rgba(201,168,76,0.05)] px-10 py-3.5 font-serif text-[0.85rem] font-semibold tracking-[0.1em] text-gold transition-all duration-200 hover:-translate-y-px hover:border-gold hover:bg-[rgba(201,168,76,0.12)]"
+      >
+        {t('result.softCta')}
+      </button>
+      <div className="mt-2 text-center text-[0.68rem] text-[rgba(245,240,232,0.35)]">
+        {t('result.softCtaNote')}
+      </div>
     </section>
   );
 }

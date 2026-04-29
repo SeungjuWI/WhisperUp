@@ -20,7 +20,7 @@ export type TarotCard = {
   symbol: string;
 };
 
-export type FunnelStep = 0 | 1 | 2 | 3 | 4 | 5;
+export type FunnelStep = 0 | 1 | 2 | 3 | 4 | 5 | 6;
 
 /**
  * Field/Years/City are stored as English literals because they are part of

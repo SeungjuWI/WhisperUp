@@ -24,12 +24,12 @@ export default function LeadCapture() {
     showLoading(tLoading('registering'));
     window.setTimeout(() => {
       markLeadSubmitted();
-      setStep(5);
+      setStep(6);
       hideLoading();
     }, SUBMIT_DELAY_MS);
   };
 
-  const handleSkip = () => setStep(5);
+  const handleSkip = () => setStep(6);
 
   return (
     <div className="relative mb-4 border border-[rgba(201,168,76,0.15)] border-t-2 border-t-gold bg-[rgba(245,240,232,0.03)] p-6">

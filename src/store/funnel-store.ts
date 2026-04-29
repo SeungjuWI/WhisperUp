@@ -12,6 +12,12 @@ import type {
 
 type LoadingState = { active: boolean; text: string };
 
+type TeaserData = {
+  marketAvg: number;
+  rangeMin: number;
+  rangeMax: number;
+};
+
 type FunnelState = {
   topic: Topic | null;
   selectedCards: TarotCard[];
@@ -21,7 +27,16 @@ type FunnelState = {
   years: Years | null;
   city: City | null;
   salary: number | null;
+
+  // Step 4 (free teaser): broad market info, no personal precision
+  marketAvg: number | null;
+  rangeMin: number | null;
+  rangeMax: number | null;
+
+  // Step 5 (paid result): personal precision + position
   resultPct: number | null;
+  percentile: number | null;
+
   leadSubmitted: boolean;
   currentStep: FunnelStep;
   loading: LoadingState;
@@ -36,7 +51,8 @@ type FunnelActions = {
   setYears: (years: Years) => void;
   setCity: (city: City) => void;
   setSalary: (salary: number) => void;
-  setResult: (pct: number) => void;
+  setTeaserData: (data: TeaserData) => void;
+  setFullResult: (data: { resultPct: number; percentile: number }) => void;
   markLeadSubmitted: () => void;
   setStep: (step: FunnelStep) => void;
   showLoading: (text: string) => void;
@@ -53,7 +69,11 @@ const initialState: FunnelState = {
   years: null,
   city: null,
   salary: null,
+  marketAvg: null,
+  rangeMin: null,
+  rangeMax: null,
   resultPct: null,
+  percentile: null,
   leadSubmitted: false,
   currentStep: 0,
   loading: { active: false, text: '' },
@@ -80,7 +100,10 @@ export const useFunnelStore = create<FunnelState & FunnelActions>()(
       setYears: (years) => set({ years }, false, 'setYears'),
       setCity: (city) => set({ city }, false, 'setCity'),
       setSalary: (salary) => set({ salary }, false, 'setSalary'),
-      setResult: (resultPct) => set({ resultPct }, false, 'setResult'),
+      setTeaserData: ({ marketAvg, rangeMin, rangeMax }) =>
+        set({ marketAvg, rangeMin, rangeMax }, false, 'setTeaserData'),
+      setFullResult: ({ resultPct, percentile }) =>
+        set({ resultPct, percentile }, false, 'setFullResult'),
       markLeadSubmitted: () => set({ leadSubmitted: true }, false, 'markLeadSubmitted'),
       setStep: (currentStep) => set({ currentStep }, false, 'setStep'),
       showLoading: (text) => set({ loading: { active: true, text } }, false, 'showLoading'),

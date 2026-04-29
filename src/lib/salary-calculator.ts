@@ -19,6 +19,13 @@ const YRS_MAP: Record<Years, number> = {
   '12+ yrs': 12,
 };
 
+// Bounds reflect the full set of possible adjustments: HCMC +2, low salary +3,
+// high salary -2 — so we widen the years-adj range by these to mirror what the
+// market can produce within a field.
+const CITY_MAX_BOOST = 2;
+const SALARY_MAX_BOOST = 3;
+const SALARY_MIN_BOOST = -2;
+
 export type SalaryInput = {
   field: Field;
   years: Years;
@@ -26,6 +33,27 @@ export type SalaryInput = {
   /** Bucket value in millions VND, e.g. 10/15/20/25/30/40/50 */
   salary: number;
 };
+
+export type TeaserResult = {
+  marketAvg: number;
+  rangeMin: number;
+  rangeMax: number;
+};
+
+export type FullResult = TeaserResult & {
+  resultPct: number;
+  /** "Top N%" — 1 means top of distribution, 99 means bottom. */
+  percentile: number;
+};
+
+export function computeTeaser(field: Field): TeaserResult {
+  const tbl = PCT_TABLE[field];
+  const yearsAdjValues = Object.values(tbl.adj);
+  const rangeMin = Math.min(...yearsAdjValues) + SALARY_MIN_BOOST;
+  const rangeMax = Math.max(...yearsAdjValues) + CITY_MAX_BOOST + SALARY_MAX_BOOST;
+  const marketAvg = Math.round((rangeMin + rangeMax) / 2);
+  return { marketAvg, rangeMin, rangeMax };
+}
 
 export function calculateSalaryUpside({ field, years, city, salary }: SalaryInput): number {
   const tbl = PCT_TABLE[field];
@@ -35,6 +63,20 @@ export function calculateSalaryUpside({ field, years, city, salary }: SalaryInpu
   if (salary < 15) pct += 3;
   else if (salary > 30) pct -= 2;
   return pct;
+}
+
+export function computeFull(input: SalaryInput): FullResult {
+  const teaser = computeTeaser(input.field);
+  const resultPct = calculateSalaryUpside(input);
+  const span = teaser.rangeMax - teaser.rangeMin;
+  const normalized = span > 0 ? (resultPct - teaser.rangeMin) / span : 0.5;
+  // Higher pct == better, so top percentile = (1 - normalized).
+  const percentile = Math.round((1 - normalized) * 100);
+  return {
+    ...teaser,
+    resultPct,
+    percentile: Math.max(1, Math.min(99, percentile)),
+  };
 }
 
 const FIELDS = new Set<string>([
@@ -54,6 +96,10 @@ const YEARS_SET = new Set<string>([
   '12+ yrs',
 ]);
 const CITIES = new Set<string>(['Hanoi', 'Ho Chi Minh City', 'Da Nang', 'Other']);
+
+export function isField(value: unknown): value is Field {
+  return typeof value === 'string' && FIELDS.has(value);
+}
 
 export function isSalaryInput(b: unknown): b is SalaryInput {
   if (typeof b !== 'object' || b === null) return false;
