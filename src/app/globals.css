@@ -32,6 +32,10 @@
 
 html {
   scroll-behavior: smooth;
+  /* Reserve scrollbar gutter even when not scrolling, so fixed elements
+     (page-frame) and absolute scroll hints don't drift relative to
+     mx-auto content centers. */
+  scrollbar-gutter: stable;
 }
 
 body {

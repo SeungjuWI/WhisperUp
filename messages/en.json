@@ -9,13 +9,13 @@
     "ko": "KO"
   },
   "nav": {
-    "tag": "Career Tarot · Data Confidence",
+    "tag": "Thinking about switching jobs? Read the tarot first.",
     "cta": "Start Free →"
   },
   "hero": {
     "ornament": "Career Tarot for Job Changers",
     "h1Lead": "Should I switch jobs?",
-    "h1Trail": "Let the cards speak",
+    "h1Trail": "Read the cards",
     "h1Emphasis": "first.",
     "subLine1": "See the direction with tarot —",
     "subLine2": "then confirm with data how much your salary could rise.",
@@ -95,7 +95,7 @@
       },
       {
         "q": "Can I get a refund?",
-        "a": "29,000 VND ≈ one coffee. If the result wasn't helpful, email us — we refund, no questions."
+        "a": "Generally no — it's a digital result you've already seen. But if a payment error or technical glitch meant you couldn't view your result, email us and we'll sort it out."
       }
     ]
   },

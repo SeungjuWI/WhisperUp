@@ -112,18 +112,26 @@ export default function Hero() {
         {t('ctaNote')}
       </div>
 
+      {/* fadeUp keyframe sets transform: translateY(...), which would override
+          a -translate-x-1/2 on the same element and break horizontal centering.
+          So horizontal centering is done by the outer absolute+flex wrapper,
+          and only the inner element runs the animation. */}
       <div
-        className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
-        style={{ animation: 'fadeUp 0.8s 1.2s ease both' }}
+        className="absolute bottom-8 left-0 right-0 flex justify-center"
         aria-hidden
       >
-        <span className="text-[0.62rem] tracking-[0.12em] text-[var(--muted)]">
-          {t('scroll')}
-        </span>
-        <span
-          className="h-8 w-px bg-[linear-gradient(to_bottom,var(--gold),transparent)]"
-          style={{ animation: 'pulse 2s ease-in-out infinite' }}
-        />
+        <div
+          className="flex flex-col items-center gap-2"
+          style={{ animation: 'fadeUp 0.8s 1.2s ease both' }}
+        >
+          <span className="text-[0.62rem] tracking-[0.12em] text-[var(--muted)]">
+            {t('scroll')}
+          </span>
+          <span
+            className="h-8 w-px bg-[linear-gradient(to_bottom,var(--gold),transparent)]"
+            style={{ animation: 'pulse 2s ease-in-out infinite' }}
+          />
+        </div>
       </div>
     </section>
   );

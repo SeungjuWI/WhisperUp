@@ -5,12 +5,15 @@ import LocaleSwitcher from '@/components/ui/LocaleSwitcher';
 export default async function Nav() {
   const t = await getTranslations('nav');
 
+  // 3-col grid so the middle tagline sits at the true viewport center
+  // regardless of logo width vs actions width. Logo justifies to the
+  // start, actions to the end.
   return (
-    <nav className="sticky top-0 z-[100] flex items-center justify-between border-b border-[rgba(201,168,76,0.25)] bg-[rgba(245,240,232,0.92)] px-6 py-[1.1rem] backdrop-blur-[20px] sm:px-10">
+    <nav className="sticky top-0 z-[100] grid grid-cols-[1fr_auto_1fr] items-center gap-4 border-b border-[rgba(201,168,76,0.25)] bg-[rgba(245,240,232,0.92)] px-6 py-[1.1rem] backdrop-blur-[20px] sm:px-10">
       <Link
         href="/"
         aria-label="Whisper-Up — home"
-        className="flex items-center gap-2 font-serif text-[1.15rem] font-semibold tracking-[0.12em] text-[var(--text)] transition-colors hover:text-gold"
+        className="flex items-center gap-2 font-serif text-[1.15rem] font-semibold tracking-[0.12em] text-[var(--text)] transition-colors hover:text-gold justify-self-start"
       >
         <span
           aria-hidden
@@ -20,11 +23,11 @@ export default async function Nav() {
         Whisper<span className="text-gold">-</span>Up
       </Link>
 
-      <div className="hidden text-[0.7rem] tracking-[0.06em] text-[var(--muted)] md:block">
+      <div className="hidden text-center text-[0.7rem] tracking-[0.06em] text-[var(--muted)] md:block">
         {t('tag')}
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 justify-self-end">
         <LocaleSwitcher variant="light" />
         <Link
           href="/reading"

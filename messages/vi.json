@@ -9,13 +9,13 @@
     "ko": "KO"
   },
   "nav": {
-    "tag": "Tarot Sự Nghiệp · Tự Tin Bằng Dữ Liệu",
+    "tag": "Phân vân đổi việc? Xem tarot trước.",
     "cta": "Bắt Đầu Miễn Phí →"
   },
   "hero": {
     "ornament": "Tarot Sự Nghiệp Cho Người Đổi Việc",
     "h1Lead": "Có nên đổi việc không?",
-    "h1Trail": "Hãy để các lá bài lên tiếng",
+    "h1Trail": "Xem các lá bài",
     "h1Emphasis": "trước.",
     "subLine1": "Xem hướng đi qua tarot —",
     "subLine2": "rồi xác nhận bằng dữ liệu mức lương có thể tăng bao nhiêu.",
@@ -95,7 +95,7 @@
       },
       {
         "q": "Có hoàn tiền không?",
-        "a": "29.000 VND ≈ 1 ly cà phê. Nếu kết quả không hữu ích, gửi email cho chúng tôi — refund không hỏi nhiều."
+        "a": "Thường thì không — đây là kết quả số đã xem ngay. Nhưng nếu lỗi thanh toán hoặc trục trặc kỹ thuật khiến bạn không xem được kết quả, gửi email cho chúng tôi — trường hợp đó sẽ xử lý ngay."
       }
     ]
   },
