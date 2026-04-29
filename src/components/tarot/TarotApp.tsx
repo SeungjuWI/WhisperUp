@@ -1,9 +1,11 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { useTranslations } from 'next-intl';
 import { useFunnelStore } from '@/store/funnel-store';
 import { Link } from '@/i18n/routing';
 import LoadingOverlay from '@/components/ui/LoadingOverlay';
+import LocaleSwitcher from '@/components/ui/LocaleSwitcher';
 import InputFlow from '@/components/funnel/InputFlow';
 import DataResult from '@/components/funnel/DataResult';
 import Complete from '@/components/funnel/Complete';
@@ -12,6 +14,7 @@ import CardDeck from './CardDeck';
 import TarotResult from './TarotResult';
 
 export default function TarotApp() {
+  const t = useTranslations('tarot');
   const currentStep = useFunnelStore((s) => s.currentStep);
   const loading = useFunnelStore((s) => s.loading);
 
@@ -34,13 +37,14 @@ export default function TarotApp() {
         }}
       />
 
-      <div className="relative z-10 px-6 pt-6">
+      <div className="relative z-10 flex items-center justify-between px-6 pt-6">
         <Link
           href="/"
           className="font-serif text-[0.7rem] tracking-[0.15em] text-[rgba(245,240,232,0.4)] transition-colors hover:text-gold"
         >
-          ← Whisper-Up
+          {t('back')}
         </Link>
+        <LocaleSwitcher variant="dark" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-[720px] px-4 py-12 sm:px-6">

@@ -1,3 +1,235 @@
 {
-  "_placeholder": "English translations populated in Task 9"
+  "metadata": {
+    "title": "Whisper-Up",
+    "description": "Career tarot meets data — find your move with confidence."
+  },
+  "locale": {
+    "vi": "VI",
+    "en": "EN",
+    "ko": "KO"
+  },
+  "nav": {
+    "tag": "Career Tarot · Data Confidence",
+    "cta": "Start Free →"
+  },
+  "hero": {
+    "ornament": "Career Tarot for Job Changers",
+    "h1Lead": "Should I switch jobs?",
+    "h1Trail": "Let the cards speak",
+    "h1Emphasis": "first.",
+    "subLine1": "See the direction with tarot —",
+    "subLine2": "then confirm with data how much your salary could rise.",
+    "subLine3": "Your secret. Nobody else knows.",
+    "freeBefore": "Tarot is",
+    "freeWord": "free",
+    "freeAfter": ". Data confirmation is just 29,000 VND.",
+    "cta": "Start Free Now",
+    "ctaNote": "Pick your cards · See results instantly · No name or email needed",
+    "scroll": "SCROLL"
+  },
+  "howItWorks": {
+    "divider": "How It Works",
+    "steps": {
+      "01": {
+        "label": "STEP 01",
+        "title": "Free Tarot",
+        "desc": "Pick a topic, draw 3 cards. Get your direction and intuition first. Completely free."
+      },
+      "02": {
+        "label": "STEP 02",
+        "title": "Data Confidence",
+        "desc": "After your reading — if you want the real number, it's 29,000 VND. See exactly how much your salary could jump."
+      },
+      "03": {
+        "label": "STEP 03",
+        "title": "Job Matches",
+        "desc": "Want to know which companies fit you best? Add more info and get personalized job recommendations."
+      }
+    }
+  },
+  "footer": {
+    "copy": "© {year} · Hanoi, Vietnam",
+    "terms": "Terms",
+    "privacy": "Privacy Policy"
+  },
+  "tarot": {
+    "back": "← Whisper-Up",
+    "topic": {
+      "label": "✦ CAREER TAROT ✦",
+      "question": "What's on your mind right now?",
+      "ariaGroup": "Choose your reading topic",
+      "options": {
+        "timing": "Is now the right time\nto switch jobs?",
+        "potential": "Will things actually\nget better if I switch?",
+        "direction": "Which direction\nshould I go?"
+      },
+      "cta": "Choose Your Cards →"
+    },
+    "deck": {
+      "label": "✦ Choose Your Cards ✦",
+      "question": {
+        "timing": "Is now the right time?",
+        "potential": "Will things get better?",
+        "direction": "Which direction?",
+        "fallback": "Your reading"
+      },
+      "questionSuffix": " — Choose 3 cards",
+      "instruction": "Hold your question in mind — then pick the cards you feel drawn to",
+      "counter": "{count} / {max} chosen",
+      "cta": "See Your Reading →"
+    },
+    "card": {
+      "hidden": "Hidden tarot card",
+      "shown": "{name}: {meaning}"
+    },
+    "result": {
+      "label": "✦ The Cards Speak ✦",
+      "heading": {
+        "timing": "Your Career Timing",
+        "potential": "Your Career Potential",
+        "direction": "Your Career Direction",
+        "fallback": "Your Reading"
+      },
+      "positions": {
+        "0": "Present",
+        "1": "Core Energy",
+        "2": "Outcome"
+      }
+    },
+    "cards": {
+      "tower": { "name": "The Tower", "meaning": "A sudden shift is needed" },
+      "wheel": { "name": "The Wheel", "meaning": "A turning point is here" },
+      "star": { "name": "The Star", "meaning": "New hope is waiting ahead" },
+      "world": { "name": "The World", "meaning": "Completion and a new beginning" },
+      "fool": { "name": "The Fool", "meaning": "Move forward without fear" },
+      "hermit": { "name": "The Hermit", "meaning": "The answer is already within you" },
+      "sun": { "name": "The Sun", "meaning": "A bright outcome awaits" },
+      "moon": { "name": "The Moon", "meaning": "Uncertain, but keep moving" },
+      "emperor": { "name": "The Emperor", "meaning": "A time for steady growth" },
+      "chariot": { "name": "The Chariot", "meaning": "Your will can break through" },
+      "strength": { "name": "Strength", "meaning": "Trust your inner strength" },
+      "priestess": { "name": "The High Priestess", "meaning": "Follow your intuition" }
+    },
+    "readings": {
+      "timing": [
+        "The cards say <em>the time for change is approaching.</em> If hesitation is coming from fear, the cards show that fear is already outdated. <strong>Not moving now means missing this current.</strong>",
+        "All three cards point to a <em>turning point.</em> This is not the time to wait. You already know the answer inside — you just need the confidence. <strong>The cards say you're ready.</strong>",
+        "There's strong energy wanting change here. But the direction isn't fully clear yet. <em>Rather than right now, starting concrete preparations within 3 months</em> feels right."
+      ],
+      "potential": [
+        "<em>A better environment is waiting for you.</em> The cards say your current position is not your ceiling. Staying where you are may actually be blocking your growth. <strong>Switching jobs isn't a risk — it's the natural next step.</strong>",
+        "All three cards point to <em>the potential for growth.</em> The things you're worried about — can I do it, is it the right place — the cards seem to have already let go of those answers. <strong>The potential is definitely there.</strong>",
+        "The cards say you're being undervalued. <em>The market is ready to assess your capabilities more highly.</em> Moving on isn't a gamble — it's a fair reassessment."
+      ],
+      "direction": [
+        "<em>A different environment</em> could make you shine more. The direction the cards point to values growth over scale, autonomy over stability. <strong>A foreign-invested company or a fast-growing organization fits your energy.</strong>",
+        "All three cards together show <em>leadership potential.</em> Moving to a place where you can play a bigger role is right. Look for a position with <strong>more authority and influence</strong> rather than just a higher title.",
+        "The cards point toward <em>deepening your expertise.</em> Right now you need one deep specialization more than broad experience. <strong>Find the environment where that expertise can best be expressed</strong> — that's your next step."
+      ]
+    }
+  },
+  "loading": {
+    "reading": "Reading your cards...",
+    "analyzing": "Analyzing your data...",
+    "registering": "Registering..."
+  },
+  "upsell": {
+    "label": "✦ WHISPER-UP DATA ✦",
+    "titleLine1": "The cards showed the direction —",
+    "titleLine2": "now let the data show you the number",
+    "subLine1": "See exactly how much your salary could rise",
+    "subLine2": "based on real job-switcher data in Vietnam.",
+    "priceOld": "99,000 VND",
+    "priceNew": "29,000",
+    "priceUnit": "VND",
+    "cta": "Confirm with Data — Price of a coffee →",
+    "note": "Enter role · experience · current salary → get your salary upside %"
+  },
+  "input": {
+    "next": "Next →",
+    "field": {
+      "question": "What kind of work do you do?",
+      "subtitle": "Select your field",
+      "options": {
+        "Engineering": "Engineering",
+        "Marketing": "Marketing",
+        "Sales & BD": "Sales & BD",
+        "Design & UX": "Design & UX",
+        "Finance": "Finance",
+        "HR & Ops": "HR & Ops"
+      }
+    },
+    "years": {
+      "question": "How long have you been working?",
+      "subtitle": "Select your experience level",
+      "options": {
+        "Under 1 yr": "Under 1 yr",
+        "1–3 yrs": "1–3 yrs",
+        "3–5 yrs": "3–5 yrs",
+        "5–8 yrs": "5–8 yrs",
+        "8–12 yrs": "8–12 yrs",
+        "12+ yrs": "12+ yrs"
+      }
+    },
+    "city": {
+      "question": "Which city are you in?",
+      "subtitle": "Market data differs by region",
+      "options": {
+        "Hanoi": "Hanoi",
+        "Ho Chi Minh City": "Ho Chi Minh City",
+        "Da Nang": "Da Nang",
+        "Other": "Other"
+      }
+    },
+    "salary": {
+      "question": "What's your current salary range?",
+      "subtitle": "The more you share, the more accurate your result",
+      "placeholder": "Select salary range",
+      "options": {
+        "10": "Under 10M VND",
+        "15": "10M–15M VND",
+        "20": "15M–20M VND",
+        "25": "20M–25M VND",
+        "30": "25M–30M VND",
+        "40": "30M–40M VND",
+        "50": "40M+ VND"
+      },
+      "cta": "See My Result →",
+      "ariaLabel": "Current salary range"
+    }
+  },
+  "dataResult": {
+    "label": "✦ If you switch jobs now ✦",
+    "pendingValue": "...",
+    "unit": "salary increase possible",
+    "descLine1": "Based on people with the same profile —",
+    "descProfile": "{field} · {years} · {city}",
+    "descLine3": "who already made the switch.",
+    "emphasis": "That's worth moving for.",
+    "basisLabel": "[ BASIS ]",
+    "basisText": "Calculated from <strong>real Vietnam job-switcher data</strong> matching your role, experience, and city. No result is shown when sample size is insufficient."
+  },
+  "lead": {
+    "label": "✦ One More Step ✦",
+    "titleLine1": "We can also tell you",
+    "titleLine2": "which companies to target",
+    "subLine1": "Want personalized job recommendations on top of your result?",
+    "subLine2": "Add your details. Used only for matching — nothing else.",
+    "namePlaceholder": "Name (optional)",
+    "educationPlaceholder": "Education (e.g. Bachelor's)",
+    "targetSalaryPlaceholder": "Target salary (e.g. 30M+ VND)",
+    "submit": "Get Job Recommendations →",
+    "skip": "Maybe later",
+    "privacy": "Your info is used only for job matching · Never shared externally"
+  },
+  "complete": {
+    "title": "You're all set",
+    "descLine1": "We'll reach out when a matching company comes up.",
+    "descLine2": "Share your result with a friend who's also thinking about switching.",
+    "share": "Share My Result →",
+    "shareTitle": "Whisper-Up Career Analysis",
+    "shareTextWithPct": "I just found out I could get +{pct}% more if I switch jobs. You should check yours too.",
+    "shareTextNoPct": "Check your career upside on Whisper-Up.",
+    "copied": "Copied to clipboard"
+  }
 }

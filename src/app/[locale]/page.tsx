@@ -1,4 +1,4 @@
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Nav from '@/components/landing/Nav';
 import Hero from '@/components/landing/Hero';
 import HowItWorks from '@/components/landing/HowItWorks';
@@ -13,6 +13,7 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations('howItWorks');
 
   return (
     <div className="landing-bg relative">
@@ -20,7 +21,7 @@ export default async function HomePage({
       <div className="page-frame" aria-hidden />
       <Nav />
       <Hero />
-      <OrnamentDivider>How It Works</OrnamentDivider>
+      <OrnamentDivider>{t('divider')}</OrnamentDivider>
       <HowItWorks />
       <Footer />
     </div>

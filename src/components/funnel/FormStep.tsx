@@ -1,9 +1,14 @@
 'use client';
 
+export type FormOption<T extends string> = {
+  value: T;
+  label: string;
+};
+
 type Props<T extends string> = {
   question: string;
   subtitle: string;
-  options: readonly T[];
+  options: ReadonlyArray<FormOption<T>>;
   selected: T | null;
   onSelect: (value: T) => void;
   onNext: () => void;
@@ -34,21 +39,21 @@ export default function FormStep<T extends string>({
         className="mb-5 grid grid-cols-1 gap-2 sm:grid-cols-2"
       >
         {options.map((opt) => {
-          const isSelected = selected === opt;
+          const isSelected = selected === opt.value;
           return (
             <button
-              key={opt}
+              key={opt.value}
               type="button"
               role="radio"
               aria-checked={isSelected}
-              onClick={() => onSelect(opt)}
+              onClick={() => onSelect(opt.value)}
               className={`border px-4 py-3 text-center text-[0.82rem] transition-all duration-150 ${
                 isSelected
                   ? 'border-gold bg-[rgba(201,168,76,0.1)] text-gold'
                   : 'border-[rgba(201,168,76,0.15)] bg-[rgba(245,240,232,0.04)] text-[rgba(245,240,232,0.7)] hover:border-[rgba(201,168,76,0.4)] hover:text-paper'
               }`}
             >
-              {opt}
+              {opt.label}
             </button>
           );
         })}

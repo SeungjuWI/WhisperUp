@@ -68,7 +68,7 @@ export const useFunnelStore = create<FunnelState & FunnelActions>()(
         set(
           (s) =>
             s.selectedCards.length >= MAX_CARDS ||
-            s.selectedCards.some((c) => c.name === card.name)
+            s.selectedCards.some((c) => c.id === card.id)
               ? s
               : { selectedCards: [...s.selectedCards, card] },
           false,

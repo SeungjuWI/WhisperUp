@@ -1,3 +1,235 @@
 {
-  "_placeholder": "Vietnamese translations populated in Task 9"
+  "metadata": {
+    "title": "Whisper-Up",
+    "description": "Tarot sự nghiệp gặp dữ liệu — tìm bước đi của bạn với sự tự tin."
+  },
+  "locale": {
+    "vi": "VI",
+    "en": "EN",
+    "ko": "KO"
+  },
+  "nav": {
+    "tag": "Tarot Sự Nghiệp · Tự Tin Bằng Dữ Liệu",
+    "cta": "Bắt Đầu Miễn Phí →"
+  },
+  "hero": {
+    "ornament": "Tarot Sự Nghiệp Cho Người Đổi Việc",
+    "h1Lead": "Có nên đổi việc không?",
+    "h1Trail": "Hãy để các lá bài lên tiếng",
+    "h1Emphasis": "trước.",
+    "subLine1": "Xem hướng đi qua tarot —",
+    "subLine2": "rồi xác nhận bằng dữ liệu mức lương có thể tăng bao nhiêu.",
+    "subLine3": "Bí mật của bạn. Không ai khác biết.",
+    "freeBefore": "Tarot là",
+    "freeWord": "miễn phí",
+    "freeAfter": ". Xác nhận bằng dữ liệu chỉ 29.000 VND.",
+    "cta": "Bắt Đầu Miễn Phí Ngay",
+    "ctaNote": "Chọn lá bài · Xem kết quả ngay · Không cần tên hay email",
+    "scroll": "CUỘN"
+  },
+  "howItWorks": {
+    "divider": "Cách Hoạt Động",
+    "steps": {
+      "01": {
+        "label": "BƯỚC 01",
+        "title": "Tarot Miễn Phí",
+        "desc": "Chọn chủ đề, rút 3 lá bài. Nhận hướng đi và trực giác trước. Hoàn toàn miễn phí."
+      },
+      "02": {
+        "label": "BƯỚC 02",
+        "title": "Tự Tin Bằng Dữ Liệu",
+        "desc": "Sau khi đọc bài — nếu bạn muốn con số thực, chỉ 29.000 VND. Xem chính xác mức lương có thể tăng bao nhiêu."
+      },
+      "03": {
+        "label": "BƯỚC 03",
+        "title": "Việc Phù Hợp",
+        "desc": "Muốn biết công ty nào phù hợp nhất với bạn? Thêm thông tin và nhận gợi ý việc làm cá nhân hóa."
+      }
+    }
+  },
+  "footer": {
+    "copy": "© {year} · Hà Nội, Việt Nam",
+    "terms": "Điều Khoản",
+    "privacy": "Chính Sách Bảo Mật"
+  },
+  "tarot": {
+    "back": "← Whisper-Up",
+    "topic": {
+      "label": "✦ TAROT SỰ NGHIỆP ✦",
+      "question": "Bạn đang nghĩ gì lúc này?",
+      "ariaGroup": "Chọn chủ đề đọc bài",
+      "options": {
+        "timing": "Đây có phải thời điểm\nđúng để đổi việc?",
+        "potential": "Mọi thứ có thực sự\ntốt hơn nếu đổi việc?",
+        "direction": "Tôi nên đi\ntheo hướng nào?"
+      },
+      "cta": "Chọn Lá Bài Của Bạn →"
+    },
+    "deck": {
+      "label": "✦ Chọn Lá Bài Của Bạn ✦",
+      "question": {
+        "timing": "Đây có phải thời điểm đúng?",
+        "potential": "Mọi thứ sẽ tốt hơn?",
+        "direction": "Hướng nào?",
+        "fallback": "Đọc bài cho bạn"
+      },
+      "questionSuffix": " — Chọn 3 lá bài",
+      "instruction": "Giữ câu hỏi trong đầu — rồi chọn những lá bài bạn cảm thấy bị thu hút",
+      "counter": "{count} / {max} đã chọn",
+      "cta": "Xem Lời Đọc Của Bạn →"
+    },
+    "card": {
+      "hidden": "Lá bài tarot ẩn",
+      "shown": "{name}: {meaning}"
+    },
+    "result": {
+      "label": "✦ Lá Bài Lên Tiếng ✦",
+      "heading": {
+        "timing": "Thời Điểm Sự Nghiệp Của Bạn",
+        "potential": "Tiềm Năng Sự Nghiệp Của Bạn",
+        "direction": "Hướng Đi Sự Nghiệp Của Bạn",
+        "fallback": "Lời Đọc Của Bạn"
+      },
+      "positions": {
+        "0": "Hiện Tại",
+        "1": "Năng Lượng Cốt Lõi",
+        "2": "Kết Quả"
+      }
+    },
+    "cards": {
+      "tower": { "name": "Tòa Tháp", "meaning": "Cần một sự thay đổi đột ngột" },
+      "wheel": { "name": "Bánh Xe", "meaning": "Bước ngoặt đã đến" },
+      "star": { "name": "Ngôi Sao", "meaning": "Hy vọng mới đang chờ phía trước" },
+      "world": { "name": "Thế Giới", "meaning": "Hoàn thành và một khởi đầu mới" },
+      "fool": { "name": "Kẻ Khờ", "meaning": "Tiến lên không sợ hãi" },
+      "hermit": { "name": "Ẩn Sĩ", "meaning": "Câu trả lời đã ở trong bạn" },
+      "sun": { "name": "Mặt Trời", "meaning": "Một kết quả tươi sáng đang chờ" },
+      "moon": { "name": "Mặt Trăng", "meaning": "Không chắc chắn, nhưng hãy tiếp tục" },
+      "emperor": { "name": "Hoàng Đế", "meaning": "Thời điểm phát triển ổn định" },
+      "chariot": { "name": "Cỗ Xe", "meaning": "Ý chí của bạn có thể vượt qua" },
+      "strength": { "name": "Sức Mạnh", "meaning": "Tin vào sức mạnh nội tại" },
+      "priestess": { "name": "Nữ Tư Tế Tối Cao", "meaning": "Theo trực giác" }
+    },
+    "readings": {
+      "timing": [
+        "Lá bài nói rằng <em>thời điểm thay đổi đang đến gần.</em> Nếu sự do dự đến từ nỗi sợ, lá bài cho thấy nỗi sợ đó đã lỗi thời. <strong>Không hành động bây giờ là bỏ lỡ dòng chảy này.</strong>",
+        "Cả ba lá bài chỉ về một <em>bước ngoặt.</em> Đây không phải lúc để chờ. Bạn đã biết câu trả lời trong lòng — chỉ cần sự tự tin. <strong>Lá bài nói bạn đã sẵn sàng.</strong>",
+        "Có năng lượng mạnh muốn thay đổi ở đây. Nhưng hướng đi chưa rõ ràng hoàn toàn. <em>Thay vì ngay bây giờ, bắt đầu chuẩn bị cụ thể trong 3 tháng tới</em> có vẻ phù hợp."
+      ],
+      "potential": [
+        "<em>Một môi trường tốt hơn đang chờ bạn.</em> Lá bài nói vị trí hiện tại không phải giới hạn của bạn. Ở lại có thể đang chặn đường phát triển. <strong>Đổi việc không phải rủi ro — đó là bước tiếp theo tự nhiên.</strong>",
+        "Cả ba lá bài chỉ về <em>tiềm năng phát triển.</em> Những điều bạn lo — liệu có làm được không, có đúng nơi không — lá bài dường như đã buông bỏ những câu hỏi đó. <strong>Tiềm năng chắc chắn có ở đó.</strong>",
+        "Lá bài nói bạn đang bị đánh giá thấp. <em>Thị trường sẵn sàng đánh giá năng lực bạn cao hơn.</em> Chuyển đi không phải canh bạc — đó là một sự đánh giá lại công bằng."
+      ],
+      "direction": [
+        "<em>Một môi trường khác</em> có thể giúp bạn tỏa sáng hơn. Hướng mà lá bài chỉ tới ưu tiên phát triển hơn quy mô, tự chủ hơn ổn định. <strong>Một công ty đầu tư nước ngoài hoặc tổ chức tăng trưởng nhanh phù hợp với năng lượng của bạn.</strong>",
+        "Ba lá bài cùng nhau cho thấy <em>tiềm năng lãnh đạo.</em> Chuyển đến nơi bạn có vai trò lớn hơn là đúng. Tìm vị trí có <strong>nhiều quyền hạn và ảnh hưởng hơn</strong> thay vì chỉ chức danh cao hơn.",
+        "Lá bài chỉ về <em>đào sâu chuyên môn.</em> Lúc này bạn cần một chuyên ngành sâu hơn là kinh nghiệm rộng. <strong>Tìm môi trường nơi chuyên môn đó được thể hiện tốt nhất</strong> — đó là bước tiếp theo của bạn."
+      ]
+    }
+  },
+  "loading": {
+    "reading": "Đang đọc lá bài của bạn...",
+    "analyzing": "Đang phân tích dữ liệu...",
+    "registering": "Đang đăng ký..."
+  },
+  "upsell": {
+    "label": "✦ DỮ LIỆU WHISPER-UP ✦",
+    "titleLine1": "Lá bài đã chỉ hướng đi —",
+    "titleLine2": "giờ hãy để dữ liệu cho bạn con số",
+    "subLine1": "Xem chính xác mức lương có thể tăng bao nhiêu",
+    "subLine2": "dựa trên dữ liệu thực của người đổi việc tại Việt Nam.",
+    "priceOld": "99.000 VND",
+    "priceNew": "29.000",
+    "priceUnit": "VND",
+    "cta": "Xác Nhận Bằng Dữ Liệu — Giá một ly cà phê →",
+    "note": "Nhập vai trò · kinh nghiệm · lương hiện tại → nhận % tăng lương"
+  },
+  "input": {
+    "next": "Tiếp →",
+    "field": {
+      "question": "Bạn làm công việc gì?",
+      "subtitle": "Chọn lĩnh vực của bạn",
+      "options": {
+        "Engineering": "Kỹ Thuật",
+        "Marketing": "Marketing",
+        "Sales & BD": "Bán Hàng & BD",
+        "Design & UX": "Thiết Kế & UX",
+        "Finance": "Tài Chính",
+        "HR & Ops": "Nhân Sự & Vận Hành"
+      }
+    },
+    "years": {
+      "question": "Bạn đã làm việc bao lâu?",
+      "subtitle": "Chọn cấp độ kinh nghiệm",
+      "options": {
+        "Under 1 yr": "Dưới 1 năm",
+        "1–3 yrs": "1–3 năm",
+        "3–5 yrs": "3–5 năm",
+        "5–8 yrs": "5–8 năm",
+        "8–12 yrs": "8–12 năm",
+        "12+ yrs": "Trên 12 năm"
+      }
+    },
+    "city": {
+      "question": "Bạn đang ở thành phố nào?",
+      "subtitle": "Dữ liệu thị trường khác nhau theo khu vực",
+      "options": {
+        "Hanoi": "Hà Nội",
+        "Ho Chi Minh City": "TP. Hồ Chí Minh",
+        "Da Nang": "Đà Nẵng",
+        "Other": "Khác"
+      }
+    },
+    "salary": {
+      "question": "Mức lương hiện tại của bạn?",
+      "subtitle": "Càng chia sẻ nhiều, kết quả càng chính xác",
+      "placeholder": "Chọn khoảng lương",
+      "options": {
+        "10": "Dưới 10 triệu VND",
+        "15": "10–15 triệu VND",
+        "20": "15–20 triệu VND",
+        "25": "20–25 triệu VND",
+        "30": "25–30 triệu VND",
+        "40": "30–40 triệu VND",
+        "50": "Trên 40 triệu VND"
+      },
+      "cta": "Xem Kết Quả →",
+      "ariaLabel": "Khoảng lương hiện tại"
+    }
+  },
+  "dataResult": {
+    "label": "✦ Nếu bạn đổi việc bây giờ ✦",
+    "pendingValue": "...",
+    "unit": "mức lương có thể tăng",
+    "descLine1": "Dựa trên những người có hồ sơ tương tự —",
+    "descProfile": "{field} · {years} · {city}",
+    "descLine3": "đã thực sự đổi việc.",
+    "emphasis": "Đáng để chuyển đổi.",
+    "basisLabel": "[ CƠ SỞ ]",
+    "basisText": "Tính từ <strong>dữ liệu thực tế của người đổi việc tại Việt Nam</strong> phù hợp với vai trò, kinh nghiệm và thành phố của bạn. Không hiển thị kết quả khi mẫu không đủ."
+  },
+  "lead": {
+    "label": "✦ Một Bước Nữa ✦",
+    "titleLine1": "Chúng tôi cũng có thể nói cho bạn",
+    "titleLine2": "công ty nào nên nhắm tới",
+    "subLine1": "Muốn nhận gợi ý việc làm cá nhân hóa kèm kết quả?",
+    "subLine2": "Thêm thông tin của bạn. Chỉ dùng để khớp việc — không gì khác.",
+    "namePlaceholder": "Tên (tùy chọn)",
+    "educationPlaceholder": "Học vấn (vd. Cử Nhân)",
+    "targetSalaryPlaceholder": "Lương mong muốn (vd. 30tr+ VND)",
+    "submit": "Nhận Gợi Ý Việc Làm →",
+    "skip": "Để sau",
+    "privacy": "Thông tin chỉ dùng để khớp việc · Không chia sẻ ra ngoài"
+  },
+  "complete": {
+    "title": "Bạn đã hoàn tất",
+    "descLine1": "Chúng tôi sẽ liên hệ khi có công ty phù hợp.",
+    "descLine2": "Chia sẻ kết quả với bạn bè cũng đang nghĩ về việc đổi việc.",
+    "share": "Chia Sẻ Kết Quả →",
+    "shareTitle": "Phân Tích Sự Nghiệp Whisper-Up",
+    "shareTextWithPct": "Tôi vừa biết mình có thể tăng +{pct}% lương nếu đổi việc. Bạn cũng nên thử.",
+    "shareTextNoPct": "Kiểm tra tiềm năng sự nghiệp của bạn trên Whisper-Up.",
+    "copied": "Đã sao chép"
+  }
 }

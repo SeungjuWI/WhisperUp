@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 
 type Star = {
@@ -20,6 +21,8 @@ function generateStars(count: number): Star[] {
 }
 
 export default function Hero() {
+  const t = useTranslations('hero');
+
   // Stars are generated on the client only to avoid hydration mismatch
   // (Math.random differs between server and client renders).
   const [stars, setStars] = useState<Star[]>([]);
@@ -49,7 +52,7 @@ export default function Hero() {
         className="mb-6 font-serif text-[0.7rem] tracking-[0.3em] text-gold"
         style={{ animation: 'fadeUp 0.8s ease both' }}
       >
-        ✦ Career Tarot for Job Changers ✦
+        ✦ {t('ornament')} ✦
       </div>
 
       <h1
@@ -59,9 +62,9 @@ export default function Hero() {
           animation: 'fadeUp 0.8s 0.1s ease both',
         }}
       >
-        Should I switch jobs?
+        {t('h1Lead')}
         <br />
-        Let the cards speak <em className="not-italic text-gold">first.</em>
+        {t('h1Trail')} <em className="not-italic text-gold">{t('h1Emphasis')}</em>
       </h1>
 
       <p
@@ -71,12 +74,11 @@ export default function Hero() {
           animation: 'fadeUp 0.8s 0.2s ease both',
         }}
       >
-        See the direction with tarot —<br />
-        <strong className="font-medium text-[var(--text)]">
-          then confirm with data how much your salary could rise.
-        </strong>
+        {t('subLine1')}
         <br />
-        Your secret. Nobody else knows.
+        <strong className="font-medium text-[var(--text)]">{t('subLine2')}</strong>
+        <br />
+        {t('subLine3')}
       </p>
 
       <div
@@ -88,9 +90,11 @@ export default function Hero() {
         className="mb-8 inline-block text-[0.75rem] tracking-[0.08em] text-[var(--muted)]"
         style={{ animation: 'fadeUp 0.8s 0.3s ease both' }}
       >
-        Tarot is{' '}
-        <span className="border-b border-[rgba(42,157,143,0.3)] font-medium text-teal">free</span>.
-        Data confirmation is just 29,000 VND.
+        {t('freeBefore')}{' '}
+        <span className="border-b border-[rgba(42,157,143,0.3)] font-medium text-teal">
+          {t('freeWord')}
+        </span>
+        {t('freeAfter')}
       </div>
 
       <Link
@@ -98,14 +102,14 @@ export default function Hero() {
         className="inline-block border border-gold bg-ink px-12 py-[1.1rem] font-serif text-[0.95rem] font-semibold tracking-[0.12em] text-gold2 shadow-[0_4px_30px_rgba(14,12,24,0.12)] transition-all duration-[0.25s] hover:-translate-y-0.5 hover:bg-gold hover:text-ink hover:shadow-[0_8px_40px_rgba(201,168,76,0.3)]"
         style={{ animation: 'fadeUp 0.8s 0.35s ease both' }}
       >
-        Start Free Now
+        {t('cta')}
       </Link>
 
       <div
         className="mt-3 text-[0.72rem] tracking-[0.04em] text-[var(--muted)]"
         style={{ animation: 'fadeUp 0.8s 0.4s ease both' }}
       >
-        Pick your cards · See results instantly · No name or email needed
+        {t('ctaNote')}
       </div>
 
       <div
@@ -113,7 +117,9 @@ export default function Hero() {
         style={{ animation: 'fadeUp 0.8s 1.2s ease both' }}
         aria-hidden
       >
-        <span className="text-[0.62rem] tracking-[0.12em] text-[var(--muted)]">SCROLL</span>
+        <span className="text-[0.62rem] tracking-[0.12em] text-[var(--muted)]">
+          {t('scroll')}
+        </span>
         <span
           className="h-8 w-px bg-[linear-gradient(to_bottom,var(--gold),transparent)]"
           style={{ animation: 'pulse 2s ease-in-out infinite' }}

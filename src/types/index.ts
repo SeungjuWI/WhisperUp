@@ -1,13 +1,32 @@
 export type Topic = 'timing' | 'potential' | 'direction';
 
+export type CardId =
+  | 'tower'
+  | 'wheel'
+  | 'star'
+  | 'world'
+  | 'fool'
+  | 'hermit'
+  | 'sun'
+  | 'moon'
+  | 'emperor'
+  | 'chariot'
+  | 'strength'
+  | 'priestess';
+
 export type TarotCard = {
-  name: string;
+  id: CardId;
+  /** Universal across locales — the emoji is the visual identity. */
   symbol: string;
-  meaning: string;
 };
 
 export type FunnelStep = 0 | 1 | 2 | 3 | 4 | 5;
 
+/**
+ * Field/Years/City are stored as English literals because they are part of
+ * the /api/calculate contract and the Phase 2 Supabase schema. Display labels
+ * are looked up via translation keys (see messages/*.json input.* namespaces).
+ */
 export type Field =
   | 'Engineering'
   | 'Marketing'

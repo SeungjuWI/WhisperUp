@@ -1,12 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { useFunnelStore } from '@/store/funnel-store';
 import ProgressDots from '@/components/ui/ProgressDots';
-import FormStep from './FormStep';
+import FormStep, { type FormOption } from './FormStep';
 import type { City, Field, Years } from '@/types';
 
-const FIELDS: readonly Field[] = [
+const FIELD_VALUES: readonly Field[] = [
   'Engineering',
   'Marketing',
   'Sales & BD',
@@ -15,7 +16,7 @@ const FIELDS: readonly Field[] = [
   'HR & Ops',
 ];
 
-const YEARS: readonly Years[] = [
+const YEARS_VALUES: readonly Years[] = [
   'Under 1 yr',
   '1–3 yrs',
   '3–5 yrs',
@@ -24,17 +25,9 @@ const YEARS: readonly Years[] = [
   '12+ yrs',
 ];
 
-const CITIES: readonly City[] = ['Hanoi', 'Ho Chi Minh City', 'Da Nang', 'Other'];
+const CITY_VALUES: readonly City[] = ['Hanoi', 'Ho Chi Minh City', 'Da Nang', 'Other'];
 
-const SALARY_OPTIONS: ReadonlyArray<{ label: string; value: number }> = [
-  { label: 'Under 10M VND', value: 10 },
-  { label: '10M–15M VND', value: 15 },
-  { label: '15M–20M VND', value: 20 },
-  { label: '20M–25M VND', value: 25 },
-  { label: '25M–30M VND', value: 30 },
-  { label: '30M–40M VND', value: 40 },
-  { label: '40M+ VND', value: 50 },
-];
+const SALARY_VALUES: ReadonlyArray<number> = [10, 15, 20, 25, 30, 40, 50];
 
 const TOTAL_STEPS = 4;
 const ANALYSIS_DELAY_MS = 2200;
@@ -42,6 +35,7 @@ const ANALYSIS_DELAY_MS = 2200;
 type SubStep = 0 | 1 | 2 | 3;
 
 export default function InputFlow() {
+  const t = useTranslations();
   const [subStep, setSubStep] = useState<SubStep>(0);
 
   const field = useFunnelStore((s) => s.field);
@@ -59,6 +53,21 @@ export default function InputFlow() {
   const hideLoading = useFunnelStore((s) => s.hideLoading);
   const markPaid = useFunnelStore((s) => s.markPaid);
 
+  // Build localized option lists. Stored value stays the canonical English
+  // literal so /api/calculate and the future Supabase schema keep stable keys.
+  const fieldOptions: ReadonlyArray<FormOption<Field>> = FIELD_VALUES.map((v) => ({
+    value: v,
+    label: t(`input.field.options.${v}`),
+  }));
+  const yearsOptions: ReadonlyArray<FormOption<Years>> = YEARS_VALUES.map((v) => ({
+    value: v,
+    label: t(`input.years.options.${v}`),
+  }));
+  const cityOptions: ReadonlyArray<FormOption<City>> = CITY_VALUES.map((v) => ({
+    value: v,
+    label: t(`input.city.options.${v}`),
+  }));
+
   const advance = async () => {
     if (subStep < 3) {
       setSubStep(((subStep as number) + 1) as SubStep);
@@ -67,10 +76,8 @@ export default function InputFlow() {
     if (!field || !years || !city || salary === null) return;
 
     markPaid();
-    showLoading('Analyzing your data...');
+    showLoading(t('loading.analyzing'));
 
-    // Run calc + minimum 2.2s delay in parallel — API is local + cheap so
-    // the floor exists for UX consistency, not because the calc is slow.
     const minDelay = new Promise<void>((resolve) =>
       window.setTimeout(resolve, ANALYSIS_DELAY_MS),
     );
@@ -96,81 +103,76 @@ export default function InputFlow() {
 
       {subStep === 0 && (
         <FormStep
-          question="What kind of work do you do?"
-          subtitle="Select your field"
-          options={FIELDS}
+          question={t('input.field.question')}
+          subtitle={t('input.field.subtitle')}
+          options={fieldOptions}
           selected={field}
           onSelect={setField}
           onNext={advance}
-          nextLabel="Next →"
+          nextLabel={t('input.next')}
         />
       )}
       {subStep === 1 && (
         <FormStep
-          question="How long have you been working?"
-          subtitle="Select your experience level"
-          options={YEARS}
+          question={t('input.years.question')}
+          subtitle={t('input.years.subtitle')}
+          options={yearsOptions}
           selected={years}
           onSelect={setYears}
           onNext={advance}
-          nextLabel="Next →"
+          nextLabel={t('input.next')}
         />
       )}
       {subStep === 2 && (
         <FormStep
-          question="Which city are you in?"
-          subtitle="Market data differs by region"
-          options={CITIES}
+          question={t('input.city.question')}
+          subtitle={t('input.city.subtitle')}
+          options={cityOptions}
           selected={city}
           onSelect={setCity}
           onNext={advance}
-          nextLabel="Next →"
+          nextLabel={t('input.next')}
         />
       )}
       {subStep === 3 && (
-        <SalaryStep
-          options={SALARY_OPTIONS}
-          selected={salary}
-          onSelect={setSalary}
-          onNext={advance}
-        />
+        <SalaryStep selected={salary} onSelect={setSalary} onNext={advance} />
       )}
     </section>
   );
 }
 
 function SalaryStep({
-  options,
   selected,
   onSelect,
   onNext,
 }: {
-  options: ReadonlyArray<{ label: string; value: number }>;
   selected: number | null;
   onSelect: (value: number) => void;
   onNext: () => void;
 }) {
+  const t = useTranslations('input.salary');
   const canAdvance = selected !== null;
+
   return (
     <div style={{ animation: 'fadeUp 0.5s ease both' }}>
       <h3 className="mb-1 text-center font-serif text-[1rem] font-semibold tracking-[0.04em] text-paper">
-        What&apos;s your current salary range?
+        {t('question')}
       </h3>
       <p className="mb-6 text-center text-[0.75rem] text-[rgba(245,240,232,0.4)]">
-        The more you share, the more accurate your result
+        {t('subtitle')}
       </p>
       <select
         value={selected ?? ''}
         onChange={(e) => onSelect(Number(e.target.value))}
-        aria-label="Current salary range"
+        aria-label={t('ariaLabel')}
         className="dark-select mb-5 w-full border border-[rgba(201,168,76,0.2)] bg-[rgba(245,240,232,0.05)] px-4 py-3 text-[0.85rem] text-paper outline-none transition-colors focus:border-gold"
       >
         <option value="" disabled>
-          Select salary range
+          {t('placeholder')}
         </option>
-        {options.map((o) => (
-          <option key={o.value} value={o.value}>
-            {o.label}
+        {SALARY_VALUES.map((v) => (
+          <option key={v} value={v}>
+            {t(`options.${v}`)}
           </option>
         ))}
       </select>
@@ -184,7 +186,7 @@ function SalaryStep({
             : 'cursor-not-allowed border-[rgba(201,168,76,0.2)] opacity-40'
         }`}
       >
-        See My Result →
+        {t('cta')}
       </button>
     </div>
   );
