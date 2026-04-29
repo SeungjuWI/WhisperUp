@@ -1,18 +1,35 @@
-import { getLocale, getTranslations } from 'next-intl/server';
+'use client';
 
-// Placeholder count for MVP — replace with a real analytics-derived value
-// (Supabase query or PostHog cohort) once Task 10 lands.
-const WEEKLY_COUNT = 1247;
+import { useEffect, useState } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
+import { computeWeeklyCount } from '@/lib/social-counter';
 
-export default async function SocialProofBar() {
-  const t = await getTranslations('social');
-  const locale = await getLocale();
-  const formatted = new Intl.NumberFormat(locale).format(WEEKLY_COUNT);
+const TICK_MS = 30 * 1000;
+
+export default function SocialProofBar() {
+  const t = useTranslations('social');
+  const locale = useLocale();
+
+  // Render a skeleton on the server / first client render to avoid a
+  // hydration mismatch (server time ≠ client time at the bucket boundary).
+  // Client picks up the real count in useEffect right after mount.
+  const [count, setCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    const tick = () => setCount(computeWeeklyCount());
+    tick();
+    const id = window.setInterval(tick, TICK_MS);
+    return () => window.clearInterval(id);
+  }, []);
+
+  const formatted =
+    count !== null ? new Intl.NumberFormat(locale).format(count) : '···';
 
   return (
     <div
       className="relative z-[2] mx-auto flex max-w-[900px] items-center justify-center gap-3 px-6 py-4"
       aria-label={t('ariaLabel')}
+      aria-live="polite"
     >
       <span aria-hidden className="font-serif text-[0.7rem] text-gold">
         ✦
