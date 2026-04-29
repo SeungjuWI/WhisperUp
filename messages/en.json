@@ -47,6 +47,62 @@
       }
     }
   },
+  "social": {
+    "weeklyCount": "<n>{count}</n> people had their cards read this week",
+    "ariaLabel": "Usage this week"
+  },
+  "testimonials": {
+    "divider": "They Tried It",
+    "label": "What real users said",
+    "items": [
+      {
+        "quote": "First time trying tarot — the cards nailed my burnout. The +24% number matched the offer I just got. Already scheduled the interview 😂",
+        "name": "T**",
+        "meta": "F 27 · Marketing · HCMC"
+      },
+      {
+        "quote": "Engineering 5–8 yrs Hanoi → +28%. Wish I'd done this 2 years ago. Stayed too long out of fear.",
+        "name": "J**",
+        "meta": "M 31 · Engineering · Hanoi"
+      },
+      {
+        "quote": "It's fun but oddly accurate. The cards picked 'different environment' which is exactly what I'd been thinking. Worth 29,000 VND.",
+        "name": "M**",
+        "meta": "F 24 · Design · Da Nang"
+      },
+      {
+        "quote": "Girlfriend told me to try. Tarot is tarot, but the number gives me confidence to go talk to my boss.",
+        "name": "D**",
+        "meta": "M 29 · Sales · HCMC"
+      }
+    ]
+  },
+  "faq": {
+    "divider": "FAQ",
+    "label": "Frequently asked",
+    "items": [
+      {
+        "q": "How is this different from regular tarot?",
+        "a": "Traditional tarot plus real data. The cards point a direction (timing · potential · path); the data gives a concrete salary upside number."
+      },
+      {
+        "q": "Where does the salary data come from?",
+        "a": "Real Vietnam job-switchers from the last 24 months, broken down by role, experience, and city. If the sample is too small, no result is shown."
+      },
+      {
+        "q": "Can I trust the results?",
+        "a": "Tarot is tarot — for fun and reference. The salary data is real. But big decisions are still yours — not the 3 cards. Don't quit your job just for +28%."
+      },
+      {
+        "q": "Can I get a refund?",
+        "a": "29,000 VND ≈ one coffee. If the result wasn't helpful, email us — we refund, no questions."
+      }
+    ]
+  },
+  "disclaimer": {
+    "title": "⚠ FOR ENTERTAINMENT",
+    "body": "This is tarot. Treat it as a fun reference, not a career counselor. We're not liable if you switch jobs based on 3 cards and miss the old team's free coffee. ☕✦"
+  },
   "footer": {
     "copy": "© {year} · Hanoi, Vietnam",
     "terms": "Terms",

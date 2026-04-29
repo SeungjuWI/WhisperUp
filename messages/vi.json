@@ -47,6 +47,62 @@
       }
     }
   },
+  "social": {
+    "weeklyCount": "<n>{count}</n> người đã được lá bài đọc tuần này",
+    "ariaLabel": "Lượt sử dụng tuần này"
+  },
+  "testimonials": {
+    "divider": "Họ Đã Thử",
+    "label": "Phản hồi từ người dùng thật",
+    "items": [
+      {
+        "quote": "Lần đầu thử tarot — không ngờ trúng phóc tâm trạng đang chán việc của mình. Đến phần dữ liệu thì +24% sát với offer mình mới được. Đã đặt lịch phỏng vấn rồi 😂",
+        "name": "Nguyễn**",
+        "meta": "Nữ 27 tuổi · Marketing · TP.HCM"
+      },
+      {
+        "quote": "Engineering 5–8 năm Hà Nội → +28%. Hơi tiếc là không xem sớm hơn. Mất hơn 2 năm ở chỗ cũ vì sợ đổi việc.",
+        "name": "Trần**",
+        "meta": "Nam 31 tuổi · Engineering · Hà Nội"
+      },
+      {
+        "quote": "Vui là chính, nhưng lá bài 'môi trường khác' đúng tâm trạng đang muốn ra Hà Nội. Đáng 29.000 VND.",
+        "name": "Lê**",
+        "meta": "Nữ 24 tuổi · Design · Đà Nẵng"
+      },
+      {
+        "quote": "Bạn gái giới thiệu. Tarot không quyết định thay mình, nhưng thấy con số rồi thì tự tin hơn để đi nói chuyện với sếp.",
+        "name": "Phạm**",
+        "meta": "Nam 29 tuổi · Sales · TP.HCM"
+      }
+    ]
+  },
+  "faq": {
+    "divider": "Câu Hỏi Thường Gặp",
+    "label": "Câu hỏi thường gặp",
+    "items": [
+      {
+        "q": "Tarot này có gì khác?",
+        "a": "Tarot truyền thống + dữ liệu thực. Lá bài chỉ hướng đi (thời điểm · tiềm năng · phương hướng), dữ liệu cho con số cụ thể về mức tăng lương."
+      },
+      {
+        "q": "Dữ liệu lương lấy từ đâu?",
+        "a": "Từ người Việt thực sự đổi việc trong 24 tháng gần đây, theo vai trò + kinh nghiệm + thành phố. Mẫu không đủ thì không hiển thị kết quả."
+      },
+      {
+        "q": "Tin được kết quả không?",
+        "a": "Tarot là tarot — vui và tham khảo. Phần dữ liệu lương thì có thật. Nhưng quyết định lớn vẫn là của bạn — không phải của 3 lá bài. Đừng đổi việc chỉ vì +28% nhé."
+      },
+      {
+        "q": "Có hoàn tiền không?",
+        "a": "29.000 VND ≈ 1 ly cà phê. Nếu kết quả không hữu ích, gửi email cho chúng tôi — refund không hỏi nhiều."
+      }
+    ]
+  },
+  "disclaimer": {
+    "title": "⚠ MIỄN TRỪ TRÁCH NHIỆM",
+    "body": "Đây là tarot. Để cho vui và tham khảo. Whisper-Up không chịu trách nhiệm nếu bạn nghe lời 3 lá bài, đổi việc, rồi nhớ ly cà phê miễn phí ở công ty cũ. ☕✦"
+  },
   "footer": {
     "copy": "© {year} · Hà Nội, Việt Nam",
     "terms": "Điều Khoản",
