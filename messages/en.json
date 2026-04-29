@@ -20,9 +20,10 @@
     "subLine1": "See the direction with tarot —",
     "subLine2": "then confirm with data how much your salary could rise.",
     "subLine3": "Your secret. Nobody else knows.",
-    "freeBefore": "Tarot is",
+    "freeBefore": "Tarot + market data are ",
     "freeWord": "free",
-    "freeAfter": ". Data confirmation is just 29,000 VND.",
+    "freeAfter": ".",
+    "freePaid": "Your salary uplift + matching companies for just 29,000 VND.",
     "cta": "Start Free Now",
     "ctaNote": "Pick your cards · See results instantly · No name or email needed",
     "scroll": "SCROLL"
@@ -254,12 +255,12 @@
     "lockedLabel": "🔒 Unlock with payment",
     "lockedItems": {
       "exact": {
-        "title": "Your exact number",
-        "desc": "Personal % factoring in role × experience × city × salary"
+        "title": "Your salary increase % if you switch",
+        "desc": "A single number based on your role, years, city, and current salary (e.g., +28%)"
       },
       "position": {
-        "title": "Your position in the distribution",
-        "desc": "Top __% among same-profile job-switchers (with chart)"
+        "title": "Your rank among similar switchers",
+        "desc": "Top N% — where you stand among switchers with the same role and experience (with chart)"
       },
       "companies": {
         "title": "3–5 recommended companies",
@@ -277,6 +278,7 @@
     "priceOld": "99,000 VND",
     "priceNew": "29,000",
     "priceUnit": "VND",
+    "priceCompare": "About the price of a coffee",
     "cta": "Unlock Full Result — 29,000 VND →",
     "note": "Secure payment · Instant unlock · Powered by LikeLion's Vietnam recruitment data"
   },

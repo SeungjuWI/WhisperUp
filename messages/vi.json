@@ -20,9 +20,10 @@
     "subLine1": "Xem hướng đi qua tarot —",
     "subLine2": "rồi xác nhận bằng dữ liệu mức lương có thể tăng bao nhiêu.",
     "subLine3": "Bí mật của bạn. Không ai khác biết.",
-    "freeBefore": "Tarot là",
+    "freeBefore": "Tarot + dữ liệu thị trường đều ",
     "freeWord": "miễn phí",
-    "freeAfter": ". Xác nhận bằng dữ liệu chỉ 29.000 VND.",
+    "freeAfter": ".",
+    "freePaid": "Mức tăng lương + công ty phù hợp chỉ 29.000 VND.",
     "cta": "Bắt Đầu Miễn Phí Ngay",
     "ctaNote": "Chọn lá bài · Xem kết quả ngay · Không cần tên hay email",
     "scroll": "CUỘN"
@@ -254,12 +255,12 @@
     "lockedLabel": "🔒 Mở khóa bằng thanh toán",
     "lockedItems": {
       "exact": {
-        "title": "Con số chính xác của bạn",
-        "desc": "% cá nhân tính theo vai trò × kinh nghiệm × thành phố × lương"
+        "title": "% tăng lương của bạn nếu chuyển việc",
+        "desc": "Một con số duy nhất dựa trên vai trò, kinh nghiệm, thành phố và lương hiện tại (ví dụ: +28%)"
       },
       "position": {
-        "title": "Vị trí của bạn trong phân phối",
-        "desc": "Top __% trong những người cùng hồ sơ đã đổi việc (kèm biểu đồ)"
+        "title": "Thứ hạng của bạn so với người cùng hồ sơ",
+        "desc": "Top N% — bạn đứng ở đâu giữa những người cùng vai trò, kinh nghiệm đã chuyển việc (kèm biểu đồ)"
       },
       "companies": {
         "title": "3–5 công ty được gợi ý",
@@ -277,6 +278,7 @@
     "priceOld": "99.000 VND",
     "priceNew": "29.000",
     "priceUnit": "VND",
+    "priceCompare": "Chỉ bằng một ly cà phê",
     "cta": "Mở Khóa Toàn Bộ Kết Quả — 29.000 VND →",
     "note": "Thanh toán an toàn · Mở khóa ngay · Dữ liệu tuyển dụng Việt Nam của LikeLion"
   },

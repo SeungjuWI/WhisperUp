@@ -87,14 +87,17 @@ export default function Hero() {
       />
 
       <div
-        className="mb-8 inline-block text-[0.75rem] tracking-[0.08em] text-[var(--muted)]"
+        className="mb-8 text-[0.75rem] leading-[1.9] tracking-[0.08em] text-[var(--muted)]"
         style={{ animation: 'fadeUp 0.8s 0.3s ease both' }}
       >
-        {t('freeBefore')}{' '}
-        <span className="border-b border-[rgba(42,157,143,0.3)] font-medium text-teal">
-          {t('freeWord')}
-        </span>
-        {t('freeAfter')}
+        <div>
+          {t('freeBefore')}
+          <span className="border-b border-[rgba(42,157,143,0.3)] font-medium text-teal">
+            {t('freeWord')}
+          </span>
+          {t('freeAfter')}
+        </div>
+        <div>{t('freePaid')}</div>
       </div>
 
       <Link

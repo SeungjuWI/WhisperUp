@@ -128,12 +128,15 @@ export default function TeaserResult() {
           className="absolute left-0 right-0 top-0 h-px"
           style={{ background: 'linear-gradient(90deg, transparent, var(--gold), transparent)' }}
         />
-        <div className="mb-3 inline-flex items-baseline gap-2">
+        <div className="mb-1 inline-flex items-baseline gap-2">
           <span className="text-[0.85rem] text-[rgba(245,240,232,0.3)] line-through">
             {t('priceOld')}
           </span>
           <span className="font-serif text-[1.6rem] font-semibold text-gold">{t('priceNew')}</span>
           <span className="text-[0.8rem] text-[rgba(245,240,232,0.4)]">{t('priceUnit')}</span>
+        </div>
+        <div className="mb-4 text-[0.72rem] tracking-[0.05em] text-[rgba(245,240,232,0.55)]">
+          ☕ {t('priceCompare')}
         </div>
         <button
           type="button"
