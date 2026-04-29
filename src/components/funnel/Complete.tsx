@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
 import { useFunnelStore } from '@/store/funnel-store';
 
 export default function Complete() {
@@ -50,6 +51,12 @@ export default function Complete() {
       >
         {t('share')}
       </button>
+      <Link
+        href="/"
+        className="mt-3 inline-block text-[0.72rem] tracking-[0.1em] text-[rgba(245,240,232,0.4)] transition-colors hover:text-gold"
+      >
+        {t('startOver')}
+      </Link>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { getTranslations } from 'next-intl/server';
+import { Link } from '@/i18n/routing';
 
 export default async function Footer() {
   const t = await getTranslations('footer');
@@ -6,7 +7,12 @@ export default async function Footer() {
 
   return (
     <footer className="relative z-[2] flex flex-wrap items-center justify-between gap-4 border-t border-[rgba(201,168,76,0.15)] px-10 py-8 text-[0.7rem] tracking-[0.04em] text-[var(--muted)]">
-      <div className="font-serif font-semibold tracking-[0.1em]">Whisper-Up</div>
+      <Link
+        href="/"
+        className="font-serif font-semibold tracking-[0.1em] text-[var(--text)] transition-colors hover:text-gold"
+      >
+        Whisper-Up
+      </Link>
       <div>
         {t('copy', { year })} ·{' '}
         <a href="#" className="text-[var(--muted)] hover:text-[var(--text)]">

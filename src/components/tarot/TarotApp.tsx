@@ -40,7 +40,7 @@ export default function TarotApp() {
       <div className="relative z-10 flex items-center justify-between px-6 pt-6">
         <Link
           href="/"
-          className="font-serif text-[0.7rem] tracking-[0.15em] text-[rgba(245,240,232,0.4)] transition-colors hover:text-gold"
+          className="inline-flex items-center gap-2 border border-[rgba(201,168,76,0.25)] bg-[rgba(245,240,232,0.04)] px-3 py-1.5 font-serif text-[0.7rem] tracking-[0.15em] text-[rgba(245,240,232,0.7)] transition-all hover:border-gold hover:bg-[rgba(201,168,76,0.08)] hover:text-gold"
         >
           {t('back')}
         </Link>
