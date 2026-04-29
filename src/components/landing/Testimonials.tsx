@@ -14,7 +14,7 @@ export default async function Testimonials() {
   const items = t.raw('items') as readonly Testimonial[];
 
   return (
-    <section className="relative z-[2] mx-auto max-w-[900px] px-6 py-16">
+    <section className="relative z-[2] mx-auto max-w-[960px] px-6 py-16 sm:px-10">
       <div className="mb-8 text-center font-serif text-[0.68rem] tracking-[0.2em] text-gold">
         {t('label')}
       </div>

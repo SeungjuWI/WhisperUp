@@ -31,7 +31,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative z-[2] flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pb-16 pt-20 text-center">
+    <section className="relative z-[2] flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pb-16 pt-20 text-center sm:px-10">
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         {stars.map((s, i) => (
           <span

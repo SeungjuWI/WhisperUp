@@ -26,11 +26,11 @@ export default function SocialProofBar() {
 
   return (
     <div
-      className="relative z-[3] border-b border-[rgba(201,168,76,0.18)] bg-[rgba(201,168,76,0.05)] px-6 py-4"
+      className="relative z-[3] border-b border-[rgba(201,168,76,0.18)] bg-[rgba(201,168,76,0.05)]"
       aria-label={t('ariaLabel')}
       aria-live="polite"
     >
-      <div className="mx-auto flex max-w-[900px] flex-wrap items-center justify-center gap-3">
+      <div className="mx-auto flex max-w-[960px] flex-wrap items-center justify-center gap-3 px-6 py-4 sm:px-10">
         <span
           aria-hidden
           className="h-1.5 w-1.5 rounded-full bg-gold"
