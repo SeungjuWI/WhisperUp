@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* WhisperUp brand tokens — DO NOT change values, only extend */
+  --ink: #0e0c18;
+  --paper: #f5f0e8;
+  --gold: #c9a84c;
+  --gold2: #e8c96a;
+  --mystic: #7c5cbf;
+  --teal: #2a9d8f;
+
+  /* Font stacks bind next/font CSS variables to spec-named tokens */
+  --serif: var(--font-cinzel), 'Cinzel', serif;
+  --sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
