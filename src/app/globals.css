@@ -188,6 +188,12 @@ body {
   transform: rotateY(180deg);
 }
 
+/* Native <select> options on the dark tarot panel — Firefox & Chromium honor this. */
+.dark-select option {
+  background: var(--ink);
+  color: var(--paper);
+}
+
 /* Respect reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   *,
