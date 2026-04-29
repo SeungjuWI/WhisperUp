@@ -3,6 +3,7 @@
 import { useFunnelStore } from '@/store/funnel-store';
 import { Link } from '@/i18n/routing';
 import TopicSelect from './TopicSelect';
+import CardDeck from './CardDeck';
 
 export default function TarotApp() {
   const currentStep = useFunnelStore((s) => s.currentStep);
@@ -36,7 +37,7 @@ export default function TarotApp() {
 
           <div className="relative">
             {currentStep === 0 && <TopicSelect />}
-            {currentStep === 1 && <StepPlaceholder step={1} />}
+            {currentStep === 1 && <CardDeck />}
             {currentStep === 2 && <StepPlaceholder step={2} />}
             {currentStep === 3 && <StepPlaceholder step={3} />}
             {currentStep === 4 && <StepPlaceholder step={4} />}
