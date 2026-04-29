@@ -4,6 +4,7 @@ import Hero from '@/components/landing/Hero';
 import HowItWorks from '@/components/landing/HowItWorks';
 import Footer from '@/components/landing/Footer';
 import OrnamentDivider from '@/components/ui/OrnamentDivider';
+import FunnelReset from '@/components/funnel/FunnelReset';
 
 export default async function HomePage({
   params,
@@ -15,6 +16,7 @@ export default async function HomePage({
 
   return (
     <div className="landing-bg relative">
+      <FunnelReset />
       <div className="page-frame" aria-hidden />
       <Nav />
       <Hero />
