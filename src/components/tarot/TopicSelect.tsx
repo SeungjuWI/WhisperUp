@@ -15,7 +15,11 @@ export default function TopicSelect() {
   const topic = useFunnelStore((s) => s.topic);
   const setTopic = useFunnelStore((s) => s.setTopic);
   const setStep = useFunnelStore((s) => s.setStep);
-  const canAdvance = topic !== null;
+
+  const handleSelect = (id: Topic) => {
+    setTopic(id);
+    setStep(1);
+  };
 
   return (
     <section style={{ animation: 'fadeUp 0.5s ease both' }}>
@@ -29,7 +33,7 @@ export default function TopicSelect() {
       <div
         role="radiogroup"
         aria-label={t('ariaGroup')}
-        className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-3"
+        className="grid grid-cols-1 gap-3 sm:grid-cols-3"
       >
         {TOPIC_IDS.map(({ id, icon }) => {
           const selected = topic === id;
@@ -39,7 +43,7 @@ export default function TopicSelect() {
               type="button"
               role="radio"
               aria-checked={selected}
-              onClick={() => setTopic(id)}
+              onClick={() => handleSelect(id)}
               className={`border px-3 py-3.5 text-center transition-all duration-200 ${
                 selected
                   ? 'border-gold bg-[rgba(201,168,76,0.12)]'
@@ -56,19 +60,6 @@ export default function TopicSelect() {
           );
         })}
       </div>
-
-      <button
-        type="button"
-        disabled={!canAdvance}
-        onClick={() => setStep(1)}
-        className={`w-full border bg-ink px-8 py-3 font-serif text-[0.82rem] font-semibold tracking-[0.1em] text-gold2 transition-all duration-200 ${
-          canAdvance
-            ? 'cursor-pointer border-[rgba(201,168,76,0.4)] hover:border-gold hover:bg-[rgba(201,168,76,0.1)]'
-            : 'cursor-not-allowed border-[rgba(201,168,76,0.2)] opacity-40'
-        }`}
-      >
-        {t('cta')}
-      </button>
     </section>
   );
 }

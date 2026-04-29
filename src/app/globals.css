@@ -192,6 +192,19 @@ body {
   transform: rotateY(180deg);
 }
 
+/* Reveal choreography: when the deck enters the fading phase, the cards the
+   user did NOT pick fade out and shrink in place. They keep their flex slot
+   so the chosen cards don't jump — the layout reflow happens in the next
+   phase, where a FLIP animation slides chosen cards to the centered row. */
+.deck-grid[data-phase='fading'] .tarot-card-btn[data-flipped='false'] {
+  opacity: 0;
+  transform: scale(0.7);
+  pointer-events: none;
+}
+.deck-grid .tarot-card-btn {
+  transition: opacity 350ms ease, transform 350ms ease;
+}
+
 /* Native <select> options on the dark tarot panel — Firefox & Chromium honor this. */
 .dark-select option {
   background: var(--ink);

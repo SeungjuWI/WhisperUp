@@ -19,6 +19,7 @@ export default function TarotCard({ card, flipped, disabled, onFlip }: Props) {
     <button
       type="button"
       data-flipped={flipped}
+      data-card-id={card.id}
       disabled={disabled}
       onClick={() => onFlip(card)}
       className="tarot-card-btn"

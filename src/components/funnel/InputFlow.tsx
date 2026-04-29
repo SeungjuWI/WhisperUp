@@ -67,12 +67,14 @@ export default function InputFlow() {
     label: t(`input.city.options.${v}`),
   }));
 
-  const advance = async () => {
-    if (subStep < 3) {
-      setSubStep(((subStep as number) + 1) as SubStep);
+  // Run the teaser calc + transition. Reads the latest store snapshot so it
+  // works when called immediately after a setter (closure may still hold the
+  // pre-click value).
+  const runAnalysis = async () => {
+    const snapshot = useFunnelStore.getState();
+    if (!snapshot.field || !snapshot.years || !snapshot.city || snapshot.salary === null) {
       return;
     }
-    if (!field || !years || !city || salary === null) return;
 
     showLoading(t('loading.analyzing'));
 
@@ -82,7 +84,7 @@ export default function InputFlow() {
     const calc = fetch('/api/calculate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ tier: 'teaser', field }),
+      body: JSON.stringify({ tier: 'teaser', field: snapshot.field }),
     })
       .then((r) =>
         r.ok
@@ -103,6 +105,23 @@ export default function InputFlow() {
     hideLoading();
   };
 
+  const chooseField = (value: Field) => {
+    setField(value);
+    setSubStep(1);
+  };
+  const chooseYears = (value: Years) => {
+    setYears(value);
+    setSubStep(2);
+  };
+  const chooseCity = (value: City) => {
+    setCity(value);
+    setSubStep(3);
+  };
+  const chooseSalary = (value: number) => {
+    setSalary(value);
+    void runAnalysis();
+  };
+
   return (
     <section style={{ animation: 'fadeUp 0.5s ease both' }}>
       <ProgressDots total={TOTAL_STEPS} current={subStep} />
@@ -113,9 +132,7 @@ export default function InputFlow() {
           subtitle={t('input.field.subtitle')}
           options={fieldOptions}
           selected={field}
-          onSelect={setField}
-          onNext={advance}
-          nextLabel={t('input.next')}
+          onChoose={chooseField}
         />
       )}
       {subStep === 1 && (
@@ -124,9 +141,7 @@ export default function InputFlow() {
           subtitle={t('input.years.subtitle')}
           options={yearsOptions}
           selected={years}
-          onSelect={setYears}
-          onNext={advance}
-          nextLabel={t('input.next')}
+          onChoose={chooseYears}
         />
       )}
       {subStep === 2 && (
@@ -135,13 +150,11 @@ export default function InputFlow() {
           subtitle={t('input.city.subtitle')}
           options={cityOptions}
           selected={city}
-          onSelect={setCity}
-          onNext={advance}
-          nextLabel={t('input.next')}
+          onChoose={chooseCity}
         />
       )}
       {subStep === 3 && (
-        <SalaryStep selected={salary} onSelect={setSalary} onNext={advance} />
+        <SalaryStep selected={salary} onChoose={chooseSalary} />
       )}
     </section>
   );
@@ -149,15 +162,12 @@ export default function InputFlow() {
 
 function SalaryStep({
   selected,
-  onSelect,
-  onNext,
+  onChoose,
 }: {
   selected: number | null;
-  onSelect: (value: number) => void;
-  onNext: () => void;
+  onChoose: (value: number) => void;
 }) {
   const t = useTranslations('input.salary');
-  const canAdvance = selected !== null;
 
   return (
     <div style={{ animation: 'fadeUp 0.5s ease both' }}>
@@ -169,9 +179,12 @@ function SalaryStep({
       </p>
       <select
         value={selected ?? ''}
-        onChange={(e) => onSelect(Number(e.target.value))}
+        onChange={(e) => {
+          const v = Number(e.target.value);
+          if (Number.isFinite(v)) onChoose(v);
+        }}
         aria-label={t('ariaLabel')}
-        className="dark-select mb-5 w-full border border-[rgba(201,168,76,0.2)] bg-[rgba(245,240,232,0.05)] px-4 py-3 text-[0.85rem] text-paper outline-none transition-colors focus:border-gold"
+        className="dark-select w-full border border-[rgba(201,168,76,0.2)] bg-[rgba(245,240,232,0.05)] px-4 py-3 text-[0.85rem] text-paper outline-none transition-colors focus:border-gold"
       >
         <option value="" disabled>
           {t('placeholder')}
@@ -182,18 +195,6 @@ function SalaryStep({
           </option>
         ))}
       </select>
-      <button
-        type="button"
-        disabled={!canAdvance}
-        onClick={onNext}
-        className={`w-full border bg-ink px-8 py-3 font-serif text-[0.82rem] font-semibold tracking-[0.1em] text-gold2 transition-all duration-200 ${
-          canAdvance
-            ? 'cursor-pointer border-[rgba(201,168,76,0.4)] hover:border-gold hover:bg-[rgba(201,168,76,0.1)]'
-            : 'cursor-not-allowed border-[rgba(201,168,76,0.2)] opacity-40'
-        }`}
-      >
-        {t('cta')}
-      </button>
     </div>
   );
 }
