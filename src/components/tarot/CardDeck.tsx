@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useFunnelStore } from '@/store/funnel-store';
-import { CARDS, MAX_CARDS } from '@/lib/tarot-data';
+import { CARDS, MAX_CARDS, READINGS } from '@/lib/tarot-data';
 import type { TarotCard as TarotCardType, Topic } from '@/types';
 import TarotCard from './TarotCard';
 
@@ -11,6 +11,8 @@ const QUESTION_LABELS: Record<Topic, string> = {
   potential: 'Will things get better?',
   direction: 'Which direction?',
 };
+
+const READING_DELAY_MS = 1800;
 
 function shuffle<T>(arr: readonly T[]): T[] {
   const out = [...arr];
@@ -23,9 +25,13 @@ function shuffle<T>(arr: readonly T[]): T[] {
 
 export default function CardDeck() {
   const topic = useFunnelStore((s) => s.topic);
+  const reading = useFunnelStore((s) => s.reading);
   const selectedCards = useFunnelStore((s) => s.selectedCards);
   const selectCard = useFunnelStore((s) => s.selectCard);
   const setStep = useFunnelStore((s) => s.setStep);
+  const setReading = useFunnelStore((s) => s.setReading);
+  const showLoading = useFunnelStore((s) => s.showLoading);
+  const hideLoading = useFunnelStore((s) => s.hideLoading);
 
   // Shuffle order is generated client-side to avoid hydration mismatch
   // (Math.random differs between server and client). Initial render shows
@@ -40,6 +46,20 @@ export default function CardDeck() {
 
   const isFlipped = (card: TarotCardType) =>
     selectedCards.some((c) => c.name === card.name);
+
+  const handleAdvance = () => {
+    if (!topic || !allSelected) return;
+    showLoading('Reading your cards...');
+    window.setTimeout(() => {
+      if (!reading) {
+        const opts = READINGS[topic];
+        const pick = opts[Math.floor(Math.random() * opts.length)];
+        setReading(pick);
+      }
+      setStep(2);
+      hideLoading();
+    }, READING_DELAY_MS);
+  };
 
   return (
     <section style={{ animation: 'fadeUp 0.5s ease both' }}>
@@ -75,7 +95,7 @@ export default function CardDeck() {
       <button
         type="button"
         disabled={!allSelected}
-        onClick={() => setStep(2)}
+        onClick={handleAdvance}
         className={`w-full border bg-ink px-8 py-3 font-serif text-[0.82rem] font-semibold tracking-[0.1em] text-gold2 transition-all duration-200 ${
           allSelected
             ? 'cursor-pointer border-[rgba(201,168,76,0.4)] hover:border-gold hover:bg-[rgba(201,168,76,0.1)]'

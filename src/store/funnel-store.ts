@@ -10,6 +10,8 @@ import type {
   Years,
 } from '@/types';
 
+type LoadingState = { active: boolean; text: string };
+
 type FunnelState = {
   topic: Topic | null;
   selectedCards: TarotCard[];
@@ -22,6 +24,7 @@ type FunnelState = {
   resultPct: number | null;
   leadSubmitted: boolean;
   currentStep: FunnelStep;
+  loading: LoadingState;
 };
 
 type FunnelActions = {
@@ -36,6 +39,8 @@ type FunnelActions = {
   setResult: (pct: number) => void;
   markLeadSubmitted: () => void;
   setStep: (step: FunnelStep) => void;
+  showLoading: (text: string) => void;
+  hideLoading: () => void;
   reset: () => void;
 };
 
@@ -51,6 +56,7 @@ const initialState: FunnelState = {
   resultPct: null,
   leadSubmitted: false,
   currentStep: 0,
+  loading: { active: false, text: '' },
 };
 
 export const useFunnelStore = create<FunnelState & FunnelActions>()(
@@ -77,6 +83,9 @@ export const useFunnelStore = create<FunnelState & FunnelActions>()(
       setResult: (resultPct) => set({ resultPct }, false, 'setResult'),
       markLeadSubmitted: () => set({ leadSubmitted: true }, false, 'markLeadSubmitted'),
       setStep: (currentStep) => set({ currentStep }, false, 'setStep'),
+      showLoading: (text) => set({ loading: { active: true, text } }, false, 'showLoading'),
+      hideLoading: () =>
+        set({ loading: { active: false, text: '' } }, false, 'hideLoading'),
       reset: () => set(initialState, false, 'reset'),
     }),
     { name: 'funnel-store' },

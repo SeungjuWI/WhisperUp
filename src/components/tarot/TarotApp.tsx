@@ -2,11 +2,14 @@
 
 import { useFunnelStore } from '@/store/funnel-store';
 import { Link } from '@/i18n/routing';
+import LoadingOverlay from '@/components/ui/LoadingOverlay';
 import TopicSelect from './TopicSelect';
 import CardDeck from './CardDeck';
+import TarotResult from './TarotResult';
 
 export default function TarotApp() {
   const currentStep = useFunnelStore((s) => s.currentStep);
+  const loading = useFunnelStore((s) => s.loading);
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-ink">
@@ -38,11 +41,12 @@ export default function TarotApp() {
           <div className="relative">
             {currentStep === 0 && <TopicSelect />}
             {currentStep === 1 && <CardDeck />}
-            {currentStep === 2 && <StepPlaceholder step={2} />}
+            {currentStep === 2 && <TarotResult />}
             {currentStep === 3 && <StepPlaceholder step={3} />}
             {currentStep === 4 && <StepPlaceholder step={4} />}
             {currentStep === 5 && <StepPlaceholder step={5} />}
           </div>
+          <LoadingOverlay active={loading.active} text={loading.text} />
         </div>
       </div>
     </main>
