@@ -1,8 +1,9 @@
 import type { TarotCard } from '@/types';
 
-// Card identity = stable id + universal symbol. Translatable name + meaning
-// live in messages/*.json under tarot.cards.{id}.{name|meaning}. Tarot reading
-// variants live under tarot.readings.{topic} (array of HTML-emphasis strings).
+// Card identity = stable id + universal symbol. Translatable name, one-line
+// meaning, and slot-specific interpretations (situation/energy/outcome) live
+// in messages/*.json under tarot.cards.{id}.{name|meaning|interpretations.*}.
+// Topic-level closing copy lives under tarot.result.synthesis.{topic}.
 export const CARDS: readonly TarotCard[] = [
   { id: 'tower', symbol: '⚡' },
   { id: 'wheel', symbol: '☸️' },

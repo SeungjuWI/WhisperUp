@@ -22,11 +22,9 @@ export default function CardDeck() {
   const t = useTranslations();
 
   const topic = useFunnelStore((s) => s.topic);
-  const reading = useFunnelStore((s) => s.reading);
   const selectedCards = useFunnelStore((s) => s.selectedCards);
   const selectCard = useFunnelStore((s) => s.selectCard);
   const setStep = useFunnelStore((s) => s.setStep);
-  const setReading = useFunnelStore((s) => s.setReading);
   const showLoading = useFunnelStore((s) => s.showLoading);
   const hideLoading = useFunnelStore((s) => s.hideLoading);
 
@@ -48,11 +46,6 @@ export default function CardDeck() {
     if (!topic || !allSelected) return;
     showLoading(t('loading.reading'));
     window.setTimeout(() => {
-      if (!reading) {
-        const variants = t.raw(`tarot.readings.${topic}`) as readonly string[];
-        const pick = variants[Math.floor(Math.random() * variants.length)];
-        setReading(pick);
-      }
       setStep(2);
       hideLoading();
     }, READING_DELAY_MS);

@@ -21,7 +21,6 @@ type TeaserData = {
 type FunnelState = {
   topic: Topic | null;
   selectedCards: TarotCard[];
-  reading: string | null;
   isPaid: boolean;
   field: Field | null;
   years: Years | null;
@@ -45,7 +44,6 @@ type FunnelState = {
 type FunnelActions = {
   setTopic: (topic: Topic) => void;
   selectCard: (card: TarotCard) => void;
-  setReading: (reading: string) => void;
   markPaid: () => void;
   setField: (field: Field) => void;
   setYears: (years: Years) => void;
@@ -63,7 +61,6 @@ type FunnelActions = {
 const initialState: FunnelState = {
   topic: null,
   selectedCards: [],
-  reading: null,
   isPaid: false,
   field: null,
   years: null,
@@ -94,7 +91,6 @@ export const useFunnelStore = create<FunnelState & FunnelActions>()(
           false,
           'selectCard',
         ),
-      setReading: (reading) => set({ reading }, false, 'setReading'),
       markPaid: () => set({ isPaid: true }, false, 'markPaid'),
       setField: (field) => set({ field }, false, 'setField'),
       setYears: (years) => set({ years }, false, 'setYears'),

@@ -3,11 +3,12 @@
 import { useTranslations } from 'next-intl';
 import { useFunnelStore } from '@/store/funnel-store';
 
+const SLOT_KEYS = ['situation', 'energy', 'outcome'] as const;
+
 export default function TarotResult() {
   const t = useTranslations('tarot');
   const topic = useFunnelStore((s) => s.topic);
   const selectedCards = useFunnelStore((s) => s.selectedCards);
-  const reading = useFunnelStore((s) => s.reading);
   const setStep = useFunnelStore((s) => s.setStep);
 
   const heading = topic
@@ -42,14 +43,37 @@ export default function TarotResult() {
             </div>
           ))}
         </div>
-        {reading && (
-          // Reading text comes from messages/*.json (author-controlled), so
-          // dangerouslySetInnerHTML is safe. <em> recolored gold, <strong> paper.
-          <div
-            className="border-t border-[rgba(201,168,76,0.12)] pt-4 text-[0.82rem] leading-[1.85] text-[rgba(245,240,232,0.7)] [&_em]:not-italic [&_em]:text-gold [&_strong]:font-medium [&_strong]:text-paper"
-            dangerouslySetInnerHTML={{ __html: reading }}
-          />
-        )}
+
+        <div className="space-y-4 border-t border-[rgba(201,168,76,0.12)] pt-4">
+          {selectedCards.map((card, i) => {
+            const slot = SLOT_KEYS[i];
+            if (!slot) return null;
+            return (
+              <div key={card.id}>
+                <div className="mb-1 font-serif text-[0.65rem] tracking-[0.18em] text-[rgba(201,168,76,0.7)]">
+                  {t(`result.positions.${i}`)} · {t(`cards.${card.id}.name`)}
+                </div>
+                {/* Interpretation copy comes from messages/*.json (author-controlled),
+                    so dangerouslySetInnerHTML is safe. t.raw() bypasses next-intl's
+                    rich-text parsing of <em>/<strong>. <em> recolored gold, <strong> paper. */}
+                <p
+                  className="text-[0.82rem] leading-[1.8] text-[rgba(245,240,232,0.7)] [&_em]:not-italic [&_em]:text-gold [&_strong]:font-medium [&_strong]:text-paper"
+                  dangerouslySetInnerHTML={{
+                    __html: t.raw(`cards.${card.id}.interpretations.${slot}`) as string,
+                  }}
+                />
+              </div>
+            );
+          })}
+          {topic && (
+            <p
+              className="border-t border-[rgba(201,168,76,0.12)] pt-4 text-[0.82rem] leading-[1.85] text-[rgba(245,240,232,0.75)] [&_em]:not-italic [&_em]:text-gold [&_strong]:font-medium [&_strong]:text-paper"
+              dangerouslySetInnerHTML={{
+                __html: t.raw(`result.synthesis.${topic}`) as string,
+              }}
+            />
+          )}
+        </div>
       </div>
 
       <button

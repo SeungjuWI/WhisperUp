@@ -152,39 +152,123 @@
         "1": "Năng Lượng Cốt Lõi",
         "2": "Kết Quả"
       },
+      "synthesis": {
+        "timing": "Cả ba lá cùng cho thấy — <em>nhịp của dòng chảy hiện tại</em>. Dùng thời điểm mà lá bài chỉ ra như thế nào, cuối cùng vẫn là <strong>lựa chọn của bạn</strong>.",
+        "potential": "Cả ba lá soi chung — <em>tiềm năng đang ngủ trong bạn</em>. Tiếp theo là phần dữ liệu thêm <strong>con số cụ thể</strong> cho tiềm năng đó.",
+        "direction": "Đường nét chung của ba lá — <em>hình dáng của môi trường phù hợp với bạn</em>. Tìm hình dáng đó ở đâu là <strong>câu hỏi tiếp theo</strong>."
+      },
       "softCta": "Xác Nhận Bằng Dữ Liệu →",
       "softCtaNote": "Miễn phí — chia sẻ vai trò, kinh nghiệm, thành phố, lương"
     },
     "cards": {
-      "tower": { "name": "Tòa Tháp", "meaning": "Cần một sự thay đổi đột ngột" },
-      "wheel": { "name": "Bánh Xe", "meaning": "Bước ngoặt đã đến" },
-      "star": { "name": "Ngôi Sao", "meaning": "Hy vọng mới đang chờ phía trước" },
-      "world": { "name": "Thế Giới", "meaning": "Hoàn thành và một khởi đầu mới" },
-      "fool": { "name": "Kẻ Khờ", "meaning": "Tiến lên không sợ hãi" },
-      "hermit": { "name": "Ẩn Sĩ", "meaning": "Câu trả lời đã ở trong bạn" },
-      "sun": { "name": "Mặt Trời", "meaning": "Một kết quả tươi sáng đang chờ" },
-      "moon": { "name": "Mặt Trăng", "meaning": "Không chắc chắn, nhưng hãy tiếp tục" },
-      "emperor": { "name": "Hoàng Đế", "meaning": "Thời điểm phát triển ổn định" },
-      "chariot": { "name": "Cỗ Xe", "meaning": "Ý chí của bạn có thể vượt qua" },
-      "strength": { "name": "Sức Mạnh", "meaning": "Tin vào sức mạnh nội tại" },
-      "priestess": { "name": "Nữ Tư Tế Tối Cao", "meaning": "Theo trực giác" }
-    },
-    "readings": {
-      "timing": [
-        "Lá bài nói rằng <em>thời điểm thay đổi đang đến gần.</em> Nếu sự do dự đến từ nỗi sợ, lá bài cho thấy nỗi sợ đó đã lỗi thời. <strong>Không hành động bây giờ là bỏ lỡ dòng chảy này.</strong>",
-        "Cả ba lá bài chỉ về một <em>bước ngoặt.</em> Đây không phải lúc để chờ. Bạn đã biết câu trả lời trong lòng — chỉ cần sự tự tin. <strong>Lá bài nói bạn đã sẵn sàng.</strong>",
-        "Có năng lượng mạnh muốn thay đổi ở đây. Nhưng hướng đi chưa rõ ràng hoàn toàn. <em>Thay vì ngay bây giờ, bắt đầu chuẩn bị cụ thể trong 3 tháng tới</em> có vẻ phù hợp."
-      ],
-      "potential": [
-        "<em>Một môi trường tốt hơn đang chờ bạn.</em> Lá bài nói vị trí hiện tại không phải giới hạn của bạn. Ở lại có thể đang chặn đường phát triển. <strong>Đổi việc không phải rủi ro — đó là bước tiếp theo tự nhiên.</strong>",
-        "Cả ba lá bài chỉ về <em>tiềm năng phát triển.</em> Những điều bạn lo — liệu có làm được không, có đúng nơi không — lá bài dường như đã buông bỏ những câu hỏi đó. <strong>Tiềm năng chắc chắn có ở đó.</strong>",
-        "Lá bài nói bạn đang bị đánh giá thấp. <em>Thị trường sẵn sàng đánh giá năng lực bạn cao hơn.</em> Chuyển đi không phải canh bạc — đó là một sự đánh giá lại công bằng."
-      ],
-      "direction": [
-        "<em>Một môi trường khác</em> có thể giúp bạn tỏa sáng hơn. Hướng mà lá bài chỉ tới ưu tiên phát triển hơn quy mô, tự chủ hơn ổn định. <strong>Một công ty đầu tư nước ngoài hoặc tổ chức tăng trưởng nhanh phù hợp với năng lượng của bạn.</strong>",
-        "Ba lá bài cùng nhau cho thấy <em>tiềm năng lãnh đạo.</em> Chuyển đến nơi bạn có vai trò lớn hơn là đúng. Tìm vị trí có <strong>nhiều quyền hạn và ảnh hưởng hơn</strong> thay vì chỉ chức danh cao hơn.",
-        "Lá bài chỉ về <em>đào sâu chuyên môn.</em> Lúc này bạn cần một chuyên ngành sâu hơn là kinh nghiệm rộng. <strong>Tìm môi trường nơi chuyên môn đó được thể hiện tốt nhất</strong> — đó là bước tiếp theo của bạn."
-      ]
+      "tower": {
+        "name": "Tòa Tháp",
+        "meaning": "Cần một sự thay đổi đột ngột",
+        "interpretations": {
+          "situation": "Một thứ quen thuộc <em>đã đang lung lay rồi</em>. Cái có vẻ ổn định thực ra đang đổ vỡ.",
+          "energy": "Năng lượng của cú sốc bên ngoài — phá hay bị phá, <em>thay đổi sẽ đến bằng cách này hay cách khác</em>.",
+          "outcome": "Sau khi cấu trúc cũ vỡ, <em>một con đường vững hơn nhiều</em> hiện ra. Sụp đổ không phải kết thúc mà là dọn dẹp."
+        }
+      },
+      "wheel": {
+        "name": "Bánh Xe",
+        "meaning": "Bước ngoặt đã đến",
+        "interpretations": {
+          "situation": "Bạn đang ở giữa <em>một dòng chảy đang chuyển</em>. Vận hôm qua và vận hôm nay không còn giống nhau.",
+          "energy": "Thời điểm vận mệnh đang vận hành. <em>Đọc dòng chảy thay vì đẩy nó</em> sẽ nhanh hơn.",
+          "outcome": "Một chu kỳ mới bắt đầu. Thứ bị nghẽn lâu nay <em>được tháo gỡ nhanh hơn dự đoán</em>."
+        }
+      },
+      "star": {
+        "name": "Ngôi Sao",
+        "meaning": "Hy vọng mới đang chờ phía trước",
+        "interpretations": {
+          "situation": "Cuối của một giai đoạn tăm tối — <em>một tia sáng nhỏ đã len vào rồi</em>.",
+          "energy": "Năng lượng của hồi phục và cảm hứng. Mạnh nhất khi <em>niềm tin không lung lay</em>.",
+          "outcome": "Khả năng tưởng xa <em>thực sự nằm trong tay bạn</em>. Một sự đến nơi yên bình."
+        }
+      },
+      "world": {
+        "name": "Thế Giới",
+        "meaning": "Hoàn thành và một khởi đầu mới",
+        "interpretations": {
+          "situation": "Một chương gần khép lại. <em>Tại vị trí hiện tại gần như không còn gì để học thêm</em>.",
+          "energy": "Năng lượng của tích hợp và khép vòng — <em>phải dọn những điều đã hoãn</em> thì sân khấu tiếp theo mới mở.",
+          "outcome": "Cùng lúc với việc hoàn tất một chu kỳ là <em>bước vào một sân khấu lớn hơn</em>. Kết thúc và khởi đầu đồng thời."
+        }
+      },
+      "fool": {
+        "name": "Kẻ Khờ",
+        "meaning": "Tiến lên không sợ hãi",
+        "interpretations": {
+          "situation": "Trong sâu thẳm <em>một thôi thúc bắt đầu lại</em> còn sống. Dù chưa thành hình.",
+          "energy": "Năng lượng của sự nhẹ nhõm và phiêu lưu. <em>Bước chân đầu tiên thắng kế hoạch hoàn hảo</em>.",
+          "outcome": "Lựa chọn nhìn liều lĩnh lại <em>diễn ra trơn tru hơn dự đoán</em>. Con đường mới ra đón bạn."
+        }
+      },
+      "hermit": {
+        "name": "Ẩn Sĩ",
+        "meaning": "Câu trả lời đã ở trong bạn",
+        "interpretations": {
+          "situation": "Bạn đang tìm câu trả lời ở bên ngoài — nhưng <em>câu trả lời đã rung lên bên trong</em>.",
+          "energy": "Thời kỳ tĩnh lặng và tự soi xét. <em>Ngọn đèn của chính bạn sáng hơn lời khuyên của người khác</em>.",
+          "outcome": "Sự rõ ràng sâu sắc đến. Tiêu chuẩn quyết định <em>trở thành hoàn toàn của riêng bạn</em>."
+        }
+      },
+      "sun": {
+        "name": "Mặt Trời",
+        "meaning": "Một kết quả tươi sáng đang chờ",
+        "interpretations": {
+          "situation": "Sương đang tan. <em>Tầm nhìn rõ ràng lần đầu sau lâu lắm</em>.",
+          "energy": "Ánh sáng của sức sống và sự tự tin. <em>Càng tỏ ra rõ ràng, càng kéo về nhiều hơn</em>.",
+          "outcome": "Một thành công rõ ràng. Nỗ lực được <em>phơi bày dưới nắng và được thưởng đúng nghĩa</em>."
+        }
+      },
+      "moon": {
+        "name": "Mặt Trăng",
+        "meaning": "Không chắc chắn, nhưng hãy tiếp tục",
+        "interpretations": {
+          "situation": "Dưới mặt nước, <em>lo lắng và trực giác cùng dao động</em>. Khó phân biệt cái nào là thật.",
+          "energy": "Ảo ảnh của nỗi sợ đang hoạt động. <em>Phân biệt nỗi sợ với trực giác</em> là chìa khóa của giai đoạn này.",
+          "outcome": "Khi sương tan, <em>sự thật bị che giấu</em> hiện ra — dù dễ chịu hay không."
+        }
+      },
+      "emperor": {
+        "name": "Hoàng Đế",
+        "meaning": "Thời điểm phát triển ổn định",
+        "interpretations": {
+          "situation": "Cấu trúc và trách nhiệm <em>đã định vị sẵn</em>. Ổn định nhưng có thể bí.",
+          "energy": "Năng lượng của quyền lực và hệ thống. Thời điểm <em>vận động bằng chiến lược và cấu trúc thay vì cảm xúc</em>.",
+          "outcome": "Sự bền bỉ <em>được thưởng bằng một vị trí vững chắc</em>. Đi lên chậm và chắc thay vì nhảy nhanh."
+        }
+      },
+      "chariot": {
+        "name": "Cỗ Xe",
+        "meaning": "Ý chí của bạn có thể vượt qua",
+        "interpretations": {
+          "situation": "Lực đẩy đang gom lại — <em>chỉ cần chốt hướng là khởi hành ngay</em>.",
+          "energy": "Sức mạnh của quyết đoán và tập trung. Lúc để <em>gom nhiều hướng thành một</em>.",
+          "outcome": "Chiến thắng theo cách đối đầu trực diện. Điều bạn do dự <em>vỡ ra nhanh hơn dự đoán</em>."
+        }
+      },
+      "strength": {
+        "name": "Sức Mạnh",
+        "meaning": "Tin vào sức mạnh nội tại",
+        "interpretations": {
+          "situation": "Một giai đoạn đang thử thách — bạn rung nhưng <em>đã có đủ sức để chịu</em>.",
+          "energy": "Năng lượng của sức mạnh dịu dàng. <em>Đừng đè ép — hãy thuần hóa</em>.",
+          "outcome": "Một sự vượt qua thực sự. Kết quả <em>vượt qua giới hạn của chính bạn</em>, không phải của người khác."
+        }
+      },
+      "priestess": {
+        "name": "Nữ Tư Tế Tối Cao",
+        "meaning": "Theo trực giác",
+        "interpretations": {
+          "situation": "Dưới mặt phẳng, bạn đã biết <em>một điều chưa được nói thành lời</em>.",
+          "energy": "Năng lượng của trực giác và bí mật. <em>Khả năng cảm nhận đang giữ câu trả lời</em>, không phải logic.",
+          "outcome": "Thông tin · cơ hội · sự thật bị che giấu <em>lộ ra</em>. Trực giác được chứng minh là đúng."
+        }
+      }
     }
   },
   "loading": {

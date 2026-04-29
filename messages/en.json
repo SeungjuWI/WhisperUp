@@ -152,39 +152,123 @@
         "1": "Core Energy",
         "2": "Outcome"
       },
+      "synthesis": {
+        "timing": "What the three cards show together — <em>the grain of this current</em>. How you spend the timing the cards point to is, in the end, <strong>your choice</strong>.",
+        "potential": "What the cards illuminate together — <em>potential that's been sleeping inside you</em>. Next, the data will add <strong>concrete numbers</strong> to that potential.",
+        "direction": "The shape the three cards draw together — <em>the contour of an environment that fits you</em>. Where to find that shape is <strong>the next question</strong>."
+      },
       "softCta": "Confirm with Data →",
       "softCtaNote": "Free — share role, experience, city, salary"
     },
     "cards": {
-      "tower": { "name": "The Tower", "meaning": "A sudden shift is needed" },
-      "wheel": { "name": "The Wheel", "meaning": "A turning point is here" },
-      "star": { "name": "The Star", "meaning": "New hope is waiting ahead" },
-      "world": { "name": "The World", "meaning": "Completion and a new beginning" },
-      "fool": { "name": "The Fool", "meaning": "Move forward without fear" },
-      "hermit": { "name": "The Hermit", "meaning": "The answer is already within you" },
-      "sun": { "name": "The Sun", "meaning": "A bright outcome awaits" },
-      "moon": { "name": "The Moon", "meaning": "Uncertain, but keep moving" },
-      "emperor": { "name": "The Emperor", "meaning": "A time for steady growth" },
-      "chariot": { "name": "The Chariot", "meaning": "Your will can break through" },
-      "strength": { "name": "Strength", "meaning": "Trust your inner strength" },
-      "priestess": { "name": "The High Priestess", "meaning": "Follow your intuition" }
-    },
-    "readings": {
-      "timing": [
-        "The cards say <em>the time for change is approaching.</em> If hesitation is coming from fear, the cards show that fear is already outdated. <strong>Not moving now means missing this current.</strong>",
-        "All three cards point to a <em>turning point.</em> This is not the time to wait. You already know the answer inside — you just need the confidence. <strong>The cards say you're ready.</strong>",
-        "There's strong energy wanting change here. But the direction isn't fully clear yet. <em>Rather than right now, starting concrete preparations within 3 months</em> feels right."
-      ],
-      "potential": [
-        "<em>A better environment is waiting for you.</em> The cards say your current position is not your ceiling. Staying where you are may actually be blocking your growth. <strong>Switching jobs isn't a risk — it's the natural next step.</strong>",
-        "All three cards point to <em>the potential for growth.</em> The things you're worried about — can I do it, is it the right place — the cards seem to have already let go of those answers. <strong>The potential is definitely there.</strong>",
-        "The cards say you're being undervalued. <em>The market is ready to assess your capabilities more highly.</em> Moving on isn't a gamble — it's a fair reassessment."
-      ],
-      "direction": [
-        "<em>A different environment</em> could make you shine more. The direction the cards point to values growth over scale, autonomy over stability. <strong>A foreign-invested company or a fast-growing organization fits your energy.</strong>",
-        "All three cards together show <em>leadership potential.</em> Moving to a place where you can play a bigger role is right. Look for a position with <strong>more authority and influence</strong> rather than just a higher title.",
-        "The cards point toward <em>deepening your expertise.</em> Right now you need one deep specialization more than broad experience. <strong>Find the environment where that expertise can best be expressed</strong> — that's your next step."
-      ]
+      "tower": {
+        "name": "The Tower",
+        "meaning": "A sudden shift is needed",
+        "interpretations": {
+          "situation": "Something familiar is <em>already shaking</em>. What looks stable is actually collapsing underneath.",
+          "energy": "An external shock is at work — break it or be broken, <em>change is coming either way</em>.",
+          "outcome": "After the old structure cracks, <em>a far sturdier path</em> reveals itself. The collapse is a clearing, not an ending."
+        }
+      },
+      "wheel": {
+        "name": "The Wheel",
+        "meaning": "A turning point is here",
+        "interpretations": {
+          "situation": "You're in the middle of <em>a current that's turning</em>. Yesterday's luck and today's luck are no longer the same.",
+          "energy": "A fated timing is at work. <em>Reading the current beats forcing it</em>.",
+          "outcome": "A new cycle begins. What's been blocked for a long time <em>unlocks faster than expected</em>."
+        }
+      },
+      "star": {
+        "name": "The Star",
+        "meaning": "New hope is waiting ahead",
+        "interpretations": {
+          "situation": "The tail end of a dark stretch — <em>a small light is already in</em>.",
+          "energy": "Energy of recovery and inspiration. Strongest <em>when faith doesn't waver</em>.",
+          "outcome": "Possibilities that seemed distant <em>actually land in your hands</em>. A peaceful arrival."
+        }
+      },
+      "world": {
+        "name": "The World",
+        "meaning": "Completion and a new beginning",
+        "interpretations": {
+          "situation": "A chapter is nearly closed. <em>There's almost nothing left to learn in your current spot</em>.",
+          "energy": "Energy of integration and tying off — <em>the things you've postponed need closing</em> before the next stage opens.",
+          "outcome": "Completion of one cycle alongside <em>entry into a bigger stage</em>. Ending and beginning at once."
+        }
+      },
+      "fool": {
+        "name": "The Fool",
+        "meaning": "Move forward without fear",
+        "interpretations": {
+          "situation": "Deep down, <em>an urge to start over</em> is alive. Even if it has no shape yet.",
+          "energy": "Energy of lightness and adventure. <em>The first step beats a perfect plan</em>.",
+          "outcome": "A choice that looks reckless <em>works out better than expected</em>. A new road comes to meet you."
+        }
+      },
+      "hermit": {
+        "name": "The Hermit",
+        "meaning": "The answer is already within you",
+        "interpretations": {
+          "situation": "You're searching outside for the answer — but <em>it's already stirring within</em>.",
+          "energy": "A time of stillness and self-inquiry. <em>Your own lamp burns brighter than anyone's advice</em>.",
+          "outcome": "A deep clarity arrives. The standard for your decisions <em>becomes entirely your own</em>."
+        }
+      },
+      "sun": {
+        "name": "The Sun",
+        "meaning": "A bright outcome awaits",
+        "interpretations": {
+          "situation": "The fog is lifting. <em>Your view is clearer than it's been in a long time</em>.",
+          "energy": "The light of vitality and confidence. <em>The more you let yourself be seen, the more is drawn to you</em>.",
+          "outcome": "A clear success. Your effort <em>shows in the sunlight and is rewarded plainly</em>."
+        }
+      },
+      "moon": {
+        "name": "The Moon",
+        "meaning": "Uncertain, but keep moving",
+        "interpretations": {
+          "situation": "Beneath the surface, <em>anxiety and intuition ripple at the same time</em>. What's real is hard to tell.",
+          "energy": "The illusion of fear is at work. <em>Telling fear apart from intuition</em> is this period's central task.",
+          "outcome": "As the fog clears, <em>the hidden truth</em> shows itself — comfortable or not."
+        }
+      },
+      "emperor": {
+        "name": "The Emperor",
+        "meaning": "A time for steady growth",
+        "interpretations": {
+          "situation": "Structure and responsibility are <em>already in place</em>. Stable, but possibly stifling.",
+          "energy": "Energy of authority and systems. A time to <em>move by strategy and structure, not by feeling</em>.",
+          "outcome": "Steadiness <em>is rewarded with a solid seat</em>. A firm climb rather than a fast jump."
+        }
+      },
+      "chariot": {
+        "name": "The Chariot",
+        "meaning": "Your will can break through",
+        "interpretations": {
+          "situation": "Momentum is gathering — <em>set the direction and you can leave at once</em>.",
+          "energy": "The power of decision and focus. A time to <em>fold many directions into one</em>.",
+          "outcome": "A frontal win. What you've been hesitating on <em>breaks open faster than expected</em>."
+        }
+      },
+      "strength": {
+        "name": "Strength",
+        "meaning": "Trust your inner strength",
+        "interpretations": {
+          "situation": "A testing period — you tremble, but <em>the strength to endure is already there</em>.",
+          "energy": "Energy of gentle strength. <em>Don't force it down — tame it</em>.",
+          "outcome": "A true overcoming. The result is <em>past your own limit, not anyone else's measure</em>."
+        }
+      },
+      "priestess": {
+        "name": "The High Priestess",
+        "meaning": "Follow your intuition",
+        "interpretations": {
+          "situation": "Beneath the surface, you already know <em>something that hasn't been spoken</em>.",
+          "energy": "Energy of intuition and secrets. <em>Sensing — not logic — holds the answer</em>.",
+          "outcome": "Hidden information, opportunities, and truths <em>come into view</em>. The intuition is proven right."
+        }
+      }
     }
   },
   "loading": {
