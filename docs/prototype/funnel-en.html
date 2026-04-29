@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whisper-Up — Career Tarot for Job Changers</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:    #0e0c18;
+  --paper:  #f5f0e8;
+  --aged:   #e8e0cc;
+  --card:   #1a1630;
+  --gold:   #c9a84c;
+  --gold2:  #e8c96a;
+  --mystic: #7c5cbf;
+  --teal:   #2a9d8f;
+  --text:   #2a2440;
+  --muted:  #7a7090;
+  --serif:  'Cinzel', serif;
+  --sans:   'DM Sans', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--text);font-family:var(--sans);overflow-x:hidden}
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% 10%, rgba(201,168,76,.06) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 90%, rgba(124,92,191,.05) 0%, transparent 50%);
+}
+.page-frame{position:fixed;inset:12px;border:1px solid rgba(201,168,76,.2);pointer-events:none;z-index:0}
+.page-frame::before{content:'';position:absolute;inset:4px;border:1px solid rgba(201,168,76,.1)}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.1rem 2.5rem;
+  background:rgba(245,240,232,.92);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(201,168,76,.25);
+}
+.logo{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--text);letter-spacing:.12em;display:flex;align-items:center;gap:.5rem;}
+.logo-dash{color:var(--gold)}
+.logo-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:glow 2s ease-in-out infinite;}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.5)}50%{box-shadow:0 0 0 5px rgba(201,168,76,0)}}
+.nav-tag{font-size:.7rem;color:var(--muted);letter-spacing:.06em}
+.nav-cta{background:var(--ink);color:var(--gold2);border:1px solid var(--gold);padding:.5rem 1.4rem;font-family:var(--serif);font-size:.75rem;font-weight:600;letter-spacing:.1em;cursor:pointer;transition:all .2s;}
+.nav-cta:hover{background:var(--gold);color:var(--ink)}
+
+/* HERO */
+.hero{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5rem 1.5rem 4rem;overflow:hidden;}
+.hero-ornament{font-family:var(--serif);font-size:.7rem;color:var(--gold);letter-spacing:.3em;margin-bottom:1.5rem;animation:fadeUp .8s ease both;}
+.hero-ornament::before,.hero-ornament::after{content:'✦';margin:0 .8rem}
+.hero h1{font-family:var(--serif);font-size:clamp(2.2rem,5vw,4.5rem);font-weight:600;line-height:1.15;letter-spacing:.04em;color:var(--ink);margin-bottom:1.25rem;animation:fadeUp .8s .1s ease both;}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero-sub{font-size:clamp(.95rem,1.8vw,1.05rem);color:var(--muted);max-width:500px;line-height:1.9;margin-bottom:1.75rem;font-weight:300;animation:fadeUp .8s .2s ease both;}
+.hero-sub strong{color:var(--text);font-weight:500}
+.hero-divider{width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 1.75rem;animation:fadeUp .8s .25s ease both;}
+.hero-free{display:inline-block;font-size:.75rem;color:var(--muted);letter-spacing:.08em;margin-bottom:2rem;animation:fadeUp .8s .3s ease both;}
+.hero-free span{color:var(--teal);font-weight:500;border-bottom:1px solid rgba(42,157,143,.3);}
+.cta-start{background:var(--ink);color:var(--gold2);border:1px solid var(--gold);padding:1.1rem 3rem;font-family:var(--serif);font-size:.95rem;font-weight:600;letter-spacing:.12em;cursor:pointer;transition:all .25s;box-shadow:0 4px 30px rgba(14,12,24,.12);animation:fadeUp .8s .35s ease both;display:inline-block;}
+.cta-start:hover{background:var(--gold);color:var(--ink);transform:translateY(-2px);box-shadow:0 8px 40px rgba(201,168,76,.3)}
+.cta-note{font-size:.72rem;color:var(--muted);margin-top:.75rem;letter-spacing:.04em;animation:fadeUp .8s .4s ease both;}
+.stars{position:absolute;inset:0;pointer-events:none}
+.star-dot{position:absolute;border-radius:50%;background:var(--gold);opacity:.15}
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;animation:fadeUp .8s 1.2s ease both;}
+.scroll-hint span{font-size:.62rem;color:var(--muted);letter-spacing:.12em}
+.scroll-line{width:1px;height:32px;background:linear-gradient(to bottom,var(--gold),transparent);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:.8}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+/* DIVIDER */
+.ornament-divider{display:flex;align-items:center;gap:1rem;padding:2rem 2.5rem;max-width:900px;margin:0 auto;position:relative;z-index:2;}
+.od-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.3),transparent)}
+.od-symbol{font-family:var(--serif);font-size:.8rem;color:var(--gold);letter-spacing:.2em;white-space:nowrap}
+
+/* SECTIONS */
+.section{position:relative;z-index:2;padding:5rem 1.5rem;max-width:900px;margin:0 auto}
+.sec-eye{font-family:var(--serif);font-size:.68rem;color:var(--gold);letter-spacing:.2em;text-align:center;margin-bottom:1rem;}
+.sec-title{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:600;letter-spacing:.04em;text-align:center;color:var(--ink);margin-bottom:.75rem;line-height:1.25;}
+.sec-sub{font-size:.92rem;color:var(--muted);text-align:center;line-height:1.9;max-width:480px;margin:0 auto 3rem;font-weight:300;}
+
+/* HOW GRID */
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
+.how-card{border:1px solid rgba(201,168,76,.15);padding:1.5rem;text-align:center;background:rgba(14,12,24,.04);transition:border-color .2s;}
+.how-card:hover{border-color:rgba(201,168,76,.35)}
+.how-num{font-family:var(--serif);font-size:.65rem;color:rgba(201,168,76,.5);letter-spacing:.2em;margin-bottom:.75rem;}
+.how-symbol{font-size:1.6rem;margin-bottom:.6rem}
+.how-title{font-family:var(--serif);font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:.4rem;letter-spacing:.04em;}
+.how-desc{font-size:.78rem;color:var(--muted);line-height:1.7}
+
+/* TAROT APP */
+.tarot-app{background:var(--ink);border:1px solid rgba(201,168,76,.2);padding:2.5rem;max-width:720px;margin:0 auto;position:relative;overflow:hidden;}
+.tarot-app::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 0%, rgba(124,92,191,.15) 0%, transparent 60%);pointer-events:none;}
+.tarot-app-corner{position:absolute;width:20px;height:20px;border-color:rgba(201,168,76,.4);border-style:solid;}
+.tarot-app-corner.tl{top:12px;left:12px;border-width:1px 0 0 1px}
+.tarot-app-corner.tr{top:12px;right:12px;border-width:1px 1px 0 0}
+.tarot-app-corner.bl{bottom:12px;left:12px;border-width:0 0 1px 1px}
+.tarot-app-corner.br{bottom:12px;right:12px;border-width:0 1px 1px 0}
+.tarot-step{display:none}
+.tarot-step.active{display:block;animation:fadeUp .5s ease both}
+
+/* SPREAD */
+.spread-title{font-family:var(--serif);font-size:.7rem;color:rgba(201,168,76,.7);letter-spacing:.2em;text-align:center;margin-bottom:.5rem;}
+.spread-q{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--paper);text-align:center;margin-bottom:2rem;letter-spacing:.04em;line-height:1.4;}
+.spread-options{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem;margin-bottom:1.5rem}
+.spread-opt{background:rgba(245,240,232,.04);border:1px solid rgba(201,168,76,.2);padding:.875rem .75rem;cursor:pointer;text-align:center;transition:all .2s;}
+.spread-opt:hover{background:rgba(201,168,76,.08);border-color:rgba(201,168,76,.5)}
+.spread-opt.selected{background:rgba(201,168,76,.12);border-color:var(--gold)}
+.spread-opt-icon{font-size:1.4rem;margin-bottom:.4rem;display:block}
+.spread-opt-text{font-size:.78rem;color:var(--paper);line-height:1.4;font-weight:300}
+
+/* CARDS */
+.card-instruction{font-size:.78rem;color:rgba(245,240,232,.5);text-align:center;margin-bottom:1.5rem;letter-spacing:.04em;}
+.card-deck{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.tarot-card{width:80px;height:130px;cursor:pointer;position:relative;perspective:600px;flex-shrink:0;}
+.card-inner{width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d;position:relative;}
+.tarot-card.flipped .card-inner{transform:rotateY(180deg)}
+.card-face,.card-back{position:absolute;inset:0;backface-visibility:hidden;border:1px solid rgba(201,168,76,.3);}
+.card-back{background:var(--card);background-image:repeating-linear-gradient(45deg,transparent,transparent 4px,rgba(201,168,76,.04) 4px,rgba(201,168,76,.04) 5px);display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.card-back::before{content:'✦';font-family:var(--serif);font-size:1.2rem;color:rgba(201,168,76,.3);}
+.card-back:hover{border-color:var(--gold);background:rgba(201,168,76,.06)}
+.card-face{background:var(--ink);transform:rotateY(180deg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.5rem;text-align:center;}
+.card-face-name{font-family:var(--serif);font-size:.6rem;color:var(--gold);letter-spacing:.1em;margin-bottom:.3rem;}
+.card-face-symbol{font-size:1.5rem;margin-bottom:.3rem}
+.card-face-sub{font-size:.58rem;color:rgba(245,240,232,.5);line-height:1.3}
+
+/* TAROT RESULT */
+.tarot-result{background:rgba(245,240,232,.03);border:1px solid rgba(201,168,76,.15);padding:1.5rem;margin-bottom:1.5rem;}
+.tr-cards{display:flex;gap:.75rem;justify-content:center;margin-bottom:1.25rem}
+.tr-card{text-align:center;flex:1;max-width:100px}
+.tr-card-pos{font-size:.63rem;color:rgba(201,168,76,.6);letter-spacing:.1em;margin-bottom:.4rem;}
+.tr-card-name{font-family:var(--serif);font-size:.75rem;color:var(--gold);margin-bottom:.25rem;font-weight:600;}
+.tr-card-symbol{font-size:1.4rem;margin-bottom:.25rem}
+.tr-card-meaning{font-size:.7rem;color:rgba(245,240,232,.6);line-height:1.4}
+.tr-reading{border-top:1px solid rgba(201,168,76,.12);padding-top:1rem;font-size:.82rem;color:rgba(245,240,232,.7);line-height:1.85;}
+.tr-reading strong{color:var(--paper);font-weight:500}
+.tr-reading em{color:var(--gold);font-style:normal}
+
+/* UPSELL */
+.upsell{background:linear-gradient(135deg,rgba(201,168,76,.08) 0%,rgba(42,157,143,.08) 100%);border:1px solid rgba(201,168,76,.3);padding:1.5rem;text-align:center;position:relative;overflow:hidden;}
+.upsell::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.upsell-label{font-family:var(--serif);font-size:.65rem;color:var(--gold);letter-spacing:.2em;margin-bottom:.6rem;}
+.upsell-title{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--paper);margin-bottom:.5rem;letter-spacing:.04em;line-height:1.4;}
+.upsell-sub{font-size:.8rem;color:rgba(245,240,232,.55);margin-bottom:1.1rem;line-height:1.7}
+.upsell-price{display:inline-flex;align-items:baseline;gap:.5rem;margin-bottom:1rem;}
+.price-old{font-size:.85rem;color:rgba(245,240,232,.3);text-decoration:line-through}
+.price-new{font-family:var(--serif);font-size:1.6rem;font-weight:600;color:var(--gold)}
+.price-unit{font-size:.8rem;color:rgba(245,240,232,.4)}
+.btn-upsell{background:var(--gold);color:var(--ink);border:none;padding:.9rem 2.5rem;font-family:var(--serif);font-size:.85rem;font-weight:600;letter-spacing:.1em;cursor:pointer;transition:all .2s;display:block;width:100%;}
+.btn-upsell:hover{background:var(--gold2);transform:translateY(-1px)}
+.upsell-note{font-size:.68rem;color:rgba(245,240,232,.3);margin-top:.75rem}
+
+/* FORM */
+.form-step{display:none}
+.form-step.active{display:block;animation:fadeUp .5s ease both}
+.form-q{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--paper);text-align:center;margin-bottom:.5rem;letter-spacing:.04em;}
+.form-sub{font-size:.75rem;color:rgba(245,240,232,.4);text-align:center;margin-bottom:1.5rem}
+.form-options{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1.25rem}
+.form-opt{background:rgba(245,240,232,.04);border:1px solid rgba(201,168,76,.15);padding:.75rem 1rem;cursor:pointer;font-size:.82rem;color:rgba(245,240,232,.7);transition:all .15s;text-align:center;}
+.form-opt:hover{border-color:rgba(201,168,76,.4);color:var(--paper)}
+.form-opt.selected{border-color:var(--gold);background:rgba(201,168,76,.1);color:var(--gold)}
+.form-input{width:100%;background:rgba(245,240,232,.05);border:1px solid rgba(201,168,76,.2);padding:.75rem 1rem;font-family:var(--sans);font-size:.85rem;color:var(--paper);outline:none;transition:border-color .2s;margin-bottom:1rem;}
+.form-input:focus{border-color:var(--gold)}
+.form-input::placeholder{color:rgba(245,240,232,.25)}
+.form-input option{background:var(--ink);color:var(--paper)}
+.btn-next{background:var(--ink);color:var(--gold2);border:1px solid rgba(201,168,76,.4);padding:.8rem 2rem;width:100%;font-family:var(--serif);font-size:.82rem;font-weight:600;letter-spacing:.1em;cursor:pointer;transition:all .2s;}
+.btn-next:hover{background:rgba(201,168,76,.1);border-color:var(--gold)}
+.form-progress{display:flex;gap:.4rem;justify-content:center;margin-bottom:1.75rem;}
+.fp-dot{width:6px;height:6px;border-radius:50%;background:rgba(245,240,232,.15);transition:all .3s;}
+.fp-dot.active{background:var(--gold);box-shadow:0 0 6px rgba(201,168,76,.5)}
+.fp-dot.done{background:rgba(201,168,76,.4)}
+
+/* RESULT */
+.result-screen{display:none;animation:fadeUp .6s ease both}
+.result-screen.active{display:block}
+.result-top{text-align:center;margin-bottom:1.5rem}
+.result-label{font-family:var(--serif);font-size:.65rem;color:rgba(201,168,76,.6);letter-spacing:.2em;margin-bottom:.5rem;}
+.result-big{font-family:var(--serif);font-size:5rem;font-weight:600;color:var(--gold);line-height:1;margin-bottom:.3rem;}
+.result-unit{font-size:1rem;color:rgba(245,240,232,.5)}
+.result-desc{font-size:.85rem;color:rgba(245,240,232,.65);margin-bottom:1.25rem;line-height:1.8}
+.result-desc strong{color:var(--paper);font-weight:500}
+.result-basis{display:flex;align-items:flex-start;gap:.6rem;background:rgba(42,157,143,.08);border:1px solid rgba(42,157,143,.2);padding:.75rem .9rem;margin-bottom:1.5rem;}
+.rb-icon{font-family:var(--serif);font-size:.6rem;color:var(--teal);white-space:nowrap;margin-top:2px}
+.rb-text{font-size:.75rem;color:rgba(245,240,232,.5);line-height:1.6}
+.rb-text strong{color:rgba(245,240,232,.8)}
+
+/* LEAD CAPTURE */
+.lead-capture{background:rgba(245,240,232,.03);border:1px solid rgba(201,168,76,.15);border-top:2px solid var(--gold);padding:1.5rem;margin-bottom:1rem;position:relative;}
+.lc-label{font-family:var(--serif);font-size:.65rem;color:var(--gold);letter-spacing:.2em;margin-bottom:.5rem;}
+.lc-title{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--paper);margin-bottom:.4rem;letter-spacing:.04em;line-height:1.4;}
+.lc-sub{font-size:.77rem;color:rgba(245,240,232,.45);margin-bottom:1.1rem;line-height:1.65}
+.lc-fields{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.75rem}
+.lc-privacy{font-size:.68rem;color:rgba(245,240,232,.3);text-align:center;line-height:1.6}
+.btn-submit{background:var(--teal);color:var(--paper);border:none;padding:.9rem;width:100%;font-family:var(--serif);font-size:.82rem;font-weight:600;letter-spacing:.1em;cursor:pointer;transition:all .2s;margin-bottom:.6rem;}
+.btn-submit:hover{background:#26a99a;transform:translateY(-1px)}
+.btn-skip{background:transparent;color:rgba(245,240,232,.3);border:none;padding:.5rem;width:100%;font-size:.72rem;cursor:pointer;letter-spacing:.06em;}
+.btn-skip:hover{color:rgba(245,240,232,.5)}
+
+/* COMPLETE */
+.complete-screen{display:none;text-align:center;padding:1.5rem 0;animation:fadeUp .6s ease both}
+.complete-screen.active{display:block}
+.complete-symbol{font-size:2rem;margin-bottom:.75rem}
+.complete-title{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--paper);margin-bottom:.5rem;letter-spacing:.04em;}
+.complete-sub{font-size:.8rem;color:rgba(245,240,232,.45);line-height:1.7}
+
+/* LOADING */
+.loading-overlay{position:absolute;inset:0;background:rgba(14,12,24,.95);display:none;flex-direction:column;align-items:center;justify-content:center;gap:1rem;z-index:10;}
+.loading-overlay.active{display:flex}
+.loading-rune{font-family:var(--serif);font-size:1.8rem;color:var(--gold);animation:spin 3s linear infinite;}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.loading-text{font-size:.75rem;color:rgba(245,240,232,.4);letter-spacing:.1em;text-align:center}
+
+/* FOOTER */
+footer{position:relative;z-index:2;padding:2rem 2.5rem;border-top:1px solid rgba(201,168,76,.15);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.7rem;color:var(--muted);letter-spacing:.04em;}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--text)}
+
+@media(max-width:640px){
+  nav{padding:1rem 1.25rem}
+  .tarot-app{padding:1.5rem}
+  .spread-options{grid-template-columns:1fr}
+  .card-deck{gap:.5rem}
+  .tarot-card{width:68px;height:112px}
+  .form-options{grid-template-columns:1fr}
+  .lc-fields{grid-template-columns:1fr}
+  .tr-cards{gap:.4rem}
+}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<div class="page-frame"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-dot"></div>
+    Whisper<span class="logo-dash">-</span>Up
+  </div>
+  <div class="nav-tag">Career Tarot · Data Confidence</div>
+  <button class="nav-cta" onclick="scrollToApp()">Start Free →</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="stars" id="stars"></div>
+  <div class="hero-ornament">Career Tarot for Job Changers</div>
+  <h1>
+    Should I switch jobs?<br>
+    Let the cards speak <em>first.</em>
+  </h1>
+  <p class="hero-sub">
+    See the direction with tarot —<br>
+    <strong>then confirm with data how much your salary could rise.</strong><br>
+    Your secret. Nobody else knows.
+  </p>
+  <div class="hero-divider"></div>
+  <div class="hero-free">Tarot is <span>free</span>. Data confirmation is just 29,000 VND.</div>
+  <button class="cta-start" onclick="scrollToApp()">Start Free Now</button>
+  <div class="cta-note">Pick your cards · See results instantly · No name or email needed</div>
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<div class="ornament-divider">
+  <div class="od-line"></div>
+  <div class="od-symbol">✦ How It Works ✦</div>
+  <div class="od-line"></div>
+</div>
+
+<div class="section reveal">
+  <div class="how-grid">
+    <div class="how-card">
+      <div class="how-num">STEP 01</div>
+      <div class="how-symbol">🃏</div>
+      <div class="how-title">Free Tarot</div>
+      <div class="how-desc">Pick a topic, draw 3 cards. Get your direction and intuition first. Completely free.</div>
+    </div>
+    <div class="how-card">
+      <div class="how-num">STEP 02</div>
+      <div class="how-symbol">📊</div>
+      <div class="how-title">Data Confidence</div>
+      <div class="how-desc">After your reading — if you want the real number, it's 29,000 VND. See exactly how much your salary could jump.</div>
+    </div>
+    <div class="how-card">
+      <div class="how-num">STEP 03</div>
+      <div class="how-symbol">🏢</div>
+      <div class="how-title">Job Matches</div>
+      <div class="how-desc">Want to know which companies fit you best? Add more info and get personalized job recommendations.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TAROT APP -->
+<div class="ornament-divider">
+  <div class="od-line"></div>
+  <div class="od-symbol">✦ Begin Your Reading ✦</div>
+  <div class="od-line"></div>
+</div>
+
+<div class="section" id="tarot-app-section">
+  <div class="tarot-app" id="tarotApp">
+    <div class="tarot-app-corner tl"></div>
+    <div class="tarot-app-corner tr"></div>
+    <div class="tarot-app-corner bl"></div>
+    <div class="tarot-app-corner br"></div>
+
+    <!-- Loading -->
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="loading-rune">✦</div>
+      <div class="loading-text" id="loadingText">Reading your cards...</div>
+    </div>
+
+    <!-- STEP 0: Topic selection -->
+    <div class="tarot-step active" id="step0">
+      <div class="spread-title">✦ CAREER TAROT ✦</div>
+      <div class="spread-q">What's on your mind right now?</div>
+      <div class="spread-options">
+        <div class="spread-opt" onclick="selectTopic(this, 'timing')">
+          <span class="spread-opt-icon">🌙</span>
+          <div class="spread-opt-text">Is now the right time<br>to switch jobs?</div>
+        </div>
+        <div class="spread-opt" onclick="selectTopic(this, 'potential')">
+          <span class="spread-opt-icon">⭐</span>
+          <div class="spread-opt-text">Will things actually<br>get better if I switch?</div>
+        </div>
+        <div class="spread-opt" onclick="selectTopic(this, 'direction')">
+          <span class="spread-opt-icon">🔮</span>
+          <div class="spread-opt-text">Which direction<br>should I go?</div>
+        </div>
+      </div>
+      <button class="btn-next" id="btnStep0" onclick="goToStep1()" style="opacity:.4;pointer-events:none">Choose Your Cards →</button>
+    </div>
+
+    <!-- STEP 1: Card selection -->
+    <div class="tarot-step" id="step1">
+      <div class="spread-title">✦ Choose Your Cards ✦</div>
+      <div class="spread-q" id="step1q">Select 3 cards</div>
+      <div class="card-instruction">Hold your question in mind — then pick the cards you feel drawn to</div>
+      <div class="card-deck" id="cardDeck"></div>
+      <button class="btn-next" id="btnStep1" onclick="goToResult()" style="opacity:.4;pointer-events:none">See Your Reading →</button>
+    </div>
+
+    <!-- STEP 2: Tarot result + upsell -->
+    <div class="tarot-step" id="step2">
+      <div class="spread-title">✦ The Cards Speak ✦</div>
+      <div class="spread-q" id="step2q">Your Career Timing</div>
+      <div class="tarot-result" id="tarotResultBox">
+        <div class="tr-cards" id="tarotCards"></div>
+        <div class="tr-reading" id="tarotReading"></div>
+      </div>
+      <div class="upsell">
+        <div class="upsell-label">✦ WHISPER-UP DATA ✦</div>
+        <div class="upsell-title">The cards showed the direction —<br>now let the data show you the number</div>
+        <div class="upsell-sub">See exactly how much your salary could rise<br>based on real job-switcher data in Vietnam.</div>
+        <div class="upsell-price">
+          <span class="price-old">99,000 VND</span>
+          <span class="price-new">29,000</span>
+          <span class="price-unit">VND</span>
+        </div>
+        <button class="btn-upsell" onclick="goToInputFlow()">Confirm with Data — Price of a coffee →</button>
+        <div class="upsell-note">Enter role · experience · current salary → get your salary upside %</div>
+      </div>
+    </div>
+
+    <!-- STEP 3: Input flow (paid) -->
+    <div class="tarot-step" id="step3">
+      <div class="form-progress" id="formProgress"></div>
+
+      <div class="form-step active" id="fstep0">
+        <div class="form-q">What kind of work do you do?</div>
+        <div class="form-sub">Select your field</div>
+        <div class="form-options">
+          <div class="form-opt" onclick="selectOpt(this,'field','Engineering')">Engineering</div>
+          <div class="form-opt" onclick="selectOpt(this,'field','Marketing')">Marketing</div>
+          <div class="form-opt" onclick="selectOpt(this,'field','Sales & BD')">Sales & BD</div>
+          <div class="form-opt" onclick="selectOpt(this,'field','Design & UX')">Design & UX</div>
+          <div class="form-opt" onclick="selectOpt(this,'field','Finance')">Finance</div>
+          <div class="form-opt" onclick="selectOpt(this,'field','HR & Ops')">HR & Ops</div>
+        </div>
+        <button class="btn-next" id="fBtn0" onclick="nextFormStep(1)" style="opacity:.4;pointer-events:none">Next →</button>
+      </div>
+
+      <div class="form-step" id="fstep1">
+        <div class="form-q">How long have you been working?</div>
+        <div class="form-sub">Select your experience level</div>
+        <div class="form-options">
+          <div class="form-opt" onclick="selectOpt(this,'years','Under 1 yr')">Under 1 yr</div>
+          <div class="form-opt" onclick="selectOpt(this,'years','1–3 yrs')">1–3 yrs</div>
+          <div class="form-opt" onclick="selectOpt(this,'years','3–5 yrs')">3–5 yrs</div>
+          <div class="form-opt" onclick="selectOpt(this,'years','5–8 yrs')">5–8 yrs</div>
+          <div class="form-opt" onclick="selectOpt(this,'years','8–12 yrs')">8–12 yrs</div>
+          <div class="form-opt" onclick="selectOpt(this,'years','12+ yrs')">12+ yrs</div>
+        </div>
+        <button class="btn-next" id="fBtn1" onclick="nextFormStep(2)" style="opacity:.4;pointer-events:none">Next →</button>
+      </div>
+
+      <div class="form-step" id="fstep2">
+        <div class="form-q">Which city are you in?</div>
+        <div class="form-sub">Market data differs by region</div>
+        <div class="form-options">
+          <div class="form-opt" onclick="selectOpt(this,'city','Hanoi')">Hanoi</div>
+          <div class="form-opt" onclick="selectOpt(this,'city','Ho Chi Minh City')">Ho Chi Minh City</div>
+          <div class="form-opt" onclick="selectOpt(this,'city','Da Nang')">Da Nang</div>
+          <div class="form-opt" onclick="selectOpt(this,'city','Other')">Other</div>
+        </div>
+        <button class="btn-next" id="fBtn2" onclick="nextFormStep(3)" style="opacity:.4;pointer-events:none">Next →</button>
+      </div>
+
+      <div class="form-step" id="fstep3">
+        <div class="form-q">What's your current salary range?</div>
+        <div class="form-sub">The more you share, the more accurate your result</div>
+        <select class="form-input" id="salaryInput" onchange="checkSalary()">
+          <option value="">Select salary range</option>
+          <option value="10">Under 10M VND</option>
+          <option value="15">10M–15M VND</option>
+          <option value="20">15M–20M VND</option>
+          <option value="25">20M–25M VND</option>
+          <option value="30">25M–30M VND</option>
+          <option value="40">30M–40M VND</option>
+          <option value="50">40M+ VND</option>
+        </select>
+        <button class="btn-next" id="fBtn3" onclick="showDataResult()" style="opacity:.4;pointer-events:none">See My Result →</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: Data result + lead capture -->
+    <div class="tarot-step" id="step4">
+      <div class="result-screen active" id="resultScreen">
+        <div class="result-top">
+          <div class="result-label">✦ If you switch jobs now ✦</div>
+          <div class="result-big" id="resultPct">+28%</div>
+          <div class="result-unit">salary increase possible</div>
+        </div>
+        <div class="result-desc" id="resultDesc">
+          Based on people with the same profile who already made the switch.<br>
+          <strong>That's worth moving for.</strong>
+        </div>
+        <div class="result-basis">
+          <div class="rb-icon">[ BASIS ]</div>
+          <div class="rb-text" id="resultBasis">Calculated from <strong>real salary change data</strong> of Vietnam workers with the same role, experience, and location. No result is shown when sample size is insufficient.</div>
+        </div>
+
+        <div class="lead-capture">
+          <div class="lc-label">✦ One More Step ✦</div>
+          <div class="lc-title">We can also tell you<br>which companies to target</div>
+          <div class="lc-sub">Want personalized job recommendations on top of your result?<br>Add your details. Used only for matching — nothing else.</div>
+          <div class="lc-fields">
+            <input class="form-input" type="text" placeholder="Name (optional)" id="nameInput">
+            <input class="form-input" type="text" placeholder="Education (e.g. Bachelor's)" id="eduInput">
+          </div>
+          <input class="form-input" type="text" placeholder="Target salary (e.g. 30M+ VND)" id="salaryWishInput" style="margin-bottom:.75rem">
+          <button class="btn-submit" onclick="submitLead()">Get Job Recommendations →</button>
+          <button class="btn-skip" onclick="skipLead()">Maybe later</button>
+          <div class="lc-privacy">Your info is used only for job matching · Never shared externally</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 5: Complete -->
+    <div class="tarot-step" id="step5">
+      <div class="complete-screen active">
+        <div class="complete-symbol">✦</div>
+        <div class="complete-title">You're all set</div>
+        <div class="complete-sub">
+          We'll reach out when a matching company comes up.<br>
+          Share your result with a friend who's also thinking about switching.
+        </div>
+        <br>
+        <button class="btn-upsell" onclick="shareResult()" style="margin-top:1rem">Share My Result →</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div style="font-family:var(--serif);font-weight:600;letter-spacing:.1em">Whisper-Up</div>
+  <div>© 2026 · Hanoi, Vietnam · <a href="#">Terms</a> · <a href="#">Privacy Policy</a></div>
+</footer>
+
+<script>
+const CARDS = [
+  {name:'The Tower',          symbol:'⚡', meaning:'A sudden shift is needed'},
+  {name:'The Wheel',          symbol:'☸️', meaning:'A turning point is here'},
+  {name:'The Star',           symbol:'⭐', meaning:'New hope is waiting ahead'},
+  {name:'The World',          symbol:'🌍', meaning:'Completion and a new beginning'},
+  {name:'The Fool',           symbol:'🌟', meaning:'Move forward without fear'},
+  {name:'The Hermit',         symbol:'🕯️', meaning:'The answer is already within you'},
+  {name:'The Sun',            symbol:'☀️', meaning:'A bright outcome awaits'},
+  {name:'The Moon',           symbol:'🌙', meaning:'Uncertain, but keep moving'},
+  {name:'The Emperor',        symbol:'👑', meaning:'A time for steady growth'},
+  {name:'The Chariot',        symbol:'⚔️', meaning:'Your will can break through'},
+  {name:'Strength',           symbol:'🦁', meaning:'Trust your inner strength'},
+  {name:'The High Priestess', symbol:'🌀', meaning:'Follow your intuition'},
+];
+
+const READINGS = {
+  timing: [
+    'The cards say <em>the time for change is approaching.</em> If hesitation is coming from fear, the cards show that fear is already outdated. <strong>Not moving now means missing this current.</strong>',
+    'All three cards point to a <em>turning point.</em> This is not the time to wait. You already know the answer inside — you just need the confidence. <strong>The cards say you\'re ready.</strong>',
+    'There\'s strong energy wanting change here. But the direction isn\'t fully clear yet. <em>Rather than right now, starting concrete preparations within 3 months</em> feels right.',
+  ],
+  potential: [
+    '<em>A better environment is waiting for you.</em> The cards say your current position is not your ceiling. Staying where you are may actually be blocking your growth. <strong>Switching jobs isn\'t a risk — it\'s the natural next step.</strong>',
+    'All three cards point to <em>the potential for growth.</em> The things you\'re worried about — can I do it, is it the right place — the cards seem to have already let go of those answers. <strong>The potential is definitely there.</strong>',
+    'The cards say you\'re being undervalued. <em>The market is ready to assess your capabilities more highly.</em> Moving on isn\'t a gamble — it\'s a fair reassessment.',
+  ],
+  direction: [
+    '<em>A different environment</em> could make you shine more. The direction the cards point to values growth over scale, autonomy over stability. <strong>A foreign-invested company or a fast-growing organization fits your energy.</strong>',
+    'All three cards together show <em>leadership potential.</em> Moving to a place where you can play a bigger role is right. Look for a position with <strong>more authority and influence</strong> rather than just a higher title.',
+    'The cards point toward <em>deepening your expertise.</em> Right now you need one deep specialization more than broad experience. <strong>Find the environment where that expertise can best be expressed</strong> — that\'s your next step.',
+  ],
+};
+
+const PCT_TABLE = {
+  'Engineering':  {base:26, adj:{1:22,3:26,5:28,8:24,12:20}},
+  'Marketing':    {base:23, adj:{1:18,3:22,5:25,8:22,12:18}},
+  'Sales & BD':   {base:25, adj:{1:20,3:24,5:28,8:25,12:22}},
+  'Design & UX':  {base:22, adj:{1:18,3:21,5:24,8:20,12:17}},
+  'Finance':      {base:20, adj:{1:16,3:19,5:22,8:20,12:17}},
+  'HR & Ops':     {base:19, adj:{1:15,3:18,5:21,8:19,12:16}},
+};
+const YRS_MAP = {'Under 1 yr':1,'1–3 yrs':3,'3–5 yrs':5,'5–8 yrs':8,'8–12 yrs':12,'12+ yrs':12};
+
+let state = { topic:null, selectedCards:[], answers:{}, currentFStep:0, totalFSteps:4 };
+
+const starsEl = document.getElementById('stars');
+for(let i=0;i<60;i++){
+  const d=document.createElement('div'); d.className='star-dot';
+  const s=0.5+Math.random()*2;
+  d.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;top:${Math.random()*100}%;opacity:${0.05+Math.random()*0.12}`;
+  starsEl.appendChild(d);
+}
+
+function buildDeck(){
+  const deck=document.getElementById('cardDeck'); deck.innerHTML='';
+  const shuffled=[...CARDS].sort(()=>Math.random()-.5);
+  shuffled.forEach((card,i)=>{
+    const el=document.createElement('div'); el.className='tarot-card';
+    el.dataset.idx=i; el.dataset.card=JSON.stringify(card);
+    el.innerHTML=`<div class="card-inner">
+      <div class="card-back" onclick="flipCard(this.parentElement.parentElement,${i})"></div>
+      <div class="card-face">
+        <div class="card-face-name">${card.name}</div>
+        <div class="card-face-symbol">${card.symbol}</div>
+        <div class="card-face-sub">${card.meaning}</div>
+      </div></div>`;
+    deck.appendChild(el);
+  });
+}
+
+function flipCard(el,idx){
+  if(el.classList.contains('flipped')||state.selectedCards.length>=3) return;
+  el.classList.add('flipped');
+  state.selectedCards.push(JSON.parse(el.dataset.card));
+  if(state.selectedCards.length===3){
+    document.getElementById('btnStep1').style.opacity='1';
+    document.getElementById('btnStep1').style.pointerEvents='auto';
+  }
+}
+
+function selectTopic(el,topic){
+  document.querySelectorAll('.spread-opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected'); state.topic=topic;
+  const btn=document.getElementById('btnStep0');
+  btn.style.opacity='1'; btn.style.pointerEvents='auto';
+}
+
+function goToStep1(){
+  showStep('step1'); buildDeck();
+  const labels={timing:'Is now the right time?',potential:'Will things get better?',direction:'Which direction?'};
+  document.getElementById('step1q').textContent=`${labels[state.topic]||'Your reading'} — Choose 3 cards`;
+}
+
+function goToResult(){
+  showLoading('Reading your cards...');
+  setTimeout(()=>{ hideLoading(); renderTarotResult(); showStep('step2'); },1800);
+}
+
+function goToInputFlow(){
+  showStep('step3'); buildFormProgress(); showFormStep(0);
+}
+
+function renderTarotResult(){
+  const cards=state.selectedCards;
+  const positions=['Present','Core Energy','Outcome'];
+  document.getElementById('tarotCards').innerHTML=cards.map((c,i)=>`
+    <div class="tr-card">
+      <div class="tr-card-pos">${positions[i]}</div>
+      <div class="tr-card-symbol">${c.symbol}</div>
+      <div class="tr-card-name">${c.name}</div>
+      <div class="tr-card-meaning">${c.meaning}</div>
+    </div>`).join('');
+  const readings=READINGS[state.topic]||READINGS.timing;
+  document.getElementById('tarotReading').innerHTML=readings[Math.floor(Math.random()*readings.length)];
+  const labels={timing:'Your Career Timing',potential:'Your Career Potential',direction:'Your Career Direction'};
+  document.getElementById('step2q').textContent=labels[state.topic]||'Your Reading';
+}
+
+function buildFormProgress(){
+  const el=document.getElementById('formProgress'); el.innerHTML='';
+  for(let i=0;i<state.totalFSteps;i++){
+    const d=document.createElement('div');
+    d.className='fp-dot'+(i===0?' active':''); d.id=`fp${i}`;
+    el.appendChild(d);
+  }
+}
+
+function showFormStep(n){
+  document.querySelectorAll('.form-step').forEach((el,i)=>el.classList.toggle('active',i===n));
+  for(let i=0;i<state.totalFSteps;i++){
+    const d=document.getElementById(`fp${i}`); if(!d) continue;
+    d.classList.remove('active','done');
+    if(i<n) d.classList.add('done');
+    if(i===n) d.classList.add('active');
+  }
+  state.currentFStep=n;
+}
+
+function selectOpt(el,key,val){
+  el.closest('.form-step').querySelectorAll('.form-opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected'); state.answers[key]=val;
+  const idx=parseInt(el.closest('.form-step').id.replace('fstep',''));
+  const btn=document.getElementById(`fBtn${idx}`);
+  btn.style.opacity='1'; btn.style.pointerEvents='auto';
+}
+
+function checkSalary(){
+  const v=document.getElementById('salaryInput').value;
+  const btn=document.getElementById('fBtn3');
+  btn.style.opacity=v?'1':'0.4'; btn.style.pointerEvents=v?'auto':'none';
+}
+
+function nextFormStep(n){ showFormStep(n); }
+
+function showDataResult(){
+  showLoading('Analyzing your data...');
+  setTimeout(()=>{ hideLoading(); calcAndShowResult(); showStep('step4'); },2200);
+}
+
+function calcAndShowResult(){
+  const job=state.answers['field']||'Marketing';
+  const yrsKey=state.answers['years']||'3–5 yrs';
+  const city=state.answers['city']||'Hanoi';
+  const salary=parseInt(document.getElementById('salaryInput').value)||20;
+  const tbl=PCT_TABLE[job]||PCT_TABLE['Marketing'];
+  const yrsNum=YRS_MAP[yrsKey]||3;
+  let pct=tbl.adj[yrsNum]||tbl.base;
+  if(city==='Ho Chi Minh City') pct+=2;
+  if(salary<15) pct+=3;
+  else if(salary>30) pct-=2;
+  document.getElementById('resultPct').textContent=`+${pct}%`;
+  document.getElementById('resultDesc').innerHTML=`Based on people with the same profile —<br><strong>${job} · ${yrsKey} · ${city}</strong><br>who already made the switch. <strong>That's worth moving for.</strong>`;
+  document.getElementById('resultBasis').innerHTML=`Calculated from <strong>real Vietnam job-switcher data</strong> matching your role, experience, and city. No result is shown when sample size is insufficient.`;
+}
+
+function submitLead(){
+  showLoading('Registering...');
+  setTimeout(()=>{ hideLoading(); showStep('step5'); },1200);
+}
+function skipLead(){ showStep('step5'); }
+function shareResult(){
+  const pct=document.getElementById('resultPct')?.textContent||'+28%';
+  if(navigator.share){
+    navigator.share({title:'Whisper-Up Career Analysis',text:`I just found out I could get ${pct} more if I switch jobs. You should check yours too.`,url:window.location.href});
+  } else {
+    alert(`Share this:\nI just found out I could get ${pct} more if I switch jobs. You should check yours too.\n${window.location.href}`);
+  }
+}
+
+function showStep(id){
+  document.querySelectorAll('.tarot-step').forEach(el=>el.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById('tarotApp').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function showLoading(text){ document.getElementById('loadingText').textContent=text; document.getElementById('loadingOverlay').classList.add('active'); }
+function hideLoading(){ document.getElementById('loadingOverlay').classList.remove('active'); }
+function scrollToApp(){ document.getElementById('tarot-app-section').scrollIntoView({behavior:'smooth',block:'start'}); }
+
+const obs=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}
+}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
