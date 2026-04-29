@@ -1,4 +1,9 @@
 import { setRequestLocale } from 'next-intl/server';
+import Nav from '@/components/landing/Nav';
+import Hero from '@/components/landing/Hero';
+import HowItWorks from '@/components/landing/HowItWorks';
+import Footer from '@/components/landing/Footer';
+import OrnamentDivider from '@/components/ui/OrnamentDivider';
 
 export default async function HomePage({
   params,
@@ -9,10 +14,13 @@ export default async function HomePage({
   setRequestLocale(locale);
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-8">
-      <p className="text-sm tracking-[0.3em] text-gold uppercase">✦ WhisperUp ✦</p>
-      <h1 className="font-serif text-4xl mt-4">Bootstrap OK</h1>
-      <p className="font-sans mt-2 opacity-70">locale: {locale}</p>
-    </main>
+    <div className="landing-bg relative">
+      <div className="page-frame" aria-hidden />
+      <Nav />
+      <Hero />
+      <OrnamentDivider>How It Works</OrnamentDivider>
+      <HowItWorks />
+      <Footer />
+    </div>
   );
 }
