@@ -10,9 +10,8 @@ export default function SocialProofBar() {
   const t = useTranslations('social');
   const locale = useLocale();
 
-  // Render a skeleton on the server / first client render to avoid a
-  // hydration mismatch (server time ≠ client time at the bucket boundary).
-  // Client picks up the real count in useEffect right after mount.
+  // Skeleton on the server / first client render avoids a hydration
+  // mismatch — server time and client time may straddle a 5-minute bucket.
   const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
@@ -27,24 +26,27 @@ export default function SocialProofBar() {
 
   return (
     <div
-      className="relative z-[2] mx-auto flex max-w-[900px] items-center justify-center gap-3 px-6 py-4"
+      className="relative z-[3] border-b border-[rgba(201,168,76,0.18)] bg-[rgba(201,168,76,0.05)] px-6 py-4"
       aria-label={t('ariaLabel')}
       aria-live="polite"
     >
-      <span aria-hidden className="font-serif text-[0.7rem] text-gold">
-        ✦
-      </span>
-      <span className="text-[0.78rem] tracking-[0.05em] text-[var(--muted)]">
-        {t.rich('weeklyCount', {
-          count: formatted,
-          n: (chunks) => (
-            <span className="font-serif font-semibold text-gold">{chunks}</span>
-          ),
-        })}
-      </span>
-      <span aria-hidden className="font-serif text-[0.7rem] text-gold">
-        ✦
-      </span>
+      <div className="mx-auto flex max-w-[900px] flex-wrap items-center justify-center gap-3">
+        <span
+          aria-hidden
+          className="h-1.5 w-1.5 rounded-full bg-gold"
+          style={{ animation: 'glow 2s ease-in-out infinite' }}
+        />
+        <span className="text-[0.85rem] tracking-[0.04em] text-[var(--text)]">
+          {t.rich('weeklyCount', {
+            count: formatted,
+            n: (chunks) => (
+              <span className="mx-1 font-serif text-[1.4rem] font-semibold text-gold">
+                {chunks}
+              </span>
+            ),
+          })}
+        </span>
+      </div>
     </div>
   );
 }

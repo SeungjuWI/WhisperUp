@@ -26,8 +26,8 @@ export default async function HomePage({
       <FunnelReset />
       <div className="page-frame" aria-hidden />
       <Nav />
-      <Hero />
       <SocialProofBar />
+      <Hero />
       <OrnamentDivider>{tHow('divider')}</OrnamentDivider>
       <HowItWorks />
       <OrnamentDivider>{tTesti('divider')}</OrnamentDivider>
