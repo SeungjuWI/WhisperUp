@@ -54,22 +54,40 @@ export default function InputFlow() {
   const setCity = useFunnelStore((s) => s.setCity);
   const setSalary = useFunnelStore((s) => s.setSalary);
   const setStep = useFunnelStore((s) => s.setStep);
+  const setResult = useFunnelStore((s) => s.setResult);
   const showLoading = useFunnelStore((s) => s.showLoading);
   const hideLoading = useFunnelStore((s) => s.hideLoading);
   const markPaid = useFunnelStore((s) => s.markPaid);
 
-  const advance = () => {
+  const advance = async () => {
     if (subStep < 3) {
       setSubStep(((subStep as number) + 1) as SubStep);
       return;
     }
-    // Final step → mock payment + analysis loading → step 4
+    if (!field || !years || !city || salary === null) return;
+
     markPaid();
     showLoading('Analyzing your data...');
-    window.setTimeout(() => {
-      setStep(4);
-      hideLoading();
-    }, ANALYSIS_DELAY_MS);
+
+    // Run calc + minimum 2.2s delay in parallel — API is local + cheap so
+    // the floor exists for UX consistency, not because the calc is slow.
+    const minDelay = new Promise<void>((resolve) =>
+      window.setTimeout(resolve, ANALYSIS_DELAY_MS),
+    );
+    const calc = fetch('/api/calculate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ field, years, city, salary }),
+    })
+      .then((r) => (r.ok ? (r.json() as Promise<{ resultPct: number }>) : null))
+      .catch(() => null);
+
+    const [, data] = await Promise.all([minDelay, calc]);
+    if (data && typeof data.resultPct === 'number') {
+      setResult(data.resultPct);
+    }
+    setStep(4);
+    hideLoading();
   };
 
   return (
