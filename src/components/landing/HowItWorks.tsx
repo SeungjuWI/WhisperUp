@@ -58,7 +58,7 @@ export default function HowItWorks() {
         {STEP_KEYS.map((k, i) => (
           <article
             key={k}
-            className="relative flex flex-1 flex-col items-center border border-[rgba(201,168,76,0.15)] bg-[rgba(14,12,24,0.04)] px-2 py-5 text-center"
+            className="corner-ornament relative flex flex-1 flex-col items-center border border-[rgba(201,168,76,0.2)] bg-[rgba(14,12,24,0.04)] px-2 py-5 text-center"
           >
             <div className="mb-2" aria-hidden>
               {ICONS[k]()}

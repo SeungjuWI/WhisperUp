@@ -82,7 +82,7 @@ export default function Testimonials() {
             >
               <div
                 ref={(el) => { cardsRef.current[i] = el; }}
-                className={`border p-5 transition-colors duration-300 ${
+                className={`corner-ornament border p-5 transition-colors duration-300 ${
                   i === current
                     ? 'border-[rgba(201,168,76,0.35)] bg-[rgba(14,12,24,0.06)]'
                     : 'border-[rgba(201,168,76,0.15)] bg-[rgba(14,12,24,0.02)]'

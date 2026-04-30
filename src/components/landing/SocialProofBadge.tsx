@@ -24,21 +24,21 @@ export default function SocialProofBadge() {
 
   return (
     <div
-      className="relative z-[3] flex justify-center py-3"
+      className="relative z-[3] flex justify-center bg-ink py-3"
       aria-label={t('ariaLabel')}
       aria-live="polite"
     >
-      <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(14,12,24,0.08)] bg-[rgba(14,12,24,0.04)] px-4 py-1.5">
+      <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(201,168,76,0.15)] bg-[rgba(201,168,76,0.06)] px-4 py-1.5">
         <span
           aria-hidden
           className="h-1.5 w-1.5 rounded-full bg-[#4ade80] shadow-[0_0_4px_rgba(74,222,128,0.5)]"
           style={{ animation: 'pulse 2s ease-in-out infinite' }}
         />
-        <span className="text-[0.75rem] tracking-[0.02em] text-[var(--muted)]">
+        <span className="text-[0.75rem] tracking-[0.02em] text-[rgba(245,240,232,0.5)]">
           {t.rich('weeklyCount', {
             count: formatted,
             n: (chunks) => (
-              <span className="font-semibold text-ink">{chunks}</span>
+              <span className="font-semibold text-gold">{chunks}</span>
             ),
           })}
         </span>
