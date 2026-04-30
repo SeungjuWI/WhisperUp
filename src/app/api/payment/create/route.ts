@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { payos } from '@/lib/payos';
+import { getPayOS } from '@/lib/payos';
 
 const AMOUNT_VND = 29000;
 
@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     const orderCode = Date.now();
     const origin = request.headers.get('origin') ?? 'http://localhost:3000';
 
-    const paymentLink = await payos.paymentRequests.create({
+    const paymentLink = await getPayOS().paymentRequests.create({
       orderCode,
       amount: AMOUNT_VND,
       description: `WhisperUp Reading`,

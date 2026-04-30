@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { payos } from '@/lib/payos';
+import { getPayOS } from '@/lib/payos';
 import { supabase } from '@/lib/supabase';
 
 export async function POST(request: Request) {
@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     const body = await request.json();
 
     // verify() returns WebhookData directly (orderCode, amount, etc.)
-    const data = await payos.webhooks.verify(body);
+    const data = await getPayOS().webhooks.verify(body);
 
     // Store payment result in Supabase
     await supabase.from('payments').insert({
