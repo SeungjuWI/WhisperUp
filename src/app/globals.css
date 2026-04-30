@@ -213,6 +213,12 @@ body {
 .tarot-card-face {
   background: var(--ink);
   transform: rotateY(180deg);
+  overflow: hidden;
+  padding: 6px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Reveal choreography: when the deck enters the fading phase, the cards the
