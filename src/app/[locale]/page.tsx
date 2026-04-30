@@ -1,8 +1,8 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Nav from '@/components/landing/Nav';
+import SocialProofBadge from '@/components/landing/SocialProofBadge';
 import Hero from '@/components/landing/Hero';
 import HowItWorks from '@/components/landing/HowItWorks';
-import SocialProofBar from '@/components/landing/SocialProofBar';
 import Testimonials from '@/components/landing/Testimonials';
 import FAQ from '@/components/landing/FAQ';
 import Disclaimer from '@/components/landing/Disclaimer';
@@ -26,7 +26,7 @@ export default async function HomePage({
       <FunnelReset />
       <div className="page-frame" aria-hidden />
       <Nav />
-      <SocialProofBar />
+      <SocialProofBadge />
       <Hero />
       <OrnamentDivider>{tHow('divider')}</OrnamentDivider>
       <HowItWorks />
