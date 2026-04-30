@@ -1,9 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { useTranslations } from 'next-intl';
 import { useFunnelStore } from '@/store/funnel-store';
-import { Link } from '@/i18n/routing';
 import LoadingOverlay from '@/components/ui/LoadingOverlay';
 import Complete from '@/components/funnel/Complete';
 import TopicSelect from './TopicSelect';
@@ -12,7 +10,6 @@ import Paywall from './Paywall';
 import TarotResult from './TarotResult';
 
 export default function TarotApp() {
-  const t = useTranslations('tarot');
   const currentStep = useFunnelStore((s) => s.currentStep);
   const loading = useFunnelStore((s) => s.loading);
 
@@ -21,6 +18,16 @@ export default function TarotApp() {
     if (currentStep === 0) return;
     cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, [currentStep]);
+
+  // Prevent browser back navigation
+  useEffect(() => {
+    window.history.pushState(null, '', window.location.href);
+    const handlePopState = () => {
+      window.history.pushState(null, '', window.location.href);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-ink">
@@ -32,17 +39,6 @@ export default function TarotApp() {
             'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(124, 92, 191, 0.15) 0%, transparent 60%)',
         }}
       />
-
-      <div className="relative z-10 mx-auto max-w-[430px] px-4 pt-4">
-        <div className="flex items-center justify-between">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 border border-[rgba(201,168,76,0.25)] bg-[rgba(245,240,232,0.04)] px-3 py-1.5 font-serif text-[0.7rem] tracking-[0.15em] text-[rgba(245,240,232,0.7)] transition-all hover:border-gold hover:bg-[rgba(201,168,76,0.08)] hover:text-gold"
-          >
-            {t('back')}
-          </Link>
-        </div>
-      </div>
 
       <div className="relative z-10 mx-auto max-w-[430px] px-3 py-6">
         <div
