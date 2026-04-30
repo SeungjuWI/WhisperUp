@@ -11,10 +11,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative z-[2] px-4 py-16">
-      <div className="mb-8 text-center font-serif text-[0.68rem] tracking-[0.2em] text-gold">
-        {t('label')}
-      </div>
+    <section className="relative z-[2] px-4 pt-6 pb-16">
       <ul className="divide-y divide-[rgba(201,168,76,0.15)] border-y border-[rgba(201,168,76,0.15)]">
         {items.map((item, i) => {
           const isOpen = openIndex === i;
