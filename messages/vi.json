@@ -128,6 +128,8 @@
         "fallback": "Đọc bài cho bạn"
       },
       "questionSuffix": " — Chọn 3 lá bài",
+      "shuffleBtn": "Xào Bài",
+      "shuffling": "Đang xào bài của bạn...",
       "instruction": "Giữ câu hỏi trong đầu — rồi chọn những lá bài bạn cảm thấy bị thu hút",
       "counter": "{count} / {max} đã chọn",
       "cta": "Xem Lời Đọc Của Bạn →"
@@ -265,6 +267,33 @@
           "situation": "Dưới mặt phẳng, bạn đã biết <em>một điều chưa được nói thành lời</em>.",
           "energy": "Năng lượng của trực giác và bí mật. <em>Khả năng cảm nhận đang giữ câu trả lời</em>, không phải logic.",
           "outcome": "Thông tin · cơ hội · sự thật bị che giấu <em>lộ ra</em>. Trực giác được chứng minh là đúng."
+        }
+      },
+      "justice": {
+        "name": "Công Lý",
+        "meaning": "Kết quả công bằng đang đến",
+        "interpretations": {
+          "situation": "Sự mất cân bằng bạn chịu đựng <em>đã đến điểm giới hạn</em>.",
+          "energy": "Năng lượng của sự rõ ràng và trách nhiệm. <em>Thành thật với bản thân</em> là công cụ sắc nhất lúc này.",
+          "outcome": "Những gì bạn xứng đáng <em>đến đúng tỷ lệ với nỗ lực</em>. Cán cân nghiêng về phía bạn."
+        }
+      },
+      "magician": {
+        "name": "Nhà Ảo Thuật",
+        "meaning": "Bạn đã có tất cả những gì cần",
+        "interpretations": {
+          "situation": "Tất cả các mảnh ghép <em>đã nằm trên bàn</em>. Thứ duy nhất thiếu là hành động.",
+          "energy": "Năng lượng của sự tháo vát và ý chí. <em>Kết hợp những gì bạn có</em> — kết quả sẽ gây bất ngờ.",
+          "outcome": "Một nước đi khéo léo biến tài nguyên bình thường thành <em>thứ phi thường</em>. Sự thành thạo được công nhận."
+        }
+      },
+      "temperance": {
+        "name": "Tiết Chế",
+        "meaning": "Sự cân bằng tạo đột phá",
+        "interpretations": {
+          "situation": "Hai lực kéo về hai hướng — <em>không bên nào đơn lẻ là đáp án</em>.",
+          "energy": "Năng lượng của kiên nhẫn và hòa trộn. <em>Con đường giữa</em> không phải yếu đuối — đó là chính xác.",
+          "outcome": "Một phép giả kim thầm lặng. Những gì tưởng không tương thích <em>hợp nhất thành thứ mới và mạnh hơn</em>."
         }
       }
     }

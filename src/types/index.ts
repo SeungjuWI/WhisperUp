@@ -12,7 +12,10 @@ export type CardId =
   | 'emperor'
   | 'chariot'
   | 'strength'
-  | 'priestess';
+  | 'priestess'
+  | 'justice'
+  | 'magician'
+  | 'temperance';
 
 export type TarotCard = {
   id: CardId;

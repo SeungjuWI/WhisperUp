@@ -128,6 +128,8 @@
         "fallback": "Your reading"
       },
       "questionSuffix": " — Choose 3 cards",
+      "shuffleBtn": "Shuffle the Deck",
+      "shuffling": "Shuffling your cards...",
       "instruction": "Hold your question in mind — then pick the cards you feel drawn to",
       "counter": "{count} / {max} chosen",
       "cta": "See Your Reading →"
@@ -265,6 +267,33 @@
           "situation": "Beneath the surface, you already know <em>something that hasn't been spoken</em>.",
           "energy": "Energy of intuition and secrets. <em>Sensing — not logic — holds the answer</em>.",
           "outcome": "Hidden information, opportunities, and truths <em>come into view</em>. The intuition is proven right."
+        }
+      },
+      "justice": {
+        "name": "Justice",
+        "meaning": "A fair outcome is coming",
+        "interpretations": {
+          "situation": "An imbalance you've been tolerating is <em>reaching its tipping point</em>.",
+          "energy": "Energy of clarity and accountability. <em>Honesty with yourself</em> is the sharpest tool right now.",
+          "outcome": "What you deserve <em>arrives in proportion to your effort</em>. The scales settle in your favor."
+        }
+      },
+      "magician": {
+        "name": "The Magician",
+        "meaning": "You have everything you need",
+        "interpretations": {
+          "situation": "All the pieces are <em>already on the table</em>. The only missing ingredient is action.",
+          "energy": "Energy of resourcefulness and will. <em>Combine what you have</em> — the result will surprise you.",
+          "outcome": "A skilled move turns ordinary resources into <em>something extraordinary</em>. Mastery is recognized."
+        }
+      },
+      "temperance": {
+        "name": "Temperance",
+        "meaning": "Balance brings breakthroughs",
+        "interpretations": {
+          "situation": "Two forces are pulling in different directions — <em>neither alone is the answer</em>.",
+          "energy": "Energy of patience and blending. <em>The middle path</em> is not weakness — it's precision.",
+          "outcome": "A quiet alchemy. What seemed incompatible <em>merges into something new and stronger</em>."
         }
       }
     }

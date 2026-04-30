@@ -17,6 +17,9 @@ export const CARDS: readonly TarotCard[] = [
   { id: 'chariot', symbol: '⚔️' },
   { id: 'strength', symbol: '🦁' },
   { id: 'priestess', symbol: '🌀' },
+  { id: 'justice', symbol: '⚖️' },
+  { id: 'magician', symbol: '🎩' },
+  { id: 'temperance', symbol: '🕊️' },
 ] as const;
 
 export const MAX_CARDS = 3;

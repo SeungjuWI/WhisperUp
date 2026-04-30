@@ -234,6 +234,89 @@ body {
   transition: opacity 350ms ease, transform 350ms ease;
 }
 
+/* Deck pile — stacked cards before & during shuffle.
+   All transforms are set inline; CSS only provides transitions. */
+.deck-pile {
+  position: relative;
+  width: 80px;
+  height: 120px;
+}
+.deck-pile-card {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 4px;
+  background-color: var(--card, #1a1726);
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 4px,
+    rgba(201, 168, 76, 0.04) 4px,
+    rgba(201, 168, 76, 0.04) 5px
+  );
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.deck-pile-card::before {
+  content: '\2726';
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: rgba(201, 168, 76, 0.3);
+}
+
+/* Shuffle button */
+.shuffle-btn {
+  padding: 0.7rem 2rem;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.shuffle-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(201,168,76,0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.shuffle-btn:hover {
+  background: rgba(201, 168, 76, 0.1);
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.2);
+}
+.shuffle-btn:hover::before {
+  opacity: 1;
+}
+.shuffle-btn:active {
+  transform: scale(0.97);
+}
+
+/* Spread animation — cards fan out from pile into grid */
+.deck-spread-card {
+  opacity: 0;
+  animation: spreadIn 0.4s ease-out forwards;
+  animation-delay: calc(var(--spread-index) * 0.04s);
+}
+@keyframes spreadIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(-30px) rotate(calc((var(--spread-index) - var(--spread-total) / 2) * 3deg));
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.03) translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotate(0deg);
+  }
+}
+
 /* Native <select> options on the dark tarot panel — Firefox & Chromium honor this. */
 .dark-select option {
   background: var(--ink);
