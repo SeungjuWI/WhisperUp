@@ -31,7 +31,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative z-[2] flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pb-16 pt-20 text-center sm:px-10">
+    <section className="relative z-[2] flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pb-16 pt-20 text-center">
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         {stars.map((s, i) => (
           <span
@@ -56,9 +56,8 @@ export default function Hero() {
       </div>
 
       <h1
-        className="mb-5 font-serif font-semibold leading-[1.15] tracking-[0.04em] text-ink"
+        className="mb-5 font-serif text-[2rem] font-semibold leading-[1.15] tracking-[0.04em] text-ink"
         style={{
-          fontSize: 'clamp(2.2rem, 5vw, 4.5rem)',
           animation: 'fadeUp 0.8s 0.1s ease both',
         }}
       >
@@ -68,9 +67,8 @@ export default function Hero() {
       </h1>
 
       <p
-        className="mb-7 max-w-[500px] font-light leading-[1.9] text-[var(--muted)]"
+        className="mb-7 text-[0.92rem] font-light leading-[1.9] text-[var(--muted)]"
         style={{
-          fontSize: 'clamp(0.95rem, 1.8vw, 1.05rem)',
           animation: 'fadeUp 0.8s 0.2s ease both',
         }}
       >
@@ -102,7 +100,7 @@ export default function Hero() {
 
       <Link
         href="/reading"
-        className="inline-block border border-gold bg-ink px-12 py-[1.1rem] font-serif text-[0.95rem] font-semibold tracking-[0.12em] text-gold2 shadow-[0_4px_30px_rgba(14,12,24,0.12)] transition-all duration-[0.25s] hover:-translate-y-0.5 hover:bg-gold hover:text-ink hover:shadow-[0_8px_40px_rgba(201,168,76,0.3)]"
+        className="inline-block border border-gold bg-ink px-10 py-4 font-serif text-[0.9rem] font-semibold tracking-[0.12em] text-gold2 shadow-[0_4px_30px_rgba(14,12,24,0.12)] transition-all duration-[0.25s] hover:-translate-y-0.5 hover:bg-gold hover:text-ink hover:shadow-[0_8px_40px_rgba(201,168,76,0.3)]"
         style={{ animation: 'fadeUp 0.8s 0.35s ease both' }}
       >
         {t('cta')}

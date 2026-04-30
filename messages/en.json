@@ -9,23 +9,23 @@
     "ko": "KO"
   },
   "nav": {
-    "tag": "Thinking about switching jobs? Read the tarot first.",
-    "cta": "Start Free →"
+    "tag": "Switching jobs? Read tarot first.",
+    "cta": "Start →"
   },
   "hero": {
-    "ornament": "Career Tarot for Job Changers",
-    "h1Lead": "Should I switch jobs?",
+    "ornament": "Career Tarot",
+    "h1Lead": "Should I switch?",
     "h1Trail": "Read the cards",
     "h1Emphasis": "first.",
-    "subLine1": "See the direction with tarot —",
-    "subLine2": "then confirm with data how much your salary could rise.",
-    "subLine3": "Your secret. Nobody else knows.",
-    "freeBefore": "Tarot + market data are ",
+    "subLine1": "Draw tarot cards for free —",
+    "subLine2": "unlock your reading + salary data for 29,000 VND.",
+    "subLine3": "Your secret. Nobody knows.",
+    "freeBefore": "Card draw is ",
     "freeWord": "free",
     "freeAfter": ".",
-    "freePaid": "Your salary uplift + matching companies for just 29,000 VND.",
-    "cta": "Start Free Now",
-    "ctaNote": "Pick your cards · See results instantly · No name or email needed",
+    "freePaid": "Reading + salary data for just 29,000 VND.",
+    "cta": "Start Now",
+    "ctaNote": "Pick cards · Instant results · No email needed",
     "scroll": "SCROLL"
   },
   "howItWorks": {
@@ -33,18 +33,18 @@
     "steps": {
       "01": {
         "label": "STEP 01",
-        "title": "Free Tarot",
-        "desc": "Pick a topic, draw 3 cards. Get your direction and intuition first. Completely free."
+        "title": "Draw Cards Free",
+        "desc": "Pick a topic, draw 3 cards. Completely free."
       },
       "02": {
         "label": "STEP 02",
-        "title": "Data Confidence",
-        "desc": "After your reading — if you want the real number, it's 29,000 VND. See exactly how much your salary could jump."
+        "title": "Unlock Reading",
+        "desc": "29,000 VND — see your tarot reading + how much your salary could jump."
       },
       "03": {
         "label": "STEP 03",
         "title": "Job Matches",
-        "desc": "Want to know which companies fit you best? Add more info and get personalized job recommendations."
+        "desc": "Get company recommendations and a salary negotiation guide."
       }
     }
   },

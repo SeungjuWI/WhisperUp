@@ -38,20 +38,22 @@ export default function TarotApp() {
         }}
       />
 
-      <div className="relative z-10 flex items-center justify-between px-4 pt-4 sm:px-6 sm:pt-6">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 border border-[rgba(201,168,76,0.25)] bg-[rgba(245,240,232,0.04)] px-3 py-1.5 font-serif text-[0.7rem] tracking-[0.15em] text-[rgba(245,240,232,0.7)] transition-all hover:border-gold hover:bg-[rgba(201,168,76,0.08)] hover:text-gold"
-        >
-          {t('back')}
-        </Link>
-        <LocaleSwitcher variant="dark" />
+      <div className="relative z-10 mx-auto max-w-[430px] px-4 pt-4">
+        <div className="flex items-center justify-between">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 border border-[rgba(201,168,76,0.25)] bg-[rgba(245,240,232,0.04)] px-3 py-1.5 font-serif text-[0.7rem] tracking-[0.15em] text-[rgba(245,240,232,0.7)] transition-all hover:border-gold hover:bg-[rgba(201,168,76,0.08)] hover:text-gold"
+          >
+            {t('back')}
+          </Link>
+          <LocaleSwitcher variant="dark" />
+        </div>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[720px] px-3 py-6 sm:px-4 sm:py-12 md:px-6">
+      <div className="relative z-10 mx-auto max-w-[430px] px-3 py-6">
         <div
           ref={cardRef}
-          className="relative border border-[rgba(201,168,76,0.2)] bg-ink p-4 sm:p-6 md:p-10"
+          className="relative border border-[rgba(201,168,76,0.2)] bg-ink p-4"
         >
           <Corner pos="tl" />
           <Corner pos="tr" />

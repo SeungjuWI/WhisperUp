@@ -130,7 +130,7 @@ export default function CardDeck() {
       <div className="mb-2 text-center font-serif text-[0.7rem] tracking-[0.2em] text-[rgba(201,168,76,0.7)]">
         {t('tarot.deck.label')}
       </div>
-      <h2 className="mb-2 text-center font-serif text-[1.3rem] font-semibold leading-[1.4] tracking-[0.04em] text-paper">
+      <h2 className="mb-2 text-center font-serif text-[1.15rem] font-semibold leading-[1.4] tracking-[0.04em] text-paper">
         {question}
         {t('tarot.deck.questionSuffix')}
       </h2>
@@ -141,7 +141,7 @@ export default function CardDeck() {
       <div
         ref={containerRef}
         data-phase={phase}
-        className="deck-grid mb-6 flex flex-wrap justify-center gap-2 sm:gap-4"
+        className="deck-grid mb-6 flex flex-wrap justify-center gap-2"
       >
         {visibleCards.map((card) => {
           const flipped = isFlipped(card);

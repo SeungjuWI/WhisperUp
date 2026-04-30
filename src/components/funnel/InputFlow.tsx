@@ -193,7 +193,7 @@ function SalaryStep({
           if (Number.isFinite(v)) onChoose(v);
         }}
         aria-label={t('ariaLabel')}
-        className="dark-select w-full border border-[rgba(201,168,76,0.2)] bg-[rgba(245,240,232,0.05)] px-4 py-4 text-[0.9rem] text-paper outline-none transition-colors focus:border-gold sm:py-3 sm:text-[0.85rem]"
+        className="dark-select w-full border border-[rgba(201,168,76,0.2)] bg-[rgba(245,240,232,0.05)] px-4 py-3.5 text-[0.85rem] text-paper outline-none transition-colors focus:border-gold"
       >
         <option value="" disabled>
           {t('placeholder')}

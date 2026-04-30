@@ -33,7 +33,7 @@ export default function Paywall() {
       <div className="mb-2 text-center font-serif text-[0.65rem] tracking-[0.2em] text-[rgba(201,168,76,0.6)]">
         {t('label')}
       </div>
-      <h2 className="mb-2 text-center font-serif text-[1.3rem] font-semibold leading-[1.4] tracking-[0.04em] text-paper">
+      <h2 className="mb-2 text-center font-serif text-[1.1rem] font-semibold leading-[1.4] tracking-[0.04em] text-paper">
         {t('heading')}
       </h2>
       <p className="mb-6 text-center text-[0.78rem] leading-[1.7] text-[rgba(245,240,232,0.5)]">
@@ -41,7 +41,7 @@ export default function Paywall() {
       </p>
 
       {/* What payment unlocks */}
-      <div className="mb-5 border border-[rgba(201,168,76,0.2)] bg-[rgba(14,12,24,0.6)] p-4 sm:p-5">
+      <div className="mb-5 border border-[rgba(201,168,76,0.2)] bg-[rgba(14,12,24,0.6)] p-4">
         <div className="mb-3 font-serif text-[0.7rem] tracking-[0.2em] text-gold">
           {t('unlockLabel')}
         </div>
@@ -66,7 +66,7 @@ export default function Paywall() {
 
       {/* Payment CTA */}
       <div
-        className="relative overflow-hidden border border-[rgba(201,168,76,0.3)] p-4 text-center sm:p-5"
+        className="relative overflow-hidden border border-[rgba(201,168,76,0.3)] p-4 text-center"
         style={{
           background:
             'linear-gradient(135deg, rgba(201,168,76,0.08) 0%, rgba(42,157,143,0.08) 100%)',
@@ -90,7 +90,7 @@ export default function Paywall() {
         <button
           type="button"
           onClick={handlePay}
-          className="block w-full cursor-pointer border-0 bg-gold px-10 py-4 font-serif text-[0.9rem] font-semibold tracking-[0.1em] text-ink transition-all duration-200 hover:-translate-y-px hover:bg-gold2 sm:py-3.5 sm:text-[0.85rem]"
+          className="block w-full cursor-pointer border-0 bg-gold px-6 py-4 font-serif text-[0.82rem] font-semibold tracking-[0.06em] text-ink transition-all duration-200 hover:-translate-y-px hover:bg-gold2"
         >
           {t('cta')}
         </button>

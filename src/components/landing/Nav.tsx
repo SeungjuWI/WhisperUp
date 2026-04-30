@@ -5,15 +5,12 @@ import LocaleSwitcher from '@/components/ui/LocaleSwitcher';
 export default async function Nav() {
   const t = await getTranslations('nav');
 
-  // 3-col grid so the middle tagline sits at the true viewport center
-  // regardless of logo width vs actions width. Logo justifies to the
-  // start, actions to the end.
   return (
-    <nav className="sticky top-0 z-[100] grid grid-cols-[1fr_auto_1fr] items-center gap-4 border-b border-[rgba(201,168,76,0.25)] bg-[rgba(245,240,232,0.92)] px-6 py-[1.1rem] backdrop-blur-[20px] sm:px-10">
+    <nav className="sticky top-0 z-[100] mx-auto flex max-w-[430px] items-center justify-between border-b border-[rgba(201,168,76,0.25)] bg-[rgba(245,240,232,0.92)] px-4 py-3 backdrop-blur-[20px]">
       <Link
         href="/"
         aria-label="Whisper-Up — home"
-        className="flex items-center gap-2 font-serif text-[1.15rem] font-semibold tracking-[0.12em] text-[var(--text)] transition-colors hover:text-gold justify-self-start"
+        className="flex items-center gap-2 font-serif text-[1.05rem] font-semibold tracking-[0.1em] text-[var(--text)] transition-colors hover:text-gold"
       >
         <span
           aria-hidden
@@ -23,15 +20,11 @@ export default async function Nav() {
         Whisper<span className="text-gold">-</span>Up
       </Link>
 
-      <div className="hidden text-center text-[0.7rem] tracking-[0.06em] text-[var(--muted)] md:block">
-        {t('tag')}
-      </div>
-
-      <div className="flex items-center gap-4 justify-self-end">
+      <div className="flex items-center gap-3">
         <LocaleSwitcher variant="light" />
         <Link
           href="/reading"
-          className="border border-gold bg-ink px-[1.4rem] py-2 font-serif text-[0.75rem] font-semibold tracking-[0.1em] text-gold2 transition-colors duration-200 hover:bg-gold hover:text-ink"
+          className="whitespace-nowrap border border-gold bg-ink px-3.5 py-1.5 font-serif text-[0.7rem] font-semibold tracking-[0.08em] text-gold2 transition-colors duration-200 hover:bg-gold hover:text-ink"
         >
           {t('cta')}
         </Link>

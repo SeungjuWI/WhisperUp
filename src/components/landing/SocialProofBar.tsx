@@ -30,7 +30,7 @@ export default function SocialProofBar() {
       aria-label={t('ariaLabel')}
       aria-live="polite"
     >
-      <div className="mx-auto flex max-w-[960px] flex-wrap items-center justify-center gap-3 px-6 py-4 sm:px-10">
+      <div className="flex flex-wrap items-center justify-center gap-3 px-4 py-4">
         <span
           aria-hidden
           className="h-1.5 w-1.5 rounded-full bg-gold"

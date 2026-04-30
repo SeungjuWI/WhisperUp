@@ -11,8 +11,8 @@ export default async function HowItWorks() {
   const t = await getTranslations('howItWorks.steps');
 
   return (
-    <section className="relative z-[2] mx-auto max-w-[960px] px-6 py-20 sm:px-10">
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+    <section className="relative z-[2] px-4 py-16">
+      <div className="grid grid-cols-1 gap-4">
         {STEP_KEYS.map((k) => (
           <article
             key={k}

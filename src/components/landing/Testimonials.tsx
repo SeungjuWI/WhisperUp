@@ -14,11 +14,11 @@ export default async function Testimonials() {
   const items = t.raw('items') as readonly Testimonial[];
 
   return (
-    <section className="relative z-[2] mx-auto max-w-[960px] px-6 py-16 sm:px-10">
+    <section className="relative z-[2] px-4 py-16">
       <div className="mb-8 text-center font-serif text-[0.68rem] tracking-[0.2em] text-gold">
         {t('label')}
       </div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4">
         {items.map((item) => (
           <article
             key={item.name + item.meta}

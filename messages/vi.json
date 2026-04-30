@@ -9,23 +9,23 @@
     "ko": "KO"
   },
   "nav": {
-    "tag": "Phân vân đổi việc? Xem tarot trước.",
-    "cta": "Bắt Đầu Miễn Phí →"
+    "tag": "Đổi việc? Xem tarot trước.",
+    "cta": "Bắt Đầu →"
   },
   "hero": {
-    "ornament": "Tarot Sự Nghiệp Cho Người Đổi Việc",
-    "h1Lead": "Có nên đổi việc không?",
-    "h1Trail": "Xem các lá bài",
+    "ornament": "Tarot Sự Nghiệp",
+    "h1Lead": "Có nên đổi việc?",
+    "h1Trail": "Xem lá bài",
     "h1Emphasis": "trước.",
-    "subLine1": "Xem hướng đi qua tarot —",
-    "subLine2": "rồi xác nhận bằng dữ liệu mức lương có thể tăng bao nhiêu.",
-    "subLine3": "Bí mật của bạn. Không ai khác biết.",
-    "freeBefore": "Tarot + dữ liệu thị trường đều ",
+    "subLine1": "Rút bài tarot miễn phí —",
+    "subLine2": "mở khóa bài đọc + dữ liệu lương chỉ 29.000 VND.",
+    "subLine3": "Bí mật. Không ai biết.",
+    "freeBefore": "Rút bài ",
     "freeWord": "miễn phí",
     "freeAfter": ".",
-    "freePaid": "Mức tăng lương + công ty phù hợp chỉ 29.000 VND.",
-    "cta": "Bắt Đầu Miễn Phí Ngay",
-    "ctaNote": "Chọn lá bài · Xem kết quả ngay · Không cần tên hay email",
+    "freePaid": "Bài đọc + dữ liệu lương chỉ 29.000 VND.",
+    "cta": "Bắt Đầu Ngay",
+    "ctaNote": "Chọn bài · Kết quả ngay · Không cần email",
     "scroll": "CUỘN"
   },
   "howItWorks": {
@@ -33,18 +33,18 @@
     "steps": {
       "01": {
         "label": "BƯỚC 01",
-        "title": "Tarot Miễn Phí",
-        "desc": "Chọn chủ đề, rút 3 lá bài. Nhận hướng đi và trực giác trước. Hoàn toàn miễn phí."
+        "title": "Rút Bài Miễn Phí",
+        "desc": "Chọn chủ đề, rút 3 lá. Hoàn toàn miễn phí."
       },
       "02": {
         "label": "BƯỚC 02",
-        "title": "Tự Tin Bằng Dữ Liệu",
-        "desc": "Sau khi đọc bài — nếu bạn muốn con số thực, chỉ 29.000 VND. Xem chính xác mức lương có thể tăng bao nhiêu."
+        "title": "Mở Khóa Bài Đọc",
+        "desc": "29.000 VND — xem bài đọc tarot + mức lương có thể tăng bao nhiêu."
       },
       "03": {
         "label": "BƯỚC 03",
-        "title": "Việc Phù Hợp",
-        "desc": "Muốn biết công ty nào phù hợp nhất với bạn? Thêm thông tin và nhận gợi ý việc làm cá nhân hóa."
+        "title": "Công Ty Phù Hợp",
+        "desc": "Nhận gợi ý công ty và hướng dẫn đàm phán lương."
       }
     }
   },

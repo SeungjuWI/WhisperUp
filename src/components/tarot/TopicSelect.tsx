@@ -26,14 +26,14 @@ export default function TopicSelect() {
       <div className="mb-2 text-center font-serif text-[0.7rem] tracking-[0.2em] text-[rgba(201,168,76,0.7)]">
         {t('label')}
       </div>
-      <h2 className="mb-8 text-center font-serif text-[1.3rem] font-semibold leading-[1.4] tracking-[0.04em] text-paper">
+      <h2 className="mb-6 text-center font-serif text-[1.15rem] font-semibold leading-[1.4] tracking-[0.04em] text-paper">
         {t('question')}
       </h2>
 
       <div
         role="radiogroup"
         aria-label={t('ariaGroup')}
-        className="grid grid-cols-1 gap-3 sm:grid-cols-3"
+        className="grid grid-cols-1 gap-3"
       >
         {TOPIC_IDS.map(({ id, icon }) => {
           const selected = topic === id;
@@ -44,7 +44,7 @@ export default function TopicSelect() {
               role="radio"
               aria-checked={selected}
               onClick={() => handleSelect(id)}
-              className={`border px-4 py-4 text-center transition-all duration-200 sm:px-3 sm:py-3.5 ${
+              className={`border px-4 py-4 text-center transition-all duration-200 ${
                 selected
                   ? 'border-gold bg-[rgba(201,168,76,0.12)]'
                   : 'border-[rgba(201,168,76,0.2)] bg-[rgba(245,240,232,0.04)] hover:border-[rgba(201,168,76,0.5)] hover:bg-[rgba(201,168,76,0.08)]'
@@ -53,7 +53,7 @@ export default function TopicSelect() {
               <span className="mb-1.5 block text-[1.4rem]" aria-hidden>
                 {icon}
               </span>
-              <span className="block whitespace-pre-line text-[0.85rem] font-light leading-[1.5] text-paper sm:text-[0.78rem] sm:leading-[1.4]">
+              <span className="block whitespace-pre-line text-[0.85rem] font-light leading-[1.5] text-paper">
                 {t(`options.${id}`)}
               </span>
             </button>

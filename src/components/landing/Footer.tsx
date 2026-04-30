@@ -6,7 +6,7 @@ export default async function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative z-[2] flex flex-wrap items-center justify-between gap-4 border-t border-[rgba(201,168,76,0.15)] px-6 py-8 text-[0.7rem] tracking-[0.04em] text-[var(--muted)] sm:px-10">
+    <footer className="relative z-[2] flex flex-wrap items-center justify-between gap-4 border-t border-[rgba(201,168,76,0.15)] px-4 py-8 text-[0.7rem] tracking-[0.04em] text-[var(--muted)]">
       <Link
         href="/"
         className="font-serif font-semibold tracking-[0.1em] text-[var(--text)] transition-colors hover:text-gold"
