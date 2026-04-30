@@ -7,11 +7,11 @@ import { Link } from '@/i18n/routing';
 import LoadingOverlay from '@/components/ui/LoadingOverlay';
 import LocaleSwitcher from '@/components/ui/LocaleSwitcher';
 import InputFlow from '@/components/funnel/InputFlow';
-import TeaserResult from '@/components/funnel/TeaserResult';
 import PaidResult from '@/components/funnel/PaidResult';
 import Complete from '@/components/funnel/Complete';
 import TopicSelect from './TopicSelect';
 import CardDeck from './CardDeck';
+import Paywall from './Paywall';
 import TarotResult from './TarotResult';
 
 export default function TarotApp() {
@@ -24,7 +24,7 @@ export default function TarotApp() {
   const cardRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (currentStep === 0) return; // initial mount — user is already at the card
-    cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, [currentStep]);
 
   return (
@@ -38,7 +38,7 @@ export default function TarotApp() {
         }}
       />
 
-      <div className="relative z-10 flex items-center justify-between px-6 pt-6">
+      <div className="relative z-10 flex items-center justify-between px-4 pt-4 sm:px-6 sm:pt-6">
         <Link
           href="/"
           className="inline-flex items-center gap-2 border border-[rgba(201,168,76,0.25)] bg-[rgba(245,240,232,0.04)] px-3 py-1.5 font-serif text-[0.7rem] tracking-[0.15em] text-[rgba(245,240,232,0.7)] transition-all hover:border-gold hover:bg-[rgba(201,168,76,0.08)] hover:text-gold"
@@ -48,10 +48,10 @@ export default function TarotApp() {
         <LocaleSwitcher variant="dark" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[720px] px-4 py-12 sm:px-6">
+      <div className="relative z-10 mx-auto max-w-[720px] px-3 py-6 sm:px-4 sm:py-12 md:px-6">
         <div
           ref={cardRef}
-          className="relative border border-[rgba(201,168,76,0.2)] bg-ink p-6 sm:p-10"
+          className="relative border border-[rgba(201,168,76,0.2)] bg-ink p-4 sm:p-6 md:p-10"
         >
           <Corner pos="tl" />
           <Corner pos="tr" />
@@ -61,9 +61,9 @@ export default function TarotApp() {
           <div className="relative">
             {currentStep === 0 && <TopicSelect />}
             {currentStep === 1 && <CardDeck />}
-            {currentStep === 2 && <TarotResult />}
-            {currentStep === 3 && <InputFlow />}
-            {currentStep === 4 && <TeaserResult />}
+            {currentStep === 2 && <Paywall />}
+            {currentStep === 3 && <TarotResult />}
+            {currentStep === 4 && <InputFlow />}
             {currentStep === 5 && <PaidResult />}
             {currentStep === 6 && <Complete />}
           </div>

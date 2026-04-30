@@ -47,7 +47,7 @@ export default function Complete() {
       <button
         type="button"
         onClick={handleShare}
-        className="mt-6 block w-full cursor-pointer border-0 bg-gold px-10 py-3.5 font-serif text-[0.85rem] font-semibold tracking-[0.1em] text-ink transition-all duration-200 hover:-translate-y-px hover:bg-gold2"
+        className="mt-6 block w-full cursor-pointer border-0 bg-gold px-10 py-4 font-serif text-[0.9rem] font-semibold tracking-[0.1em] text-ink transition-all duration-200 hover:-translate-y-px hover:bg-gold2 sm:py-3.5 sm:text-[0.85rem]"
       >
         {t('share')}
       </button>

@@ -44,7 +44,7 @@ export default function TopicSelect() {
               role="radio"
               aria-checked={selected}
               onClick={() => handleSelect(id)}
-              className={`border px-3 py-3.5 text-center transition-all duration-200 ${
+              className={`border px-4 py-4 text-center transition-all duration-200 sm:px-3 sm:py-3.5 ${
                 selected
                   ? 'border-gold bg-[rgba(201,168,76,0.12)]'
                   : 'border-[rgba(201,168,76,0.2)] bg-[rgba(245,240,232,0.04)] hover:border-[rgba(201,168,76,0.5)] hover:bg-[rgba(201,168,76,0.08)]'
@@ -53,7 +53,7 @@ export default function TopicSelect() {
               <span className="mb-1.5 block text-[1.4rem]" aria-hidden>
                 {icon}
               </span>
-              <span className="block whitespace-pre-line text-[0.78rem] font-light leading-[1.4] text-paper">
+              <span className="block whitespace-pre-line text-[0.85rem] font-light leading-[1.5] text-paper sm:text-[0.78rem] sm:leading-[1.4]">
                 {t(`options.${id}`)}
               </span>
             </button>

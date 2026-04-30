@@ -32,7 +32,7 @@ export default function LeadCapture() {
   const handleSkip = () => setStep(6);
 
   return (
-    <div className="relative mb-4 border border-[rgba(201,168,76,0.15)] border-t-2 border-t-gold bg-[rgba(245,240,232,0.03)] p-6">
+    <div className="relative mb-4 border border-[rgba(201,168,76,0.15)] border-t-2 border-t-gold bg-[rgba(245,240,232,0.03)] p-4 sm:p-6">
       <div className="mb-2 font-serif text-[0.65rem] tracking-[0.2em] text-gold">
         {t('label')}
       </div>
@@ -53,14 +53,14 @@ export default function LeadCapture() {
           placeholder={t('namePlaceholder')}
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full border border-[rgba(201,168,76,0.2)] bg-[rgba(245,240,232,0.05)] px-4 py-3 text-[0.85rem] text-paper outline-none transition-colors placeholder:text-[rgba(245,240,232,0.25)] focus:border-gold"
+          className="w-full border border-[rgba(201,168,76,0.2)] bg-[rgba(245,240,232,0.05)] px-4 py-3.5 text-[0.9rem] text-paper outline-none transition-colors placeholder:text-[rgba(245,240,232,0.25)] focus:border-gold sm:py-3 sm:text-[0.85rem]"
         />
         <input
           type="text"
           placeholder={t('educationPlaceholder')}
           value={education}
           onChange={(e) => setEducation(e.target.value)}
-          className="w-full border border-[rgba(201,168,76,0.2)] bg-[rgba(245,240,232,0.05)] px-4 py-3 text-[0.85rem] text-paper outline-none transition-colors placeholder:text-[rgba(245,240,232,0.25)] focus:border-gold"
+          className="w-full border border-[rgba(201,168,76,0.2)] bg-[rgba(245,240,232,0.05)] px-4 py-3.5 text-[0.9rem] text-paper outline-none transition-colors placeholder:text-[rgba(245,240,232,0.25)] focus:border-gold sm:py-3 sm:text-[0.85rem]"
         />
       </div>
       <input
@@ -68,13 +68,13 @@ export default function LeadCapture() {
         placeholder={t('targetSalaryPlaceholder')}
         value={targetSalary}
         onChange={(e) => setTargetSalary(e.target.value)}
-        className="mb-3 w-full border border-[rgba(201,168,76,0.2)] bg-[rgba(245,240,232,0.05)] px-4 py-3 text-[0.85rem] text-paper outline-none transition-colors placeholder:text-[rgba(245,240,232,0.25)] focus:border-gold"
+        className="mb-3 w-full border border-[rgba(201,168,76,0.2)] bg-[rgba(245,240,232,0.05)] px-4 py-3.5 text-[0.9rem] text-paper outline-none transition-colors placeholder:text-[rgba(245,240,232,0.25)] focus:border-gold sm:py-3 sm:text-[0.85rem]"
       />
 
       <button
         type="button"
         onClick={handleSubmit}
-        className="mb-2 w-full cursor-pointer border-0 bg-teal px-4 py-3.5 font-serif text-[0.82rem] font-semibold tracking-[0.1em] text-paper transition-all duration-200 hover:-translate-y-px hover:bg-[#26a99a]"
+        className="mb-2 w-full cursor-pointer border-0 bg-teal px-4 py-4 font-serif text-[0.88rem] font-semibold tracking-[0.1em] text-paper transition-all duration-200 hover:-translate-y-px hover:bg-[#26a99a] sm:py-3.5 sm:text-[0.82rem]"
       >
         {t('submit')}
       </button>

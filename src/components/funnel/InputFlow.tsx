@@ -49,6 +49,7 @@ export default function InputFlow() {
   const setSalary = useFunnelStore((s) => s.setSalary);
   const setStep = useFunnelStore((s) => s.setStep);
   const setTeaserData = useFunnelStore((s) => s.setTeaserData);
+  const setFullResult = useFunnelStore((s) => s.setFullResult);
   const showLoading = useFunnelStore((s) => s.showLoading);
   const hideLoading = useFunnelStore((s) => s.hideLoading);
 
@@ -67,9 +68,8 @@ export default function InputFlow() {
     label: t(`input.city.options.${v}`),
   }));
 
-  // Run the teaser calc + transition. Reads the latest store snapshot so it
-  // works when called immediately after a setter (closure may still hold the
-  // pre-click value).
+  // User has already paid at step 2, so we call tier=full directly and skip
+  // the teaser step entirely.
   const runAnalysis = async () => {
     const snapshot = useFunnelStore.getState();
     if (!snapshot.field || !snapshot.years || !snapshot.city || snapshot.salary === null) {
@@ -84,7 +84,13 @@ export default function InputFlow() {
     const calc = fetch('/api/calculate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ tier: 'teaser', field: snapshot.field }),
+      body: JSON.stringify({
+        tier: 'full',
+        field: snapshot.field,
+        years: snapshot.years,
+        city: snapshot.city,
+        salary: snapshot.salary,
+      }),
     })
       .then((r) =>
         r.ok
@@ -92,16 +98,19 @@ export default function InputFlow() {
               marketAvg: number;
               rangeMin: number;
               rangeMax: number;
+              resultPct: number;
+              percentile: number;
             }>)
           : null,
       )
       .catch(() => null);
 
     const [, data] = await Promise.all([minDelay, calc]);
-    if (data && typeof data.marketAvg === 'number') {
-      setTeaserData(data);
+    if (data && typeof data.resultPct === 'number') {
+      setTeaserData({ marketAvg: data.marketAvg, rangeMin: data.rangeMin, rangeMax: data.rangeMax });
+      setFullResult({ resultPct: data.resultPct, percentile: data.percentile });
     }
-    setStep(4);
+    setStep(5);
     hideLoading();
   };
 
@@ -184,7 +193,7 @@ function SalaryStep({
           if (Number.isFinite(v)) onChoose(v);
         }}
         aria-label={t('ariaLabel')}
-        className="dark-select w-full border border-[rgba(201,168,76,0.2)] bg-[rgba(245,240,232,0.05)] px-4 py-3 text-[0.85rem] text-paper outline-none transition-colors focus:border-gold"
+        className="dark-select w-full border border-[rgba(201,168,76,0.2)] bg-[rgba(245,240,232,0.05)] px-4 py-4 text-[0.9rem] text-paper outline-none transition-colors focus:border-gold sm:py-3 sm:text-[0.85rem]"
       >
         <option value="" disabled>
           {t('placeholder')}

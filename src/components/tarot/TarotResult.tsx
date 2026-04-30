@@ -24,7 +24,7 @@ export default function TarotResult() {
         {heading}
       </h2>
 
-      <div className="mb-6 border border-[rgba(201,168,76,0.15)] bg-[rgba(245,240,232,0.03)] p-6">
+      <div className="mb-6 border border-[rgba(201,168,76,0.15)] bg-[rgba(245,240,232,0.03)] p-4 sm:p-6">
         <div className="mb-5 flex justify-center gap-2 sm:gap-3">
           {selectedCards.map((card, i) => (
             <div key={card.id} className="max-w-[100px] flex-1 text-center">
@@ -57,7 +57,7 @@ export default function TarotResult() {
                     so dangerouslySetInnerHTML is safe. t.raw() bypasses next-intl's
                     rich-text parsing of <em>/<strong>. <em> recolored gold, <strong> paper. */}
                 <p
-                  className="text-[0.82rem] leading-[1.8] text-[rgba(245,240,232,0.7)] [&_em]:not-italic [&_em]:text-gold [&_strong]:font-medium [&_strong]:text-paper"
+                  className="text-[0.85rem] leading-[1.85] text-[rgba(245,240,232,0.7)] sm:text-[0.82rem] sm:leading-[1.8] [&_em]:not-italic [&_em]:text-gold [&_strong]:font-medium [&_strong]:text-paper"
                   dangerouslySetInnerHTML={{
                     __html: t.raw(`cards.${card.id}.interpretations.${slot}`) as string,
                   }}
@@ -67,7 +67,7 @@ export default function TarotResult() {
           })}
           {topic && (
             <p
-              className="border-t border-[rgba(201,168,76,0.12)] pt-4 text-[0.82rem] leading-[1.85] text-[rgba(245,240,232,0.75)] [&_em]:not-italic [&_em]:text-gold [&_strong]:font-medium [&_strong]:text-paper"
+              className="border-t border-[rgba(201,168,76,0.12)] pt-4 text-[0.85rem] leading-[1.9] text-[rgba(245,240,232,0.75)] sm:text-[0.82rem] sm:leading-[1.85] [&_em]:not-italic [&_em]:text-gold [&_strong]:font-medium [&_strong]:text-paper"
               dangerouslySetInnerHTML={{
                 __html: t.raw(`result.synthesis.${topic}`) as string,
               }}
@@ -78,8 +78,8 @@ export default function TarotResult() {
 
       <button
         type="button"
-        onClick={() => setStep(3)}
-        className="block w-full cursor-pointer border border-[rgba(201,168,76,0.4)] bg-[rgba(201,168,76,0.05)] px-10 py-3.5 font-serif text-[0.85rem] font-semibold tracking-[0.1em] text-gold transition-all duration-200 hover:-translate-y-px hover:border-gold hover:bg-[rgba(201,168,76,0.12)]"
+        onClick={() => setStep(4)}
+        className="block w-full cursor-pointer border border-[rgba(201,168,76,0.4)] bg-[rgba(201,168,76,0.05)] px-10 py-4 font-serif text-[0.9rem] font-semibold tracking-[0.1em] text-gold transition-all duration-200 hover:-translate-y-px hover:border-gold hover:bg-[rgba(201,168,76,0.12)] sm:py-3.5 sm:text-[0.85rem]"
       >
         {t('result.softCta')}
       </button>

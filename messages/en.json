@@ -274,7 +274,8 @@
   "loading": {
     "reading": "Reading your cards...",
     "analyzing": "Analyzing your data...",
-    "registering": "Registering..."
+    "registering": "Registering...",
+    "paying": "Processing payment..."
   },
   "input": {
     "next": "Next →",
@@ -364,7 +365,7 @@
     "priceUnit": "VND",
     "priceCompare": "About the price of a coffee",
     "cta": "Unlock Full Result — 29,000 VND →",
-    "note": "Secure payment · Instant unlock · Powered by LikeLion's Vietnam recruitment data"
+    "note": "Secure payment · Instant unlock · Based on real Vietnam recruitment data"
   },
   "paidResult": {
     "label": "✦ Your Personal Result ✦",
@@ -397,13 +398,13 @@
         "salary": "Offer range: {min}–{max}M VND"
       }
     ],
-    "companiesNote": "Phase 1 sample. Real LikeLion partner listings coming next.",
+    "companiesNote": "Phase 1 sample. Real partner listings coming next.",
     "guideLabel": "✦ Negotiation Guide ✦",
     "guideText": "Your current <strong>{currentSalary}M VND</strong> → realistic target <strong>{targetSalary}M VND</strong> ({pct}% above current). You're in a strong position to ask above the market average — open with the upper end of the range and let them counter.",
     "interpretationLabel": "✦ Tarot + Data ✦",
     "interpretationText": "The cards spoke of <em>{cardSummary}</em>. The data confirms that direction — a <strong>+{pct}% upside</strong> at the top {percentile}% of your profile. The path the cards pointed to is materially supported.",
     "basisLabel": "[ BASIS ]",
-    "basisText": "Calculated from <strong>real Vietnam job-switcher data</strong> operated by LikeLion. Role · experience · city · salary all factored in."
+    "basisText": "Calculated from <strong>real Vietnam job-switcher data</strong>. Role · experience · city · salary all factored in."
   },
   "lead": {
     "label": "✦ One More Step ✦",
@@ -428,5 +429,35 @@
     "shareTextWithPct": "I just found out I could get +{pct}% more if I switch jobs. You should check yours too.",
     "shareTextNoPct": "Check your career upside on Whisper-Up.",
     "copied": "Copied to clipboard"
+  },
+  "paywall": {
+    "label": "✦ Your Cards Are Ready ✦",
+    "heading": "Unlock Your Reading",
+    "desc": "Your 3 cards have been drawn. Unlock now to reveal your personal tarot reading + data-powered career analysis.",
+    "unlockLabel": "What you'll get",
+    "unlockItems": {
+      "reading": {
+        "title": "Personal tarot reading",
+        "desc": "Your 3 cards interpreted for your chosen question"
+      },
+      "exact": {
+        "title": "Your salary increase % if you switch",
+        "desc": "A precise number based on your role, years, city, and current salary"
+      },
+      "companies": {
+        "title": "3–5 recommended companies",
+        "desc": "Companies actively hiring your profile in Vietnam"
+      },
+      "guide": {
+        "title": "Negotiation guide + tarot interpretation",
+        "desc": "Concrete target salary and your cards woven into the data result"
+      }
+    },
+    "priceOld": "99,000 VND",
+    "priceNew": "29,000",
+    "priceUnit": "VND",
+    "priceCompare": "About the price of a coffee",
+    "cta": "Unlock My Reading — 29,000 VND →",
+    "note": "Secure payment · Instant unlock · Based on real Vietnam recruitment data"
   }
 }

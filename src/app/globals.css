@@ -36,6 +36,8 @@ html {
      (page-frame) and absolute scroll hints don't drift relative to
      mx-auto content centers. */
   scrollbar-gutter: stable;
+  /* Tap highlight for WebKit mobile browsers */
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -44,6 +46,11 @@ body {
   font-family: var(--sans);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  /* Safe area for notched phones */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 /* Subtle ambient gradient on the paper background (landing-only effect via wrapper). */

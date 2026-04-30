@@ -60,13 +60,13 @@ export default function PaidResult() {
       <div className="mb-2 text-center font-serif text-[0.65rem] tracking-[0.2em] text-[rgba(201,168,76,0.6)]">
         {t('label')}
       </div>
-      <div className="mb-1 text-center font-serif text-[5rem] font-semibold leading-none text-gold">
+      <div className="mb-1 text-center font-serif text-[3.5rem] font-semibold leading-none text-gold sm:text-[5rem]">
         {resultPct !== null ? `+${resultPct}%` : '—'}
       </div>
       <div className="mb-5 text-center text-[1rem] text-[rgba(245,240,232,0.5)]">
         {t('exactUnit')}
       </div>
-      <p className="mb-6 text-center text-[0.85rem] leading-[1.8] text-[rgba(245,240,232,0.65)]">
+      <p className="mb-6 text-center text-[0.88rem] leading-[1.85] text-[rgba(245,240,232,0.65)] sm:text-[0.85rem] sm:leading-[1.8]">
         {t('descLine1')}
         {field && years && city && (
           <>
@@ -86,7 +86,7 @@ export default function PaidResult() {
 
       {/* Position in distribution */}
       <SectionHeading>{t('positionLabel')}</SectionHeading>
-      <div className="mb-6 border border-[rgba(201,168,76,0.15)] bg-[rgba(245,240,232,0.03)] p-5">
+      <div className="mb-6 border border-[rgba(201,168,76,0.15)] bg-[rgba(245,240,232,0.03)] p-4 sm:p-5">
         {percentile !== null && (
           <div
             className="mb-4 text-center text-[1.05rem] leading-[1.4] text-paper [&_strong]:font-semibold [&_strong]:text-gold"
@@ -142,7 +142,7 @@ export default function PaidResult() {
           return (
             <div
               key={i}
-              className="border border-[rgba(201,168,76,0.18)] bg-[rgba(245,240,232,0.03)] p-4"
+              className="border border-[rgba(201,168,76,0.18)] bg-[rgba(245,240,232,0.03)] p-3.5 sm:p-4"
             >
               <div className="mb-1 font-serif text-[0.85rem] font-semibold text-paper">
                 {company.name}
@@ -167,7 +167,7 @@ export default function PaidResult() {
       <SectionHeading>{t('guideLabel')}</SectionHeading>
       {salary !== null && targetSalary !== null && resultPct !== null && (
         <div
-          className="mb-6 border border-[rgba(42,157,143,0.25)] bg-[rgba(42,157,143,0.06)] p-5 text-[0.82rem] leading-[1.75] text-[rgba(245,240,232,0.75)] [&_strong]:font-medium [&_strong]:text-paper"
+          className="mb-6 border border-[rgba(42,157,143,0.25)] bg-[rgba(42,157,143,0.06)] p-4 text-[0.85rem] leading-[1.8] text-[rgba(245,240,232,0.75)] sm:p-5 sm:text-[0.82rem] sm:leading-[1.75] [&_strong]:font-medium [&_strong]:text-paper"
           dangerouslySetInnerHTML={{
             __html: t('guideText', {
               currentSalary: salary,
@@ -182,7 +182,7 @@ export default function PaidResult() {
       <SectionHeading>{t('interpretationLabel')}</SectionHeading>
       {resultPct !== null && percentile !== null && cardSummary && (
         <div
-          className="mb-6 border border-[rgba(124,92,191,0.25)] bg-[rgba(124,92,191,0.06)] p-5 text-[0.82rem] leading-[1.75] text-[rgba(245,240,232,0.75)] [&_em]:not-italic [&_em]:text-mystic [&_strong]:font-medium [&_strong]:text-paper"
+          className="mb-6 border border-[rgba(124,92,191,0.25)] bg-[rgba(124,92,191,0.06)] p-4 text-[0.85rem] leading-[1.8] text-[rgba(245,240,232,0.75)] sm:p-5 sm:text-[0.82rem] sm:leading-[1.75] [&_em]:not-italic [&_em]:text-mystic [&_strong]:font-medium [&_strong]:text-paper"
           dangerouslySetInnerHTML={{
             __html: t('interpretationText', {
               cardSummary,

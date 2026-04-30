@@ -274,7 +274,8 @@
   "loading": {
     "reading": "카드를 읽는 중...",
     "analyzing": "데이터 분석 중...",
-    "registering": "등록 중..."
+    "registering": "등록 중...",
+    "paying": "결제 처리 중..."
   },
   "input": {
     "next": "다음 →",
@@ -364,7 +365,7 @@
     "priceUnit": "VND",
     "priceCompare": "딱 커피 한 잔 값",
     "cta": "전체 결과 잠금 해제 — 29,000 VND →",
-    "note": "안전 결제 · 즉시 확인 · 멋쟁이사자처럼 베트남 채용 데이터 기반"
+    "note": "안전 결제 · 즉시 확인 · 베트남 실제 채용 데이터 기반"
   },
   "paidResult": {
     "label": "✦ 당신의 정밀 결과 ✦",
@@ -397,13 +398,13 @@
         "salary": "Offer 범위: {min}–{max}M VND"
       }
     ],
-    "companiesNote": "Phase 1 샘플. 멋쟁이사자처럼 파트너 실데이터 곧 연동.",
+    "companiesNote": "Phase 1 샘플. 파트너 실데이터 곧 연동.",
     "guideLabel": "✦ 협상 가이드 ✦",
     "guideText": "현재 <strong>{currentSalary}M VND</strong> → 현실적 목표 <strong>{targetSalary}M VND</strong> (현재 대비 +{pct}%). 시장 평균보다 강하게 부를 수 있는 구간 — 범위 상단으로 먼저 부르고 카운터 받기.",
     "interpretationLabel": "✦ 타로 + 데이터 ✦",
     "interpretationText": "카드는 <em>{cardSummary}</em>를 말했습니다. 데이터가 그 방향을 확인 — 본인 프로필 상위 {percentile}%에서 <strong>+{pct}% 가능성</strong>. 카드가 가리킨 길은 데이터로도 뒷받침됩니다.",
     "basisLabel": "[ 근거 ]",
-    "basisText": "멋쟁이사자처럼이 운영하는 <strong>베트남 이직자 실데이터</strong>로 계산. 직군 · 연차 · 도시 · 연봉 모두 반영."
+    "basisText": "<strong>베트남 이직자 실데이터</strong>로 계산. 직군 · 연차 · 도시 · 연봉 모두 반영."
   },
   "lead": {
     "label": "✦ 한 단계 더 ✦",
@@ -428,5 +429,35 @@
     "shareTextWithPct": "이직하면 +{pct}% 연봉 상승 가능하다네. 너도 한번 봐봐.",
     "shareTextNoPct": "Whisper-Up에서 커리어 가능성 확인해보세요.",
     "copied": "클립보드에 복사됨"
+  },
+  "paywall": {
+    "label": "✦ 카드가 준비되었습니다 ✦",
+    "heading": "리딩 잠금 해제",
+    "desc": "3장의 카드가 뽑혔습니다. 지금 잠금 해제하여 개인 타로 리딩 + 데이터 기반 커리어 분석을 확인하세요.",
+    "unlockLabel": "받게 되는 것들",
+    "unlockItems": {
+      "reading": {
+        "title": "개인 타로 리딩",
+        "desc": "선택한 질문에 맞춰 해석된 3장의 카드"
+      },
+      "exact": {
+        "title": "이직 시 연봉 상승률 %",
+        "desc": "직군·연차·도시·현재 연봉을 반영한 정밀 수치"
+      },
+      "companies": {
+        "title": "추천 회사 3~5곳",
+        "desc": "당신 프로필에 맞춰 베트남에서 채용 중인 회사"
+      },
+      "guide": {
+        "title": "연봉 협상 가이드 + 타로 해석",
+        "desc": "구체적 목표 연봉과 카드 해석이 결합된 인사이트"
+      }
+    },
+    "priceOld": "99,000 VND",
+    "priceNew": "29,000",
+    "priceUnit": "VND",
+    "priceCompare": "딱 커피 한 잔 값",
+    "cta": "리딩 잠금 해제 — 29,000 VND →",
+    "note": "안전 결제 · 즉시 확인 · 베트남 실제 채용 데이터 기반"
   }
 }

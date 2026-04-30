@@ -274,7 +274,8 @@
   "loading": {
     "reading": "Đang đọc lá bài của bạn...",
     "analyzing": "Đang phân tích dữ liệu...",
-    "registering": "Đang đăng ký..."
+    "registering": "Đang đăng ký...",
+    "paying": "Đang xử lý thanh toán..."
   },
   "input": {
     "next": "Tiếp →",
@@ -364,7 +365,7 @@
     "priceUnit": "VND",
     "priceCompare": "Chỉ bằng một ly cà phê",
     "cta": "Mở Khóa Toàn Bộ Kết Quả — 29.000 VND →",
-    "note": "Thanh toán an toàn · Mở khóa ngay · Dữ liệu tuyển dụng Việt Nam của LikeLion"
+    "note": "Thanh toán an toàn · Mở khóa ngay · Dựa trên dữ liệu tuyển dụng thực tế tại Việt Nam"
   },
   "paidResult": {
     "label": "✦ Kết Quả Cá Nhân Của Bạn ✦",
@@ -397,13 +398,13 @@
         "salary": "Mức offer: {min}–{max} triệu VND"
       }
     ],
-    "companiesNote": "Mẫu Phase 1. Danh sách thật từ đối tác LikeLion sắp ra mắt.",
+    "companiesNote": "Mẫu Phase 1. Danh sách đối tác thực tế sắp ra mắt.",
     "guideLabel": "✦ Hướng Dẫn Đàm Phán ✦",
     "guideText": "Mức hiện tại <strong>{currentSalary} triệu VND</strong> → mục tiêu thực tế <strong>{targetSalary} triệu VND</strong> (cao hơn {pct}% so với hiện tại). Bạn đang ở vị thế tốt để đàm phán trên trung bình thị trường — hãy mở với mức cao của khoảng và để họ phản hồi.",
     "interpretationLabel": "✦ Tarot + Dữ Liệu ✦",
     "interpretationText": "Lá bài đã nói về <em>{cardSummary}</em>. Dữ liệu xác nhận hướng đi đó — <strong>tiềm năng +{pct}%</strong> ở top {percentile}% của hồ sơ bạn. Con đường lá bài chỉ ra được hỗ trợ thực sự bởi dữ liệu.",
     "basisLabel": "[ CƠ SỞ ]",
-    "basisText": "Tính từ <strong>dữ liệu thực của người đổi việc tại Việt Nam</strong> do LikeLion vận hành. Vai trò · kinh nghiệm · thành phố · lương đều được tính."
+    "basisText": "Tính từ <strong>dữ liệu thực của người đổi việc tại Việt Nam</strong>. Vai trò · kinh nghiệm · thành phố · lương đều được tính."
   },
   "lead": {
     "label": "✦ Một Bước Nữa ✦",
@@ -428,5 +429,35 @@
     "shareTextWithPct": "Tôi vừa biết mình có thể tăng +{pct}% lương nếu đổi việc. Bạn cũng nên thử.",
     "shareTextNoPct": "Kiểm tra tiềm năng sự nghiệp của bạn trên Whisper-Up.",
     "copied": "Đã sao chép"
+  },
+  "paywall": {
+    "label": "✦ Lá Bài Đã Sẵn Sàng ✦",
+    "heading": "Mở Khóa Bài Đọc",
+    "desc": "3 lá bài của bạn đã được rút. Mở khóa ngay để xem bài đọc tarot cá nhân + phân tích sự nghiệp bằng dữ liệu.",
+    "unlockLabel": "Bạn sẽ nhận được",
+    "unlockItems": {
+      "reading": {
+        "title": "Bài đọc tarot cá nhân",
+        "desc": "3 lá bài được giải nghĩa theo câu hỏi bạn chọn"
+      },
+      "exact": {
+        "title": "% tăng lương nếu bạn chuyển việc",
+        "desc": "Con số chính xác dựa trên vai trò, kinh nghiệm, thành phố và lương hiện tại"
+      },
+      "companies": {
+        "title": "3–5 công ty được gợi ý",
+        "desc": "Các công ty đang tuyển hồ sơ của bạn tại Việt Nam"
+      },
+      "guide": {
+        "title": "Hướng dẫn đàm phán + giải nghĩa tarot",
+        "desc": "Mức lương mục tiêu cụ thể và lá bài đan xen vào kết quả"
+      }
+    },
+    "priceOld": "99.000 VND",
+    "priceNew": "29.000",
+    "priceUnit": "VND",
+    "priceCompare": "Chỉ bằng một ly cà phê",
+    "cta": "Mở Khóa Bài Đọc — 29.000 VND →",
+    "note": "Thanh toán an toàn · Mở khóa ngay · Dựa trên dữ liệu tuyển dụng thực tế tại Việt Nam"
   }
 }

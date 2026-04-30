@@ -41,7 +41,7 @@ export default function FormStep<T extends string>({
               role="radio"
               aria-checked={isSelected}
               onClick={() => onChoose(opt.value)}
-              className={`border px-4 py-3 text-center text-[0.82rem] transition-all duration-150 ${
+              className={`border px-4 py-4 text-center text-[0.88rem] transition-all duration-150 sm:py-3 sm:text-[0.82rem] ${
                 isSelected
                   ? 'border-gold bg-[rgba(201,168,76,0.1)] text-gold'
                   : 'border-[rgba(201,168,76,0.15)] bg-[rgba(245,240,232,0.04)] text-[rgba(245,240,232,0.7)] hover:border-[rgba(201,168,76,0.4)] hover:text-paper'
