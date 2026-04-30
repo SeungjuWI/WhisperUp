@@ -1,14 +1,20 @@
 import { NextResponse } from 'next/server';
-import { appendFileSync } from 'fs';
-import { join } from 'path';
+import { supabase } from '@/lib/supabase';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    // Append to NDJSON log file — easy to query later, or pipe to Supabase
-    const line = JSON.stringify(body) + '\n';
-    appendFileSync(join(process.cwd(), 'events.ndjson'), line);
+    const { error } = await supabase.from('events').insert({
+      event: body.event,
+      session_id: body.session_id,
+      props: body,
+    });
+
+    if (error) {
+      console.error('[events]', error.message);
+      return NextResponse.json({ ok: false }, { status: 500 });
+    }
 
     return NextResponse.json({ ok: true });
   } catch {

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
+import { track } from '@/lib/analytics';
 
 type Star = {
   size: number;
@@ -121,6 +122,7 @@ export default function Hero() {
   useEffect(() => {
     setStars(generateStars(40));
     setFloatingSymbols(generateFloatingSymbols(6));
+    track('page_viewed', { page: 'landing' });
   }, []);
 
   return (
@@ -226,6 +228,7 @@ export default function Hero() {
 
         <Link
           href="/reading"
+          onClick={() => track('cta_clicked', { page: 'landing' })}
           className="corner-ornament relative inline-block overflow-hidden border-2 border-gold bg-[rgba(201,168,76,0.08)] px-10 py-4 font-serif text-[0.95rem] font-semibold tracking-[0.12em] text-gold2 transition-all duration-[0.25s] hover:-translate-y-1 hover:bg-[rgba(201,168,76,0.15)] hover:shadow-[0_12px_40px_rgba(201,168,76,0.2)]"
           style={{
             animation: 'fadeUp 0.8s 0.35s ease both, heroCtaPulse 2.5s 1.5s ease-in-out infinite',

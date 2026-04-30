@@ -1,4 +1,6 @@
 type EventName =
+  | 'page_viewed'
+  | 'cta_clicked'
   | 'topic_selected'
   | 'card_selected'
   | 'cards_completed'
