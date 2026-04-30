@@ -125,48 +125,7 @@ export default function Hero() {
 
   return (
     <section className="relative z-[2] overflow-hidden bg-ink pb-0 pt-12 text-center">
-      {/* Ambient candlelight glow — warm radial pulses */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <div
-          className="absolute left-1/2 top-[30%] h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full"
-          style={{
-            background: 'radial-gradient(circle, rgba(201,168,76,0.12) 0%, rgba(201,168,76,0.04) 40%, transparent 70%)',
-            animation: 'candleFlicker 4s ease-in-out infinite',
-          }}
-        />
-        <div
-          className="absolute left-[20%] top-[60%] h-[200px] w-[200px] rounded-full"
-          style={{
-            background: 'radial-gradient(circle, rgba(124,92,191,0.08) 0%, transparent 60%)',
-            animation: 'candleFlicker 5s 1s ease-in-out infinite',
-          }}
-        />
-        <div
-          className="absolute right-[15%] top-[20%] h-[180px] w-[180px] rounded-full"
-          style={{
-            background: 'radial-gradient(circle, rgba(124,92,191,0.06) 0%, transparent 60%)',
-            animation: 'candleFlicker 6s 2s ease-in-out infinite',
-          }}
-        />
-      </div>
 
-      {/* Fog / mist layers */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-        <div
-          className="absolute bottom-[10%] left-0 h-[120px] w-[200%]"
-          style={{
-            background: 'linear-gradient(90deg, transparent, rgba(124,92,191,0.04), rgba(201,168,76,0.03), transparent)',
-            animation: 'fogDrift 12s linear infinite',
-          }}
-        />
-        <div
-          className="absolute bottom-[25%] left-0 h-[80px] w-[200%]"
-          style={{
-            background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.03), rgba(124,92,191,0.02), transparent)',
-            animation: 'fogDrift 18s 3s linear infinite reverse',
-          }}
-        />
-      </div>
 
       {/* Twinkling stars */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
