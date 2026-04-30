@@ -5,9 +5,6 @@ import { useTranslations } from 'next-intl';
 import { useFunnelStore } from '@/store/funnel-store';
 import { Link } from '@/i18n/routing';
 import LoadingOverlay from '@/components/ui/LoadingOverlay';
-import LocaleSwitcher from '@/components/ui/LocaleSwitcher';
-import InputFlow from '@/components/funnel/InputFlow';
-import PaidResult from '@/components/funnel/PaidResult';
 import Complete from '@/components/funnel/Complete';
 import TopicSelect from './TopicSelect';
 import CardDeck from './CardDeck';
@@ -19,11 +16,9 @@ export default function TarotApp() {
   const currentStep = useFunnelStore((s) => s.currentStep);
   const loading = useFunnelStore((s) => s.loading);
 
-  // On step transition, bring the funnel card back into view if it has
-  // scrolled off (block: 'nearest' is a no-op when already visible).
   const cardRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (currentStep === 0) return; // initial mount — user is already at the card
+    if (currentStep === 0) return;
     cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, [currentStep]);
 
@@ -46,7 +41,6 @@ export default function TarotApp() {
           >
             {t('back')}
           </Link>
-          <LocaleSwitcher variant="dark" />
         </div>
       </div>
 
@@ -65,9 +59,7 @@ export default function TarotApp() {
             {currentStep === 1 && <CardDeck />}
             {currentStep === 2 && <Paywall />}
             {currentStep === 3 && <TarotResult />}
-            {currentStep === 4 && <InputFlow />}
-            {currentStep === 5 && <PaidResult />}
-            {currentStep === 6 && <Complete />}
+            {currentStep === 4 && <Complete />}
           </div>
           <LoadingOverlay active={loading.active} text={loading.text} />
         </div>

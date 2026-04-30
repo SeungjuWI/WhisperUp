@@ -15,16 +15,13 @@
   "hero": {
     "ornament": "Tarot Sự Nghiệp",
     "h1Lead": "Có nên đổi việc?",
-    "h1Trail": "Xem lá bài",
-    "h1Emphasis": "trước.",
-    "subLine1": "Rút bài tarot miễn phí —",
-    "subLine2": "mở khóa bài đọc + dữ liệu lương chỉ 29.000 VND.",
+    "h1Trail": "Lá bài sẽ",
+    "h1Emphasis": "trả lời.",
+    "subLine1": "Rút 3 lá tarot,",
+    "subLine2": "mở khóa bài đọc sự nghiệp cá nhân.",
     "subLine3": "Bí mật. Không ai biết.",
-    "freeBefore": "Rút bài ",
-    "freeWord": "miễn phí",
-    "freeAfter": ".",
-    "freePaid": "Bài đọc + dữ liệu lương chỉ 29.000 VND.",
-    "cta": "Bắt Đầu Ngay",
+    "priceLine": "Tất cả chỉ 29.000 VND",
+    "cta": "Rút Bài Ngay",
     "ctaNote": "Chọn bài · Kết quả ngay · Không cần email",
     "scroll": "CUỘN"
   },
@@ -39,12 +36,12 @@
       "02": {
         "label": "BƯỚC 02",
         "title": "Mở Khóa Bài Đọc",
-        "desc": "29.000 VND — xem bài đọc tarot + mức lương có thể tăng bao nhiêu."
+        "desc": "29.000 VND — xem bài đọc tarot sự nghiệp cá nhân."
       },
       "03": {
         "label": "BƯỚC 03",
-        "title": "Công Ty Phù Hợp",
-        "desc": "Nhận gợi ý công ty và hướng dẫn đàm phán lương."
+        "title": "Nhận Hướng Dẫn",
+        "desc": "Gợi ý hành động cho bước tiếp theo."
       }
     }
   },
@@ -158,7 +155,8 @@
         "direction": "Đường nét chung của ba lá — <em>hình dáng của môi trường phù hợp với bạn</em>. Tìm hình dáng đó ở đâu là <strong>câu hỏi tiếp theo</strong>."
       },
       "softCta": "Xác Nhận Bằng Dữ Liệu →",
-      "softCtaNote": "Miễn phí — chia sẻ vai trò, kinh nghiệm, thành phố, lương"
+      "softCtaNote": "Miễn phí — chia sẻ vai trò, kinh nghiệm, thành phố, lương",
+      "doneCta": "Hoàn Tất ✦"
     },
     "cards": {
       "tower": {
@@ -420,44 +418,38 @@
     "privacy": "Thông tin chỉ dùng để khớp việc · Không chia sẻ ra ngoài"
   },
   "complete": {
-    "title": "Bạn đã hoàn tất",
-    "descLine1": "Chúng tôi sẽ liên hệ khi có công ty phù hợp.",
-    "descLine2": "Chia sẻ kết quả với bạn bè cũng đang nghĩ về việc đổi việc.",
-    "share": "Chia Sẻ Kết Quả →",
+    "title": "Bài đọc đã hoàn tất",
+    "desc": "Chia sẻ với bạn bè cũng đang suy nghĩ về bước tiếp theo.",
+    "share": "Chia Sẻ Bài Đọc →",
     "startOver": "Bắt Đầu Lại",
-    "shareTitle": "Phân Tích Sự Nghiệp Whisper-Up",
-    "shareTextWithPct": "Tôi vừa biết mình có thể tăng +{pct}% lương nếu đổi việc. Bạn cũng nên thử.",
-    "shareTextNoPct": "Kiểm tra tiềm năng sự nghiệp của bạn trên Whisper-Up.",
+    "shareTitle": "Tarot Sự Nghiệp Whisper-Up",
+    "shareText": "Tôi vừa xem tarot sự nghiệp. Bạn cũng thử xem!",
     "copied": "Đã sao chép"
   },
   "paywall": {
     "label": "✦ Lá Bài Đã Sẵn Sàng ✦",
     "heading": "Mở Khóa Bài Đọc",
-    "desc": "3 lá bài của bạn đã được rút. Mở khóa ngay để xem bài đọc tarot cá nhân + phân tích sự nghiệp bằng dữ liệu.",
+    "desc": "3 lá bài đã được rút. Mở khóa ngay để xem bài đọc tarot sự nghiệp cá nhân.",
     "unlockLabel": "Bạn sẽ nhận được",
     "unlockItems": {
       "reading": {
-        "title": "Bài đọc tarot cá nhân",
-        "desc": "3 lá bài được giải nghĩa theo câu hỏi bạn chọn"
+        "title": "Giải nghĩa từng lá bài",
+        "desc": "3 lá bài được giải mã theo câu hỏi của bạn"
       },
-      "exact": {
-        "title": "% tăng lương nếu bạn chuyển việc",
-        "desc": "Con số chính xác dựa trên vai trò, kinh nghiệm, thành phố và lương hiện tại"
+      "synthesis": {
+        "title": "Bài đọc tổng hợp",
+        "desc": "Các lá bài kết hợp để hé lộ câu trả lời"
       },
-      "companies": {
-        "title": "3–5 công ty được gợi ý",
-        "desc": "Các công ty đang tuyển hồ sơ của bạn tại Việt Nam"
-      },
-      "guide": {
-        "title": "Hướng dẫn đàm phán + giải nghĩa tarot",
-        "desc": "Mức lương mục tiêu cụ thể và lá bài đan xen vào kết quả"
+      "guidance": {
+        "title": "Hướng dẫn sự nghiệp",
+        "desc": "Gợi ý hành động cho bước tiếp theo"
       }
     },
     "priceOld": "99.000 VND",
     "priceNew": "29.000",
     "priceUnit": "VND",
     "priceCompare": "Chỉ bằng một ly cà phê",
-    "cta": "Mở Khóa Bài Đọc — 29.000 VND →",
-    "note": "Thanh toán an toàn · Mở khóa ngay · Dựa trên dữ liệu tuyển dụng thực tế tại Việt Nam"
+    "cta": "Mở Khóa — 29.000 VND →",
+    "note": "Thanh toán an toàn · Mở khóa ngay"
   }
 }

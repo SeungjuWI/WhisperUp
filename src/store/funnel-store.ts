@@ -2,41 +2,17 @@ import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import { MAX_CARDS } from '@/lib/tarot-data';
 import type {
-  City,
-  Field,
   FunnelStep,
   TarotCard,
   Topic,
-  Years,
 } from '@/types';
 
 type LoadingState = { active: boolean; text: string };
-
-type TeaserData = {
-  marketAvg: number;
-  rangeMin: number;
-  rangeMax: number;
-};
 
 type FunnelState = {
   topic: Topic | null;
   selectedCards: TarotCard[];
   isPaid: boolean;
-  field: Field | null;
-  years: Years | null;
-  city: City | null;
-  salary: number | null;
-
-  // Step 4 (free teaser): broad market info, no personal precision
-  marketAvg: number | null;
-  rangeMin: number | null;
-  rangeMax: number | null;
-
-  // Step 5 (paid result): personal precision + position
-  resultPct: number | null;
-  percentile: number | null;
-
-  leadSubmitted: boolean;
   currentStep: FunnelStep;
   loading: LoadingState;
 };
@@ -45,13 +21,6 @@ type FunnelActions = {
   setTopic: (topic: Topic) => void;
   selectCard: (card: TarotCard) => void;
   markPaid: () => void;
-  setField: (field: Field) => void;
-  setYears: (years: Years) => void;
-  setCity: (city: City) => void;
-  setSalary: (salary: number) => void;
-  setTeaserData: (data: TeaserData) => void;
-  setFullResult: (data: { resultPct: number; percentile: number }) => void;
-  markLeadSubmitted: () => void;
   setStep: (step: FunnelStep) => void;
   showLoading: (text: string) => void;
   hideLoading: () => void;
@@ -62,16 +31,6 @@ const initialState: FunnelState = {
   topic: null,
   selectedCards: [],
   isPaid: false,
-  field: null,
-  years: null,
-  city: null,
-  salary: null,
-  marketAvg: null,
-  rangeMin: null,
-  rangeMax: null,
-  resultPct: null,
-  percentile: null,
-  leadSubmitted: false,
   currentStep: 0,
   loading: { active: false, text: '' },
 };
@@ -92,15 +51,6 @@ export const useFunnelStore = create<FunnelState & FunnelActions>()(
           'selectCard',
         ),
       markPaid: () => set({ isPaid: true }, false, 'markPaid'),
-      setField: (field) => set({ field }, false, 'setField'),
-      setYears: (years) => set({ years }, false, 'setYears'),
-      setCity: (city) => set({ city }, false, 'setCity'),
-      setSalary: (salary) => set({ salary }, false, 'setSalary'),
-      setTeaserData: ({ marketAvg, rangeMin, rangeMax }) =>
-        set({ marketAvg, rangeMin, rangeMax }, false, 'setTeaserData'),
-      setFullResult: ({ resultPct, percentile }) =>
-        set({ resultPct, percentile }, false, 'setFullResult'),
-      markLeadSubmitted: () => set({ leadSubmitted: true }, false, 'markLeadSubmitted'),
       setStep: (currentStep) => set({ currentStep }, false, 'setStep'),
       showLoading: (text) => set({ loading: { active: true, text } }, false, 'showLoading'),
       hideLoading: () =>

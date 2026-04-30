@@ -2,17 +2,12 @@
 
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import { useFunnelStore } from '@/store/funnel-store';
 
 export default function Complete() {
   const t = useTranslations('complete');
-  const resultPct = useFunnelStore((s) => s.resultPct);
 
   const handleShare = async () => {
-    const text =
-      resultPct !== null
-        ? t('shareTextWithPct', { pct: resultPct })
-        : t('shareTextNoPct');
+    const text = t('shareText');
     const url = typeof window !== 'undefined' ? window.location.href : '';
 
     if (typeof navigator !== 'undefined' && 'share' in navigator) {
@@ -40,9 +35,7 @@ export default function Complete() {
         {t('title')}
       </h3>
       <p className="text-[0.8rem] leading-[1.7] text-[rgba(245,240,232,0.45)]">
-        {t('descLine1')}
-        <br />
-        {t('descLine2')}
+        {t('desc')}
       </p>
       <button
         type="button"

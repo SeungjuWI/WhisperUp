@@ -79,13 +79,10 @@ export default function TarotResult() {
       <button
         type="button"
         onClick={() => setStep(4)}
-        className="block w-full cursor-pointer border border-[rgba(201,168,76,0.4)] bg-[rgba(201,168,76,0.05)] px-8 py-4 font-serif text-[0.85rem] font-semibold tracking-[0.08em] text-gold transition-all duration-200 hover:-translate-y-px hover:border-gold hover:bg-[rgba(201,168,76,0.12)]"
+        className="block w-full cursor-pointer border-0 bg-gold px-8 py-4 font-serif text-[0.85rem] font-semibold tracking-[0.08em] text-ink transition-all duration-200 hover:-translate-y-px hover:bg-gold2"
       >
-        {t('result.softCta')}
+        {t('result.doneCta')}
       </button>
-      <div className="mt-2 text-center text-[0.68rem] text-[rgba(245,240,232,0.35)]">
-        {t('result.softCtaNote')}
-      </div>
     </section>
   );
 }

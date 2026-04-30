@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { useFunnelStore } from '@/store/funnel-store';
 
 const PAYMENT_DELAY_MS = 1400;
-const UNLOCK_KEYS = ['reading', 'exact', 'companies', 'guide'] as const;
+const UNLOCK_KEYS = ['reading', 'synthesis', 'guidance'] as const;
 
 export default function Paywall() {
   const t = useTranslations('paywall');
