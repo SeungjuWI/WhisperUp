@@ -25,10 +25,10 @@ type FloatingSymbol = {
 
 function generateStars(count: number): Star[] {
   return Array.from({ length: count }, () => ({
-    size: 0.8 + Math.random() * 2.5,
+    size: 0.5 + Math.random() * 1.2,
     left: Math.random() * 100,
     top: Math.random() * 85,
-    opacity: 0.3 + Math.random() * 0.7,
+    opacity: 0.1 + Math.random() * 0.2,
     twinkleDelay: Math.random() * 5,
     twinkleDuration: 2 + Math.random() * 3,
   }));
@@ -40,7 +40,7 @@ function generateFloatingSymbols(count: number): FloatingSymbol[] {
     symbol: symbols[Math.floor(Math.random() * symbols.length)],
     left: Math.random() * 100,
     top: 10 + Math.random() * 70,
-    opacity: 0.06 + Math.random() * 0.1,
+    opacity: 0.03 + Math.random() * 0.05,
     delay: Math.random() * 8,
     duration: 4 + Math.random() * 4,
     size: 0.5 + Math.random() * 0.8,
@@ -119,8 +119,8 @@ export default function Hero() {
   const [stars, setStars] = useState<Star[]>([]);
   const [floatingSymbols, setFloatingSymbols] = useState<FloatingSymbol[]>([]);
   useEffect(() => {
-    setStars(generateStars(100));
-    setFloatingSymbols(generateFloatingSymbols(15));
+    setStars(generateStars(40));
+    setFloatingSymbols(generateFloatingSymbols(6));
   }, []);
 
   return (
@@ -292,12 +292,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Decorative bottom border */}
-      <div className="relative z-[2] flex items-center gap-3 px-8 pb-1" aria-hidden>
-        <div className="h-px flex-1 bg-[linear-gradient(90deg,transparent,var(--gold),transparent)]" />
-        <span className="font-serif text-[0.6rem] text-gold opacity-50">✦</span>
-        <div className="h-px flex-1 bg-[linear-gradient(90deg,transparent,var(--gold),transparent)]" />
-      </div>
     </section>
   );
 }

@@ -58,7 +58,7 @@ export default function HowItWorks() {
         {STEP_KEYS.map((k, i) => (
           <article
             key={k}
-            className="corner-ornament relative flex flex-1 flex-col items-center border border-[rgba(201,168,76,0.2)] bg-[rgba(14,12,24,0.04)] px-2 py-5 text-center"
+            className="corner-ornament relative flex flex-1 flex-col items-center border border-[rgba(201,168,76,0.2)] bg-[rgba(201,168,76,0.04)] px-2 py-5 text-center"
           >
             <div className="mb-2" aria-hidden>
               {ICONS[k]()}
@@ -66,10 +66,10 @@ export default function HowItWorks() {
             <div className="mb-1 font-serif text-[0.58rem] tracking-[0.15em] text-[rgba(201,168,76,0.5)]">
               {t(`${k}.label`)}
             </div>
-            <h3 className="mb-1 font-serif text-[0.78rem] font-semibold leading-[1.3] tracking-[0.02em] text-ink">
+            <h3 className="mb-1 font-serif text-[0.78rem] font-semibold leading-[1.3] tracking-[0.02em] text-paper">
               {t(`${k}.title`)}
             </h3>
-            <p className="text-[0.68rem] leading-[1.5] text-[var(--muted)]">
+            <p className="text-[0.68rem] leading-[1.5] text-[rgba(245,240,232,0.5)]">
               {t(`${k}.desc`)}
             </p>
             {i < STEP_KEYS.length - 1 && (

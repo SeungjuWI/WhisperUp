@@ -23,7 +23,7 @@ export default function FAQ() {
                 aria-expanded={isOpen}
                 className="flex w-full items-start justify-between gap-4 px-1 py-4 text-left transition-colors hover:text-gold"
               >
-                <span className="font-serif text-[0.92rem] font-semibold text-[var(--text)]">
+                <span className="font-serif text-[0.92rem] font-semibold text-paper">
                   {item.q}
                 </span>
                 <span
@@ -36,7 +36,7 @@ export default function FAQ() {
                 </span>
               </button>
               {isOpen && (
-                <p className="px-1 pb-5 text-[0.85rem] leading-[1.8] text-[var(--muted)]">
+                <p className="px-1 pb-5 text-[0.85rem] leading-[1.8] text-[rgba(245,240,232,0.5)]">
                   {item.a}
                 </p>
               )}

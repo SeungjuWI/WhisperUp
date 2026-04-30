@@ -84,12 +84,12 @@ export default function Testimonials() {
                 ref={(el) => { cardsRef.current[i] = el; }}
                 className={`corner-ornament border p-5 transition-colors duration-300 ${
                   i === current
-                    ? 'border-[rgba(201,168,76,0.35)] bg-[rgba(14,12,24,0.06)]'
-                    : 'border-[rgba(201,168,76,0.15)] bg-[rgba(14,12,24,0.02)]'
+                    ? 'border-[rgba(201,168,76,0.35)] bg-[rgba(201,168,76,0.06)]'
+                    : 'border-[rgba(201,168,76,0.15)] bg-[rgba(201,168,76,0.02)]'
                 }`}
                 style={maxH ? { minHeight: maxH } : undefined}
               >
-                <p className="mb-3 text-[0.85rem] leading-[1.7] text-[var(--text)]">
+                <p className="mb-3 text-[0.85rem] leading-[1.7] text-[rgba(245,240,232,0.75)]">
                   <span aria-hidden className="font-serif text-gold">
                     &ldquo;
                   </span>
@@ -98,8 +98,8 @@ export default function Testimonials() {
                     &rdquo;
                   </span>
                 </p>
-                <div className="text-[0.72rem] tracking-[0.04em] text-[var(--muted)]">
-                  <span className="font-serif font-semibold text-[var(--text)]">
+                <div className="text-[0.72rem] tracking-[0.04em] text-[rgba(245,240,232,0.4)]">
+                  <span className="font-serif font-semibold text-gold">
                     {item.name}
                   </span>{' '}
                   · {item.meta}

@@ -22,7 +22,7 @@ export default async function HomePage({
   const tFaq = await getTranslations('faq');
 
   return (
-    <div className="landing-bg relative mx-auto max-w-[430px]">
+    <div className="landing-bg relative mx-auto max-w-[430px] bg-ink">
       <FunnelReset />
       <div className="page-frame" aria-hidden />
       <Nav />
