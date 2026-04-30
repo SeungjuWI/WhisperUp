@@ -4,6 +4,7 @@ import { useEffect, useLayoutEffect, useRef, useState, useCallback } from 'react
 import { useTranslations } from 'next-intl';
 import { useFunnelStore } from '@/store/funnel-store';
 import { CARDS, MAX_CARDS } from '@/lib/tarot-data';
+import { track } from '@/lib/analytics';
 import type { TarotCard as TarotCardType } from '@/types';
 import TarotCard from './TarotCard';
 
@@ -107,6 +108,19 @@ export default function CardDeck() {
     const timer = window.setTimeout(() => setPhase('pick'), 800);
     return () => window.clearTimeout(timer);
   }, [phase]);
+
+  // Track individual card selection
+  useEffect(() => {
+    const count = selectedCards.length;
+    if (count === 0) return;
+    const lastCard = selectedCards[count - 1];
+    track('card_selected', { card_id: lastCard.id, card_index: count });
+    if (count >= MAX_CARDS) {
+      track('cards_completed', {
+        cards: selectedCards.map((c) => c.id).join(','),
+      });
+    }
+  }, [selectedCards]);
 
   // Stage 1 — 3rd card flipped → fading
   useEffect(() => {

@@ -1,16 +1,22 @@
 'use client';
 
-import { useRef, useCallback } from 'react';
+import { useRef, useCallback, useEffect } from 'react';
 import html2canvas from 'html2canvas';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
+import { track } from '@/lib/analytics';
 import ShareCard from './ShareCard';
 
 export default function Complete() {
   const t = useTranslations('complete');
   const shareRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    track('result_viewed', {});
+  }, []);
+
   const handleShare = useCallback(async () => {
+    track('share_clicked');
     if (!shareRef.current) return;
 
     const canvas = await html2canvas(shareRef.current, {

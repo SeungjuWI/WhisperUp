@@ -1,8 +1,10 @@
 'use client';
 
+import { useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/routing';
 import { useFunnelStore } from '@/store/funnel-store';
+import { track } from '@/lib/analytics';
 import TarotCardArt from './TarotCardArt';
 
 const PAYMENT_DELAY_MS = 1400;
@@ -21,7 +23,12 @@ export default function Paywall() {
   const showLoading = useFunnelStore((s) => s.showLoading);
   const hideLoading = useFunnelStore((s) => s.hideLoading);
 
+  useEffect(() => {
+    track('paywall_viewed', { topic: useFunnelStore.getState().topic });
+  }, []);
+
   const handlePay = async () => {
+    track('payment_clicked', { topic: useFunnelStore.getState().topic });
     // Phase 1 mock payment. Phase 2 wires VNPay/MoMo.
     showLoading(tLoading('paying'));
 
@@ -29,6 +36,7 @@ export default function Paywall() {
       window.setTimeout(resolve, PAYMENT_DELAY_MS),
     );
 
+    track('payment_completed', { topic: useFunnelStore.getState().topic });
     markPaid();
     setStep(3);
     hideLoading();
@@ -131,9 +139,8 @@ export default function Paywall() {
         type="button"
         onClick={() => {
           // eslint-disable-next-line no-console
-          console.log('[event] paywall_declined', {
+          track('paywall_declined', {
             topic: useFunnelStore.getState().topic,
-            cards: selectedCards.map((c) => c.id),
           });
           reset();
           router.push('/');

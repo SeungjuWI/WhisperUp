@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { useFunnelStore } from '@/store/funnel-store';
+import { track } from '@/lib/analytics';
 import type { Topic } from '@/types';
 
 const TOPIC_IDS: ReadonlyArray<{ id: Topic; icon: string }> = [
@@ -17,6 +18,7 @@ export default function TopicSelect() {
   const setStep = useFunnelStore((s) => s.setStep);
 
   const handleSelect = (id: Topic) => {
+    track('topic_selected', { topic: id });
     setTopic(id);
     setStep(1);
   };

@@ -1,7 +1,9 @@
 'use client';
 
+import { useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { useFunnelStore } from '@/store/funnel-store';
+import { track } from '@/lib/analytics';
 import TarotCardArt from './TarotCardArt';
 
 const SLOT_KEYS = ['situation', 'energy', 'outcome'] as const;
@@ -11,6 +13,13 @@ export default function TarotResult() {
   const topic = useFunnelStore((s) => s.topic);
   const selectedCards = useFunnelStore((s) => s.selectedCards);
   const setStep = useFunnelStore((s) => s.setStep);
+
+  useEffect(() => {
+    track('result_viewed', {
+      topic,
+      cards: selectedCards.map((c) => c.id).join(','),
+    });
+  }, []);
 
   const heading = topic
     ? t(`result.heading.${topic}`)
