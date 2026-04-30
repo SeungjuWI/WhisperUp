@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { setRequestLocale } from 'next-intl/server';
 import TarotApp from '@/components/tarot/TarotApp';
 
@@ -8,5 +9,9 @@ export default async function ReadingPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <TarotApp />;
+  return (
+    <Suspense>
+      <TarotApp />
+    </Suspense>
+  );
 }
