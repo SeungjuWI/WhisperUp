@@ -21,6 +21,8 @@ export type TarotCard = {
   id: CardId;
   /** Universal across locales — the emoji is the visual identity. */
   symbol: string;
+  /** Major Arcana roman numeral (0 for The Fool). */
+  numeral: string;
 };
 
 export type FunnelStep = 0 | 1 | 2 | 3 | 4;

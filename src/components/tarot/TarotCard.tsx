@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import type { TarotCard } from '@/types';
+import TarotCardArt from './TarotCardArt';
 
 type Props = {
   card: TarotCard;
@@ -28,14 +29,14 @@ export default function TarotCard({ card, flipped, disabled, onFlip }: Props) {
       <div className="tarot-card-inner">
         <div className="tarot-card-back" aria-hidden />
         <div className="tarot-card-face">
-          <div className="w-full truncate text-center font-serif text-[0.55rem] font-semibold tracking-[0.05em] text-gold">
+          <div className="w-full text-center font-serif text-[0.45rem] tracking-[0.12em] text-[rgba(201,168,76,0.5)]">
+            {card.numeral}
+          </div>
+          <div className="flex items-center justify-center">
+            <TarotCardArt cardId={card.id} />
+          </div>
+          <div className="w-full truncate text-center font-serif text-[0.5rem] font-semibold tracking-[0.05em] text-gold">
             {name}
-          </div>
-          <div className="mt-0.5 text-[1.4rem]" aria-hidden>
-            {card.symbol}
-          </div>
-          <div className="mt-0.5 line-clamp-3 w-full text-center text-[0.5rem] leading-[1.3] text-[rgba(245,240,232,0.5)]">
-            {meaning}
           </div>
         </div>
       </div>

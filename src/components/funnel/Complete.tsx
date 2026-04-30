@@ -39,6 +39,7 @@ export default function Complete() {
         await navigator.share({
           title: t('shareTitle'),
           text: t('shareText'),
+          url: window.location.origin,
           files: [file],
         });
         return;

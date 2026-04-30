@@ -1,17 +1,23 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { useRouter } from '@/i18n/routing';
 import { useFunnelStore } from '@/store/funnel-store';
+import TarotCardArt from './TarotCardArt';
 
 const PAYMENT_DELAY_MS = 1400;
 const UNLOCK_KEYS = ['reading', 'synthesis', 'guidance'] as const;
 
 export default function Paywall() {
+  const router = useRouter();
   const t = useTranslations('paywall');
+  const tTarot = useTranslations('tarot');
   const tLoading = useTranslations('loading');
 
+  const selectedCards = useFunnelStore((s) => s.selectedCards);
   const setStep = useFunnelStore((s) => s.setStep);
   const markPaid = useFunnelStore((s) => s.markPaid);
+  const reset = useFunnelStore((s) => s.reset);
   const showLoading = useFunnelStore((s) => s.showLoading);
   const hideLoading = useFunnelStore((s) => s.hideLoading);
 
@@ -36,9 +42,30 @@ export default function Paywall() {
       <h2 className="mb-2 text-center font-serif text-[1.1rem] font-semibold leading-[1.4] tracking-[0.04em] text-paper">
         {t('heading')}
       </h2>
-      <p className="mb-6 text-center text-[0.78rem] leading-[1.7] text-[rgba(245,240,232,0.5)]">
+      <p className="mb-5 text-center text-[0.78rem] leading-[1.7] text-[rgba(245,240,232,0.5)]">
         {t('desc')}
       </p>
+
+      {/* Selected cards preview */}
+      {selectedCards.length > 0 && (
+        <div className="mb-6 flex items-center justify-center gap-3">
+          {selectedCards.map((card) => (
+            <div
+              key={card.id}
+              className="flex flex-col items-center border border-[rgba(201,168,76,0.25)] bg-[rgba(14,12,24,0.8)] px-2 pb-1.5 pt-1"
+              style={{ width: 62 }}
+            >
+              <div className="text-[0.4rem] tracking-[0.1em] text-[rgba(201,168,76,0.4)]">
+                {card.numeral}
+              </div>
+              <TarotCardArt cardId={card.id} />
+              <div className="mt-0.5 w-full truncate text-center font-serif text-[0.45rem] font-semibold tracking-[0.04em] text-gold">
+                {tTarot(`cards.${card.id}.name`)}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* What payment unlocks */}
       <div className="mb-5 border border-[rgba(201,168,76,0.2)] bg-[rgba(14,12,24,0.6)] p-4">
@@ -98,6 +125,23 @@ export default function Paywall() {
           {t('note')}
         </div>
       </div>
+
+      {/* Decline button */}
+      <button
+        type="button"
+        onClick={() => {
+          // eslint-disable-next-line no-console
+          console.log('[event] paywall_declined', {
+            topic: useFunnelStore.getState().topic,
+            cards: selectedCards.map((c) => c.id),
+          });
+          reset();
+          router.push('/');
+        }}
+        className="mt-4 block w-full cursor-pointer border-0 bg-transparent py-2 text-center text-[0.72rem] text-[rgba(245,240,232,0.35)] transition-colors duration-200 hover:text-[rgba(245,240,232,0.55)]"
+      >
+        {t('decline')}
+      </button>
     </section>
   );
 }

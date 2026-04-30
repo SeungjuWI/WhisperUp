@@ -479,6 +479,7 @@
     "priceUnit": "VND",
     "priceCompare": "About the price of a coffee",
     "cta": "Unlock Reading — 29,000 VND →",
-    "note": "Secure payment · Instant unlock"
+    "note": "Secure payment · Instant unlock",
+    "decline": "No thanks, maybe next time"
   }
 }

@@ -479,6 +479,7 @@
     "priceUnit": "VND",
     "priceCompare": "딱 커피 한 잔 값",
     "cta": "잠금 해제 — 29,000 VND →",
-    "note": "안전 결제 · 즉시 확인"
+    "note": "안전 결제 · 즉시 확인",
+    "decline": "안 할래요, 다음에"
   }
 }

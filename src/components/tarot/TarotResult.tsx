@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { useFunnelStore } from '@/store/funnel-store';
+import TarotCardArt from './TarotCardArt';
 
 const SLOT_KEYS = ['situation', 'energy', 'outcome'] as const;
 
@@ -31,8 +32,8 @@ export default function TarotResult() {
               <div className="mb-1 text-[0.63rem] tracking-[0.1em] text-[rgba(201,168,76,0.6)]">
                 {t(`result.positions.${i}`)}
               </div>
-              <div className="mb-1 text-[1.4rem]" aria-hidden>
-                {card.symbol}
+              <div className="mb-1 flex justify-center">
+                <TarotCardArt cardId={card.id} />
               </div>
               <div className="mb-1 font-serif text-[0.75rem] font-semibold text-gold">
                 {t(`cards.${card.id}.name`)}

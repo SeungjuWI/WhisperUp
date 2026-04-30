@@ -9,7 +9,7 @@
 // Phase 2: replace with a real Supabase / PostHog cohort once Task 10 lands.
 
 const WEEKLY_BASE = 800;
-const BUCKET_MS = 5 * 60 * 1000;
+const BUCKET_MS = 3 * 60 * 1000;
 
 function getWeekStartUTC(now: Date): number {
   const day = now.getUTCDay(); // 0=Sun .. 6=Sat
