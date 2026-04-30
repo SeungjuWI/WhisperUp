@@ -481,5 +481,11 @@
     "cta": "Unlock Reading — 29,000 VND →",
     "note": "Secure payment · Instant unlock",
     "decline": "No thanks, maybe next time"
+  },
+  "promo": {
+    "title": "Free for Launch Event!",
+    "desc": "Congrats! You get a free tarot reading to celebrate the Whisper-Up launch.",
+    "note": "Limited offer — available only during launch period",
+    "cta": "View Free Reading →"
   }
 }

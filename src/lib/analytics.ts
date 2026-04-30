@@ -8,6 +8,8 @@ type EventName =
   | 'payment_clicked'
   | 'payment_completed'
   | 'paywall_declined'
+  | 'promo_modal_shown'
+  | 'promo_accepted'
   | 'result_viewed'
   | 'share_clicked';
 

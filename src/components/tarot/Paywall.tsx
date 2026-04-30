@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/routing';
 import { useFunnelStore } from '@/store/funnel-store';
@@ -8,7 +8,7 @@ import { track } from '@/lib/analytics';
 import TarotCardArt from './TarotCardArt';
 
 const USE_PAYOS = Boolean(process.env.NEXT_PUBLIC_PAYOS_ENABLED);
-const PAYMENT_DELAY_MS = 1400;
+const PROMO_DELAY_MS = 1200;
 const UNLOCK_KEYS = ['reading', 'synthesis', 'guidance'] as const;
 
 export default function Paywall() {
@@ -16,6 +16,7 @@ export default function Paywall() {
   const t = useTranslations('paywall');
   const tTarot = useTranslations('tarot');
   const tLoading = useTranslations('loading');
+  const tPromo = useTranslations('promo');
 
   const selectedCards = useFunnelStore((s) => s.selectedCards);
   const setStep = useFunnelStore((s) => s.setStep);
@@ -24,6 +25,8 @@ export default function Paywall() {
   const showLoading = useFunnelStore((s) => s.showLoading);
   const hideLoading = useFunnelStore((s) => s.hideLoading);
 
+  const [showPromo, setShowPromo] = useState(false);
+
   useEffect(() => {
     track('paywall_viewed', { topic: useFunnelStore.getState().topic });
   }, []);
@@ -31,10 +34,10 @@ export default function Paywall() {
   const handlePay = async () => {
     const state = useFunnelStore.getState();
     track('payment_clicked', { topic: state.topic });
-    showLoading(tLoading('paying'));
 
     if (USE_PAYOS) {
       // Real payment — redirect to PayOS checkout
+      showLoading(tLoading('paying'));
       try {
         const res = await fetch('/api/payment/create', {
           method: 'POST',
@@ -46,30 +49,66 @@ export default function Paywall() {
         });
         const data = await res.json();
         if (data.checkoutUrl) {
-          // Save state so we can restore after redirect
           sessionStorage.setItem('wu_orderCode', String(data.orderCode));
           window.location.href = data.checkoutUrl;
           return;
         }
       } catch {
-        // fall through to mock if PayOS fails
+        // fall through
       }
       hideLoading();
       return;
     }
 
-    // Mock payment for testing
+    // Launch promo mode — show free event modal
+    showLoading(tLoading('paying'));
     await new Promise<void>((resolve) =>
-      window.setTimeout(resolve, PAYMENT_DELAY_MS),
+      window.setTimeout(resolve, PROMO_DELAY_MS),
     );
-    track('payment_completed', { topic: state.topic });
+    hideLoading();
+    setShowPromo(true);
+    track('promo_modal_shown', { topic: state.topic });
+  };
+
+  const handlePromoAccept = () => {
+    track('promo_accepted', { topic: useFunnelStore.getState().topic });
     markPaid();
     setStep(3);
-    hideLoading();
   };
 
   return (
     <section style={{ animation: 'fadeUp 0.5s ease both' }}>
+      {/* Promo Modal */}
+      {showPromo && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(0,0,0,0.7)]"
+          style={{ animation: 'fadeUp 0.3s ease both' }}
+        >
+          <div
+            className="relative mx-4 max-w-[360px] border border-gold bg-ink p-6 text-center"
+            style={{ animation: 'fadeUp 0.4s 0.1s ease both' }}
+          >
+            <div className="mb-3 text-[2.2rem]">🎉</div>
+            <h3 className="mb-2 font-serif text-[1.15rem] font-semibold tracking-[0.04em] text-gold">
+              {tPromo('title')}
+            </h3>
+            <p className="mb-1 text-[0.85rem] leading-[1.7] text-paper">
+              {tPromo('desc')}
+            </p>
+            <p className="mb-5 text-[0.72rem] leading-[1.6] text-[rgba(245,240,232,0.45)]">
+              {tPromo('note')}
+            </p>
+            <button
+              type="button"
+              onClick={handlePromoAccept}
+              className="block w-full cursor-pointer border-0 bg-gold px-6 py-4 font-serif text-[0.85rem] font-semibold tracking-[0.08em] text-ink transition-all duration-200 hover:-translate-y-px hover:bg-gold2"
+            >
+              {tPromo('cta')}
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="mb-2 text-center font-serif text-[0.65rem] tracking-[0.2em] text-[rgba(201,168,76,0.6)]">
         {t('label')}
       </div>
@@ -164,7 +203,6 @@ export default function Paywall() {
       <button
         type="button"
         onClick={() => {
-          // eslint-disable-next-line no-console
           track('paywall_declined', {
             topic: useFunnelStore.getState().topic,
           });

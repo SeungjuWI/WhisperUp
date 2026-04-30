@@ -481,5 +481,11 @@
     "cta": "Mở Khóa — 29.000 VND →",
     "note": "Thanh toán an toàn · Mở khóa ngay",
     "decline": "Không, để lần sau"
+  },
+  "promo": {
+    "title": "Miễn Phí Nhân Dịp Ra Mắt!",
+    "desc": "Chúc mừng! Bạn nhận được bài đọc tarot miễn phí nhân dịp ra mắt Whisper-Up.",
+    "note": "Ưu đãi có giới hạn — chỉ áp dụng trong giai đoạn ra mắt",
+    "cta": "Xem Bài Đọc Miễn Phí →"
   }
 }
