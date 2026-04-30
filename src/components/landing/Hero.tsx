@@ -31,7 +31,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative z-[2] flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pb-16 pt-20 text-center">
+    <section className="relative z-[2] flex flex-col items-center overflow-hidden px-4 pb-16 pt-12 text-center">
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         {stars.map((s, i) => (
           <span
@@ -93,10 +93,21 @@ export default function Hero() {
 
       <Link
         href="/reading"
-        className="inline-block border border-gold bg-ink px-10 py-4 font-serif text-[0.9rem] font-semibold tracking-[0.12em] text-gold2 shadow-[0_4px_30px_rgba(14,12,24,0.12)] transition-all duration-[0.25s] hover:-translate-y-0.5 hover:bg-gold hover:text-ink hover:shadow-[0_8px_40px_rgba(201,168,76,0.3)]"
-        style={{ animation: 'fadeUp 0.8s 0.35s ease both' }}
+        className="relative inline-block overflow-hidden border-2 border-gold bg-ink px-10 py-4 font-serif text-[0.95rem] font-semibold tracking-[0.12em] text-gold2 transition-all duration-[0.25s] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(14,12,24,0.4)]"
+        style={{
+          animation: 'fadeUp 0.8s 0.35s ease both, ctaPulse 2.5s 1.5s ease-in-out infinite',
+        }}
       >
-        {t('cta')}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background: 'linear-gradient(90deg, transparent 0%, rgba(201,168,76,0.25) 50%, transparent 100%)',
+            backgroundSize: '200% 100%',
+            animation: 'shimmer 3s 1.5s ease-in-out infinite',
+          }}
+        />
+        <span className="relative">{t('cta')}</span>
       </Link>
 
       <div
@@ -106,27 +117,6 @@ export default function Hero() {
         {t('ctaNote')}
       </div>
 
-      {/* fadeUp keyframe sets transform: translateY(...), which would override
-          a -translate-x-1/2 on the same element and break horizontal centering.
-          So horizontal centering is done by the outer absolute+flex wrapper,
-          and only the inner element runs the animation. */}
-      <div
-        className="absolute bottom-8 left-0 right-0 flex justify-center"
-        aria-hidden
-      >
-        <div
-          className="flex flex-col items-center gap-2"
-          style={{ animation: 'fadeUp 0.8s 1.2s ease both' }}
-        >
-          <span className="text-[0.62rem] tracking-[0.12em] text-[var(--muted)]">
-            {t('scroll')}
-          </span>
-          <span
-            className="h-8 w-px bg-[linear-gradient(to_bottom,var(--gold),transparent)]"
-            style={{ animation: 'pulse 2s ease-in-out infinite' }}
-          />
-        </div>
-      </div>
     </section>
   );
 }

@@ -26,17 +26,17 @@ export default function SocialProofBar() {
 
   return (
     <div
-      className="relative z-[3] border-b border-[rgba(201,168,76,0.18)] bg-[rgba(201,168,76,0.05)]"
+      className="relative z-[3] border-b border-[rgba(201,168,76,0.25)] bg-[rgba(201,168,76,0.10)]"
       aria-label={t('ariaLabel')}
       aria-live="polite"
     >
       <div className="flex flex-wrap items-center justify-center gap-3 px-4 py-4">
         <span
           aria-hidden
-          className="h-1.5 w-1.5 rounded-full bg-gold"
+          className="h-2 w-2 rounded-full bg-[#4ade80] shadow-[0_0_6px_rgba(74,222,128,0.6)]"
           style={{ animation: 'glow 2s ease-in-out infinite' }}
         />
-        <span className="text-[0.85rem] tracking-[0.04em] text-[var(--text)]">
+        <span className="text-[0.88rem] font-medium tracking-[0.04em] text-[var(--text)]">
           {t.rich('weeklyCount', {
             count: formatted,
             n: (chunks) => (
