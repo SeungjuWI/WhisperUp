@@ -7,6 +7,7 @@ import { useFunnelStore } from '@/store/funnel-store';
 import { track } from '@/lib/analytics';
 import TarotCardArt from './TarotCardArt';
 
+const USE_PAYOS = Boolean(process.env.NEXT_PUBLIC_PAYOS_ENABLED);
 const PAYMENT_DELAY_MS = 1400;
 const UNLOCK_KEYS = ['reading', 'synthesis', 'guidance'] as const;
 
@@ -28,15 +29,40 @@ export default function Paywall() {
   }, []);
 
   const handlePay = async () => {
-    track('payment_clicked', { topic: useFunnelStore.getState().topic });
-    // Phase 1 mock payment. Phase 2 wires VNPay/MoMo.
+    const state = useFunnelStore.getState();
+    track('payment_clicked', { topic: state.topic });
     showLoading(tLoading('paying'));
 
+    if (USE_PAYOS) {
+      // Real payment — redirect to PayOS checkout
+      try {
+        const res = await fetch('/api/payment/create', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sessionId: sessionStorage.getItem('wu_sid'),
+            topic: state.topic,
+          }),
+        });
+        const data = await res.json();
+        if (data.checkoutUrl) {
+          // Save state so we can restore after redirect
+          sessionStorage.setItem('wu_orderCode', String(data.orderCode));
+          window.location.href = data.checkoutUrl;
+          return;
+        }
+      } catch {
+        // fall through to mock if PayOS fails
+      }
+      hideLoading();
+      return;
+    }
+
+    // Mock payment for testing
     await new Promise<void>((resolve) =>
       window.setTimeout(resolve, PAYMENT_DELAY_MS),
     );
-
-    track('payment_completed', { topic: useFunnelStore.getState().topic });
+    track('payment_completed', { topic: state.topic });
     markPaid();
     setStep(3);
     hideLoading();

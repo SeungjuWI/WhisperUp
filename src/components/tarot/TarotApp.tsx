@@ -1,7 +1,9 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { useFunnelStore } from '@/store/funnel-store';
+import { track } from '@/lib/analytics';
 import LoadingOverlay from '@/components/ui/LoadingOverlay';
 import Complete from '@/components/funnel/Complete';
 import TopicSelect from './TopicSelect';
@@ -12,6 +14,21 @@ import TarotResult from './TarotResult';
 export default function TarotApp() {
   const currentStep = useFunnelStore((s) => s.currentStep);
   const loading = useFunnelStore((s) => s.loading);
+
+  const searchParams = useSearchParams();
+
+  // Handle PayOS return redirect
+  useEffect(() => {
+    const payment = searchParams.get('payment');
+    if (payment === 'success') {
+      const orderCode = searchParams.get('orderCode');
+      track('payment_completed', { orderCode });
+      useFunnelStore.getState().markPaid();
+      useFunnelStore.getState().setStep(3);
+      // Clean URL
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+  }, [searchParams]);
 
   const cardRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
